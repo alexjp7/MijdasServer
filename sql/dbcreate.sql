@@ -1,0 +1,4 @@
+CREATE TABLE OBJECT
+(
+    ID     INTEGER
+);
