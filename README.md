@@ -22,13 +22,21 @@ MIJDAS REST API README
 FOLDER STRUCTURE (placeholder)
 -------------------------------------------
 ├─ api/
+
 ├─── config/
+
 ├────── connect.php - file used for core configuration
+
 ├────── database.php - file used for connecting to the database.
+
 ├─── object/
+
 ├────── item.php - contains properties and methods for "item" database queries.
+
 ├─── requests/
+
 ├────── GET.php - file that will accept posted product data to be saved to database.
+
 
 -------------------------------------------
 NOTES:
