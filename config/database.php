@@ -1,12 +1,10 @@
 
 <?php
+    //local import for connection credentials
+    include_once("connect.php");
+
     class Database
     {
-        //Connection Credentials
-        private $host = "localhost";
-        private $db_name = "MijdasTest";    
-        private $username = "MijdasTestUser";
-        private $password = "mijdas123";
         private $connnection;
 
         public function getConnection()
@@ -15,19 +13,17 @@
 
             try
             {
-                $this->connnection = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
+                $this->connnection = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USERNAME, PASSWORD);
                 $this->connnection->exec("set names utf8");
             }
             catch(PDOException $exception)
             {
-                echo "Error establishing connection";
+                echo "Error establishing connection \n";
                 echo "Connection error: " . $exception->getMessage();
+                echo "\n";
             }
      
             return $this->connnection;
-
         }
-
-
     }
 ?>

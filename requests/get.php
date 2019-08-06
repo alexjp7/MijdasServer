@@ -16,15 +16,27 @@
 
     //Local Imports
     include_once("../config/database.php");
-    include_once("../objects/item.php");
+    include_once("../models/item.php");
+    
+    
     
     //Database instantiations
     $database = new Database();
     $dbConnection = $database->getConnection();
     $item = new item($dbConnection);
-
+    $stmt = null;
     //Queries
-    $stmt = $item->read();
+    $id = $_GET["id"];
+    if(!isset($_GET["id"]))
+    {   
+        $stmt = $item->read();
+        echo "nope";
+    }
+    else
+    {
+        $stmt = $item->read_one($id);
+    }
+
     $num = $stmt->rowCount();
 
     if($num > 0)
