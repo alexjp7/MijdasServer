@@ -1,7 +1,7 @@
-CREATE DATABASE MijdasTest;
-CREATE USER MijdasTestUser identified BY "mijdas123";
-USE MijdasTest;
-GRANT ALL PRIVILEGES ON  MijdasTest.* TO MijdasTestUser;
+CREATE DATABASE Markit;
+CREATE USER MarkitUser identified BY "mijdas123";
+USE Markit;
+GRANT ALL PRIVILEGES ON  Markit.* TO MarkitUser;
 
 
 
