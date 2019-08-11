@@ -20,7 +20,7 @@ CREATE TABLE user(
 
 
     CONSTRAINT PK_USER PRIMARY KEY (username),
-    CONSTRAINT FK_INSTITUION FOREIGN KEY(institution_id) REFERENCES INSTITUTION (id)
+    CONSTRAINT FK_INSTITUION FOREIGN KEY(institution_id) REFERENCES institution (id)
 );
 
 CREATE TABLE user_institution(
@@ -59,7 +59,7 @@ CREATE TABLE subject_session(
     session_expiry  DATE        NOT NULL,  
     
 	CONSTRAINT PK_SUBJECT_SESSION PRIMARY KEY (id),
-    CONSTRAINT FK1_SUBJECT FOREIGN KEY (subject_id) REFERENCES SUBJECT(id),
+    CONSTRAINT FK1_SUBJECT FOREIGN KEY (subject_id) REFERENCES subject(id),
     CONSTRAINT FK2_USER FOREIGN KEY (coordinator_id) REFERENCES user(username)
 
 );
@@ -71,7 +71,7 @@ CREATE TABLE assessment(
     subject_id  INT NOT NULL,
 
     CONSTRAINT PK_ASSESSMENT PRIMARY KEY (id),
-    CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_id) REFERENCES SUBJECT(id)
+    CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_id) REFERENCES subject(id)
 );
 
 
@@ -80,7 +80,7 @@ CREATE TABLE criteria(
     a_id        INT NOT NULL,
 
 	CONSTRAINT PK_CRITERIA	PRIMARY KEY (id),
-    CONSTRAINT FK_ASSESSMENT FOREIGN KEY (a_id) REFERENCES SUBJECT(id)
+    CONSTRAINT FK_ASSESSMENT FOREIGN KEY (a_id) REFERENCES subject(id)
 );
 
 
@@ -91,7 +91,7 @@ CREATE TABLE criteria_items(
         max_mark    INT NOT NULL,       
 
         CONSTRAINT PK_CRITERIA_ITEM PRIMARY KEY(id),  
-        CONSTRAINT FK_CRITERIA FOREIGN KEY (criteria_id) REFERENCES SUBJECT(id)
+        CONSTRAINT FK_CRITERIA FOREIGN KEY (criteria_id) REFERENCES subject(id)
 
 );
 
@@ -121,18 +121,20 @@ CREATE TABLE staff_allocation(
 
 
 /*
+
 web/mobile
 
-GET([
-    {[1,0,5]},   CRITEREA 1: slider: max 5 marks
-    {[2,1,10]},  CRITEREA 2: checkBoox: max 10 marks
-    {[3,2,15]}   CRITEREA 3: slider: max 15 marks
-])
+GET(
+    [
+        {[1,0,5]},   CRITEREA 1: slider: max 5 marks
+        {[2,1,10]},  CRITEREA 2: checkBoox: max 10 marks
+        {[3,2,15]}   CRITEREA 3: slider: max 15 marks
+    ])
 
 
  0 == slider FOR criterea 1.
  1 == CHECKBOX
  2 == TEXT FIELD
-
 */
+
 
