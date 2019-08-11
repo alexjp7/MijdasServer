@@ -24,9 +24,6 @@ INSERT INTO SUBJECT(subjectCode, sessionExpiry, coordinatorUsername, path)
 VALUES ("CSCI235", DATE("2019-01-12"), "st111","/CSCI235/");
 
 INSERT INTO SUBJECT(subjectCode, sessionExpiry, coordinatorUsername, path) 
-VALUES ("CSCI203", DATE("2019-06-12"), "st111","/CSIT321/");
-
-INSERT INTO SUBJECT(subjectCode, sessionExpiry, coordinatorUsername, path) 
 VALUES ("CS255", DATE("2019-06-12"), "dha316","/CS255/");
 
 
