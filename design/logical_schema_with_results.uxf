@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>300</y>
+      <w>440</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>SUBJECT
+--
+subjectCode                                                                                PK
+session                                                                                       PK
+coordinatorUsername
+path
+extension
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>190</y>
+      <w>440</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>USER
+--
+username                                                               PK
+password                          
+permissionType       
+u_id  FK1 REFFERENCES REGISTERED_INSTITUTION u_id                   </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>80</y>
+      <w>210</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>REGISTERED_INSTITUTION
+--
+u_id                             PK
+name                              CK1
+domain                            CK1
+accessToken                       CK2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>430</y>
+      <w>440</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ACTIVE_SESSION
+--
+sessionStart             
+sessionEnd              
+subjectCode FK1 REFFERENCES SUBJECT  subjectCode
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>650</y>
+      <w>440</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>STAFF_ALLOCATION
+--
+username     FK1 REFERENCES USER username
+subjectCode FK2 REFERENCES ACTIVE_SESSION subjectCode
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>540</y>
+      <w>440</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ASSESSMENT
+--
+assignmentNumber                   
+uri                                        
+extension
+subjectCode FK1 REFFERENCES SUBJECT subjectCode
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>750</y>
+      <w>480</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>STUDENT_RESULTS
+--
+id
+result        
+assignmentNumber FK1 REFFERENCES ASSESMENT assignmentNumber
+subjectCode FK1 REFFERENCES ACTIVE_SESSION subjectCode
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

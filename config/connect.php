@@ -4,7 +4,7 @@
     for Mysql local instnace
   ********************************/
     DEFINE("HOST","localhost");
-    DEFINE("DB_NAME","MijdasTest");
-    DEFINE("USERNAME","MijdasTestUser");
+    DEFINE("DB_NAME","Markit");
+    DEFINE("USERNAME","MarkitUser");
     DEFINE("PASSWORD","mijdas123");
 ?>

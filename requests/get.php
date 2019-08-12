@@ -10,45 +10,43 @@
         which enable secure cross-domain data transfers.
 
     *****************************************************/
+    
     header("Access-Control-Allow-Origin:", "*"); // "*" - (asteriks) determines that anyoen can read the returned content
     //Defines the return type of the data which will be returned from the GET Request
     header("Content-Type: application/json; charset=UTF-8");
-
+  
     //Local Imports
     include_once("../config/database.php");
-    include_once("../models/item.php");
-    
-    
-    
+    include_once("../models/user.php");
+
+ 
     //Database instantiations
+
     $database = new Database();
     $dbConnection = $database->getConnection();
-    $item = new item($dbConnection);
-    $stmt = null;
-    //Queries
-    $id = $_GET["id"];
-    if(!isset($_GET["id"]))
-    {   
-        $stmt = $item->read();
-        echo "nope";
-    }
-    else
-    {
-        $stmt = $item->read_one($id);
-    }
+    $record = new User($dbConnection);
+    $stmt = $record->read();
+    
+    //TODO: Check if ? variables are set, then define  query logic
 
     $num = $stmt->rowCount();
 
+
+
     if($num > 0)
     {
-        $itemArr = array();
         $itemArr["records"] = array();
 
         while($row = $stmt -> fetch(PDO::FETCH_ASSOC))
         {
             extract($row);
-    
-            $_item = array("id" => $id);
+        
+            $_item = ["username" => $username,
+                     "password" => $password, 
+                     "email" => $email,
+                     "institution_id" => $institution_id];
+        
+ 
 
             array_push($itemArr["records"], $_item);
         }

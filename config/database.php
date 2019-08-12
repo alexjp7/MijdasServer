@@ -2,6 +2,7 @@
 <?php
     //local import for connection credentials
     include_once("connect.php");
+   
 
     class Database
     {
@@ -10,7 +11,6 @@
         public function getConnection()
         {
             $this->connnection = null;
-
             try
             {
                 $this->connnection = new PDO("mysql:host=" . HOST . ";dbname=" . DB_NAME, USERNAME, PASSWORD);
@@ -22,7 +22,7 @@
                 echo "Connection error: " . $exception->getMessage();
                 echo "\n";
             }
-     
+    
             return $this->connnection;
         }
     }
