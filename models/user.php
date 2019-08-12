@@ -1,21 +1,21 @@
 <?php
-
     class User
     {
-
+        //Database Credentials
         private const TABLE_NAME = "user";
         private $connection;
-        private $username;
-        private $passowrd;
-        private $email;
-        private $permissionType;
-        private $institutionId;
+        //Object Properties
+        public $username;
+        public $password;
+        public $email;
+        public $permissionType;
+        public $institutionId;
 
         function __construct($connection)
         {
             $this->connection = $connection;
         }
-
+        //SELECT * from database
         public function read()
         {
             $query = "SELECT * FROM ".self::TABLE_NAME;
@@ -25,6 +25,7 @@
             return $stmt;
         }
 
+        //SELECT from database
         public function readOne($id)
         {
           
@@ -33,6 +34,14 @@
             $stmt->execute();
             
             return $stmt;
+        }
+        //INSERT to database
+        public function create()    
+        {
+            $query = "INSERT INTO ".SELF::TABLE_NAME." VALUES ('{$this->username}','{$this->password}','{$this->email}',{$this->institutionId},'{$this->permissionType}')";
+            $stmt = $this->connection->prepare($query);
+
+            return $stmt->execute();
         }
     }
 

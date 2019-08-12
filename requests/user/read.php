@@ -1,4 +1,6 @@
+
 <?php
+    header("Content-Type: application/json; charset=UTF-8");
     include_once("../../config/database.php");
     include_once(DOCUMENT_ROOT."\config\database.php");
     include_once(DOCUMENT_ROOT."\models\user.php");
@@ -17,7 +19,7 @@
 
     if($num>0)
     {
-        $user_arr["records"]=array();
+        $userArr["records"]=array();
     
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
@@ -29,23 +31,17 @@
                 "email" => $email,
                 "permission_type" => $permission_type
             );
-
-              //  echo strval($institutionId);
-     
-            array_push($user_arr["records"], $user);
+  
+            array_push($userArr["records"], $user);
         }
     
         http_response_code(200);
 
-        // show products data in json format
-        echo json_encode($user_arr);
+        echo json_encode($userArr);
     }
     else
     {
-        //User not found
-        http_response_code(404);
-        // tell the client no products found
-        echo json_encode(array("message" => "No products found."));
+        invalidRequest();
     }
  
 
@@ -53,13 +49,7 @@
     function invalidRequest()
     {
         http_response_code(404);
+        echo json_encode(array("message" => "No user found."));
         die;
     }
-
-  
-
-
-
-
-
 ?>      
