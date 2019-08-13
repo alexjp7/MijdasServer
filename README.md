@@ -1,6 +1,6 @@
 
 -------------------------------------------
-MIJDAS REST API README<h1>
+<h1>MIJDAS REST API README</h1>
 -------------------------------------------
 
 * The source contained documents the PHP driven API for Mijdas's markit app. 
@@ -19,35 +19,35 @@ MIJDAS REST API README<h1>
 * The format of the output/response data will consistent with JSON conventions.
 
 -------------------------------------------
-FOLDER STRUCTURE (placeholder)<h1>
+<h1>FOLDER STRUCTURE (placeholder)</h1>
 -------------------------------------------
-├─ api/<h2>
+<h2>├─ api/</h2>
 
-├─── config/<h3>
+<h3>├─── config/</h3>
 
-├────── connect.php - file used for core configuration <h4>
+<h4>├────── connect.php - file used for core configuration </h4>
 
-├────── database.php - file used for connecting to the database./<h4>
+<h4>├────── database.php - file used for connecting to the database./</h4>
 
-├─── models//<h3>
+<h3>├─── models//</h3>
 
-├────── user.php /<h4>
-├────── assessment.php <h4>
-├────── subject.php <h4>
-├────── institution.php  <h4>
-├────── criteria.php <h4>
+<h4>├────── user.php /</h4>
+<h4>├────── assessment.php </h4>
+<h4>├────── subject.php </h4>
+<h4>├────── institution.php  </h4>
+<h4>├────── criteria.php </h4>
 
-├─── requests/<h3>
+<h3>├─── requests/</h3>
 
-├────── institution|| user || assessment || subject / <h4>
+<h4>├────── institution|| user || assessment || subject / </h4>
 
-├──────────── create.php<h5>
+<h5>├──────────── create.php</h5>
 
-├──────────── read.php <h5>
+<h5>├──────────── read.php </h5>
 
-├──────────── update.php <h5>
+<h5>├──────────── update.php </h5>
 
-├──────────── delete.php <h5>
+<h5>├──────────── delete.php </h5>
 
 -------------------------------------------
 Valid Paths/METHODS
