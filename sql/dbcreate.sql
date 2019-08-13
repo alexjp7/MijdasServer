@@ -15,7 +15,6 @@ CREATE TABLE user(
     username        VARCHAR(20)    NOT NULL,
     password        VARCHAR (50)   NOT NULL, 
     email           VARCHAR (30)   NOT NULL,
-    institution_id  INT            NOT NULL, 
     permission_type ENUM ('coordinator','tutor','admin'),
 
 
