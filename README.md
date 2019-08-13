@@ -61,14 +61,14 @@ USER
 * PUT /user/update.php
 * DELETE /user/delete.php
 
-institution
+INSTITUTION
 * POST /institution/create.php
 * GET /institution/read.php
 * PUT /institution/update.php
 * DELETE /institution/delete.php
 
 
-assessment
+ASSESS,EMT
 * POST /assessment/create.php
 * GET /assessment/read.php
 * PUT /assessment/update.php
