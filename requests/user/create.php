@@ -1,8 +1,14 @@
 <?php
+/*******************************
+ * 201 = OK
+ * 503 = Internal Server Error
+ * 404 = Bad Request Made
+ ********************************/
     header("Content-Type: application/json; charset=UTF-8");
+    header("Access-Control-Allow-Methods: POST"); 
     include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."\config\database.php");
-    include_once(DOCUMENT_ROOT."\models\user.php");
+    include_once(DOCUMENT_ROOT."/config/database.php");
+    include_once(DOCUMENT_ROOT."/models/user.php");
 
     $database = new Database();
     $connection = $database->getConnection();
@@ -17,9 +23,8 @@
     $user->password = $data->password;
     $user->email = $data->email;
     $user->permissionType = $data->permissionType;
-    $user->institutionId = $data->institutionId;
  
-    if(!empty($user->username) && !empty($user->password) && !empty($user->email) && !empty($user->permissionType) && !empty($user->institutionId))
+    if(!empty($user->username) && !empty($user->password) && !empty($user->email) && !empty($user->permissionType))
     {
         if($user->create())
         {   //Request OK

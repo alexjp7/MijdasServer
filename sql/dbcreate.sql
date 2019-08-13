@@ -1,5 +1,4 @@
 
-
 CREATE TABLE institution(
     id          INT             NOT NULL AUTO_INCREMENT, 
     name        VARCHAR (40)    NOT NULL,
@@ -17,9 +16,7 @@ CREATE TABLE user(
     email           VARCHAR (30)   NOT NULL,
     permission_type ENUM ('coordinator','tutor','admin'),
 
-
-    CONSTRAINT PK_USER PRIMARY KEY (username),
-    CONSTRAINT FK_INSTITUION FOREIGN KEY(institution_id) REFERENCES institution (id)
+    CONSTRAINT PK_USER PRIMARY KEY (username)
 );
 
 CREATE TABLE user_institution(

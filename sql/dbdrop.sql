@@ -8,4 +8,3 @@ DROP TABLE  subject;
 DROP TABLE  user_institution;
 DROP TABLE  user;
 DROP TABLE  institution;
-

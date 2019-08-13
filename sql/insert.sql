@@ -7,12 +7,14 @@ INSERT INTO institution(name,domain) VALUES("STC","southTech.edu.au");
 
 
 
-INSERT INTO user VALUES("ap088","1234","ap088@uowmail.edu.au", 1,"tutor");
-INSERT INTO user VALUES("st111","1234","st111088@hotmail.com",2,"coordinator");
-INSERT INTO user VALUES("hya555","1234","harry@gmail.com",1,"tutor");
-INSERT INTO user VALUES("ddb556","1234","davidyenah@gmail.com",3,"admin");
-INSERT INTO user VALUES("dha316","1234","dha132@hotmail.com",1,"coordinator");
+INSERT INTO user VALUES("ap088","1234","ap088@uowmail.edu.au","tutor");
+INSERT INTO user VALUES("st111","1234","st111088@hotmail.com","coordinator");
+INSERT INTO user VALUES("hya555","1234","harry@gmail.com","tutor");
+INSERT INTO user VALUES("ddb556","1234","davidyenah@gmail.com","admin");
+INSERT INTO user VALUES("dha316","1234","dha132@hotmail.com","coordinator");
 
 
+INSERT INTO user_institution VALUES("ap088",1);
+INSERT INTO user_institution VALUES("ap088",2);
 
 
