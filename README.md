@@ -1,6 +1,6 @@
 
 -------------------------------------------
-#MIJDAS REST API README
+#MIJDAS REST API README<h1>
 -------------------------------------------
 
  * The source contained documents the PHP driven API for Mijdas's markit app. 
@@ -19,35 +19,35 @@
 * The format of the output/response data will consistent with JSON conventions.
 
 -------------------------------------------
-#FOLDER STRUCTURE (placeholder)
+#FOLDER STRUCTURE (placeholder)<h1>
 -------------------------------------------
-##├─ api/
+##├─ api/<h2>
 
-###├─── config/
+###├─── config/<h3>
 
-##├────── connect.php - file used for core configuration
+####├────── connect.php - file used for core configuration <h4>
 
-###├────── database.php - file used for connecting to the database.
+####├────── database.php - file used for connecting to the database./<h4>
 
-##├─── models/
+###├─── models//<h3>
 
-###├────── user.php 
-###├────── assessment.php 
-###├────── subject.php 
-###├────── institution.php  
-###├────── criteria.php 
+####├────── user.php /<h4>
+####├────── assessment.php <h4>
+####├────── subject.php <h4>
+####├────── institution.php  <h4>
+####├────── criteria.php <h4>
 
-##├─── requests/
+###├─── requests/<h3>
 
-###├────── institution|| user || assessment || subject / 
+#####├────── institution|| user || assessment || subject / <h4>
 
-####├──────────── create.php
+######├──────────── create.php<h5>
 
-####├──────────── read.php
+######├──────────── read.php <h5>
 
-####├──────────── update.php
+######├──────────── update.php <h5>
 
-####├──────────── delete.php
+######├──────────── delete.php <h5>
 
 -------------------------------------------
 #Valid Paths/METHODS
@@ -73,8 +73,6 @@
 * GET /assessment/read.php
 * PUT /assessment/update.php
 * DELETE /assessment/delete.php
-
-
 
 
 
