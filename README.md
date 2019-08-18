@@ -1,7 +1,7 @@
 
 -------------------------------------------
 <h1>MIJDAS REST API README</h1>
--------------------------------------------
+
 
 * The source contained documents the PHP driven API for Mijdas's markit app. 
 * The purpose of this API is to provide a modular and reusable interface which can be utilised by;
@@ -20,7 +20,7 @@
 
 -------------------------------------------
 <h1>FOLDER STRUCTURE (placeholder)</h1>
--------------------------------------------
+
 <h2>├─ api/</h2>
 
 <h3>├─── config/</h3>
@@ -51,7 +51,7 @@
 
 -------------------------------------------
 Valid Paths/METHODS
--------------------------------------------
+
 BASE URL -
 * markit.mijdas.com/api/requests
 
@@ -76,20 +76,6 @@ ASSESS,EMT
 
 
 
-
--------------------------------------------
-NOTES:
--------------------------------------------
-
-
-PDO Extension (Database connection object)
--------------------------------------------
-1) In the <PHP_INSTALL_PATH>/php.ini' file, locate and uncomment extension=php_pdo_mysql.dll
-2) Restart apache
-
-
-
--------------------------------------------
 <h1>TODO List:</h1>
 -------------------------------------------
 
@@ -129,3 +115,10 @@ PDO Extension (Database connection object)
 
 
 
+-------------------------------------------
+NOTES:
+
+
+PDO Extension (Database connection object)
+1) In the <PHP_INSTALL_PATH>/php.ini' file, locate and uncomment extension=php_pdo_mysql.dll
+2) Restart apache
