@@ -89,6 +89,42 @@ PDO Extension (Database connection object)
 
 
 
+-------------------------------------------
+<h1>TODO List:</h1>
+-------------------------------------------
+
+<h2>User Adminstration</h2>
+-------------------
+- [ ] Login validation 
+- [ ] Profile viewing
+- [ ] Profile Editing
+- [ ] Change Password
+- [ ] Recover Password
+- [ ] Deleting Account
+
+
+<h2>Tutor Functionalities</h2>
+-------------------
+- [ ] View Subject List
+- [ ] View Assessment List 
+- [ ] View Criteria List (within marking a student)
+- [ ] Student List
+- [ ] Institution List (job board)
+
+<h2>Co-ordinator Functionalities</h2>
+-----------------------------
+- [ ] Subject Creation
+- [ ] Subject Editing
+- [ ] Subject Deleting
+- [ ] Subject Viewing
+- [ ] Active subject list(coordinator)
+- [ ] Deactivated Subjects
+- [ ] Linked tutors
+- [ ] Linked coordinators
+- [ ] Subject Tempalte
+- [ ] Assessment Tempalte
+- [ ] Job Advertisments (job-board)
+
 
 
 
