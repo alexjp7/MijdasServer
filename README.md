@@ -75,12 +75,12 @@ ASSESS,EMT
 * DELETE /assessment/delete.php
 
 
-
-<h1>TODO List:</h1>
 -------------------------------------------
+<h1>TODO List:</h1>
+
 
 <h2>User Adminstration</h2>
--------------------
+
 * [ ] Login validation 
 * [ ] Profile viewing
 * [ ] Profile Editing
@@ -90,7 +90,7 @@ ASSESS,EMT
 
 
 <h2>Tutor Functionalities</h2>
--------------------
+
 * [ ] View Subject List
 * [ ] View Assessment List 
 * [ ] View Criteria List (within marking a student)
@@ -98,7 +98,7 @@ ASSESS,EMT
 * [ ] Institution List (job board)
 
 <h2>Co-ordinator Functionalities</h2>
------------------------------
+
 * [ ] Subject Creation
 * [ ] Subject Editing
 * [ ] Subject Deleting
