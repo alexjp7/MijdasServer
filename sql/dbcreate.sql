@@ -1,13 +1,15 @@
 
 /****************************************************************************************
-*Removed artificial Identifier
-* each institution can be identified by name 
+
 *******************************************************************************************/
 CREATE TABLE institution(
-    name        VARCHAR (40)    NOT NULL,
-    domain      VARCHAR(40)     NOT NULL,
+    id      INT NOT NULL AUTO_INCREMENT,   
+    name    VARCHAR(40) NOT NULL,
+    domain  VARCHAR(40) NOT NULL,
+    tag     VARCHAR(5), 
 
-    CONSTRAINT PK_INSTITUTION PRIMARY KEY(name)
+    CONSTRAINT PK_INSTITUTION PRIMARY KEY(id),
+    CONSTRAINT UNIQUE (name, domain)
 );
 
 
@@ -27,12 +29,12 @@ CREATE TABLE user(
 *******************************************************************************************/
 
 CREATE TABLE user_institution(
-    username            VARCHAR(20) NOT NULL, 
-    institution_name    VARCHAR(40) NOT NULL,
+    username    VARCHAR(20) NOT NULL, 
+    i_id        INT NOT NULL,
 
-    CONSTRAINT PK1 PRIMARY KEY (username, institution_name),
+    CONSTRAINT PK1 PRIMARY KEY (username, i_id),
     CONSTRAINT FK_USER FOREIGN KEY (username) REFERENCES user (username),
-    CONSTRAINT FK_INSTITUTION FOREIGN KEY (institution_name) REFERENCES institution(name)
+    CONSTRAINT FK_INSTITUTION FOREIGN KEY (i_id) REFERENCES institution(id)
 );
 
 /****************************************************************************************
@@ -40,11 +42,11 @@ CREATE TABLE user_institution(
     if they are actively running
 *******************************************************************************************/
 CREATE TABLE subject(
-    code              VARCHAR(10) NOT NULL,
-    institution_name  VARCHAR(40) NOT NULL,
+    code    VARCHAR(10) NOT NULL,
+    i_id    INT         NOT NULL,
 
-    CONSTRAINT PK_SUBJECT PRIMARY KEY (code, institution_name),
-    CONSTRAINT FK2_INSTITUTION FOREIGN KEY (institution_name) REFERENCES institution(name)
+    CONSTRAINT PK_SUBJECT PRIMARY KEY (code, i_id),
+    CONSTRAINT FK2_INSTITUTION FOREIGN KEY (i_id) REFERENCES institution(id)
 );
 
 
@@ -66,12 +68,12 @@ CREATE TABLE subject_session(
     coordinator_id      VARCHAR(20) NOT NULL,
     session_expiry      DATE        NOT NULL,
     subject_code        VARCHAR(10) NOT NULL,
-    institution_name    VARCHAR(40) NOT NULL,  
+    i_id                INT         NOT NULL,  
     
 	CONSTRAINT PK_SUBJECT_SESSION PRIMARY KEY (id),
-    CONSTRAINT FK1_SUBJECT FOREIGN KEY (subject_code, institution_name) REFERENCES subject(code, institution_name),
-    CONSTRAINT FK2_USER FOREIGN KEY (coordinator_id) REFERENCES user(username)
-
+    CONSTRAINT FK1_SUBJECT FOREIGN KEY (subject_code, i_id) REFERENCES subject(code, i_id),
+    CONSTRAINT FK2_USER FOREIGN KEY (coordinator_id) REFERENCES user(username),
+    CONSTRAINT UNIQUE (subject_code, i_id)
 );
 
 
@@ -106,6 +108,17 @@ CREATE TABLE criteria_items(
 
 
 /****************************************************************************************
+*Added student_subject to be the table which stores student ids upon initial import
+*******************************************************************************************/
+CREATE TABLE student_subject(
+    student_id             VARCHAR(8), 
+    subject_session_id     INT NOT NULL,
+    CONSTRAINT PK_STUTDENT_SUBJECT PRIMARY KEY(student_id, subject_session_id),
+    CONSTRAINT FK2_SUBJECT FOREIGN KEY (subject_session_id) REFERENCES subject_session(id)
+);
+
+
+/****************************************************************************************
 * Removed artificial primary ID
     -> each result can be identified by student_id and assessment id(a_id)
 *******************************************************************************************/
@@ -116,8 +129,10 @@ CREATE TABLE student_results(
     access_token    VARCHAR(50),  /*COME BACK TO THIS LATER!*/
 
     CONSTRAINT PK_STUDENT PRIMARY KEY (a_id, student_id),
-    CONSTRAINT FK1_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id) 
+    CONSTRAINT FK1_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id),
+    CONSTRAINT FK_STUDENT_SUBJECT FOREIGN KEY (student_id) REFERENCES student_subject(student_id)
 );
+
 
 
 /****************************************************************************************

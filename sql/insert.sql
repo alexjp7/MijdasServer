@@ -1,9 +1,9 @@
 
 /*TEST DATA*/
-INSERT INTO institution(name,domain) VALUES("UOW","uow.edu.au");
-INSERT INTO institution(name,domain) VALUES("UNWG","unwg.learning.edu.au");
-INSERT INTO institution(name,domain) VALUES("NWSBS","sydbus.edu.au");
-INSERT INTO institution(name,domain) VALUES("STC","southTech.edu.au");
+INSERT INTO institution(tag, name, domain) VALUES("UOW", "University Of Wollongong", "uow.edu.au");
+INSERT INTO institution(tag, name, domain) VALUES("UNWG", "University of North Wannoona", "unwg.learning.edu.au");
+INSERT INTO institution(tag, name, domain) VALUES("NWSBS", "North Western Suburbs Business School", "sydbus.edu.au");
+INSERT INTO institution(tag, name, domain) VALUES("STC", "Sydney Technology College", "southTech.edu.au");
 
 
 
@@ -17,28 +17,64 @@ INSERT INTO user VALUES("dha316","1234","dha132@hotmail.com","coordinator");
 INSERT INTO user_institution VALUES("ap088",1);
 INSERT INTO user_institution VALUES("ap088",2);
 
+INSERT INTO subject(code, i_id) VALUES("CSIT315", 1);
+INSERT INTO subject(code, i_id) VALUES("CSIT316", 1);
+INSERT INTO subject(code, i_id) VALUES("CSIT321", 1);
+
+INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
+                     VALUES(true,"st111",DATE("2019-08-14"),"CSIT315",1);
+
+INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
+                      VALUES(true,"st111",DATE("2019-08-14"),"CSIT316",1);
+
+INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
+                      VALUES(true,"st111",DATE("2019-08-14"),"CSIT321",1);
+
+INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 1);
+INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 2);
+INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 3);
+
+
+
+
+
+
+
 
 /* TO populate first page in app
  * tutor username, 
  * linked to subject (in session)  => subject => session
     -> coordinator username
         -> institution_id
-            -> institution name
-*/
+            -> institution name*/
 
-INSERT INTO subject(subject_code) VALUES("CSIT315");
-INSERT INTO subject_session(subject_id, isActive, coordinator_id, session_expiry)
-                     VALUES(1,true,"st111",DATE("2019-08-14"));
 
-INSERT INTO staff_allocation (username,subject_session_id) VALUES("ap088",1);
 
-                
 
-SELECT staff_allocation.username, subject.subject_code
-FROM 
-((staff_allocation JOIN  subject_session ON staff_allocation.subject_session_id = subject_session.subject_id)
-JOIN subject ON subject_session.subject_id = subject.id)
-WHERE staff_allocation.username="ap088";
+          
+/*Query for All subjects taught by a tutor, and what instituion they are taught in*/
+SELECT staff.username, session.subject_code, uni.name
+FROM (staff_allocation AS staff INNER JOIN subject_session AS session ON a.subject_id = b.id)
+                                INNER JOIN institution AS uni ON session.i_id = uni.id
+WHERE staff.username = "ap088";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 what each tutor does  
