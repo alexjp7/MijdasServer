@@ -125,9 +125,9 @@ CREATE TABLE student_subject(
 *******************************************************************************************/
 CREATE TABLE student_results(
     a_id            INT NOT NULL,
-    student_id      VARCHAR(8), 
+    student_id      VARCHAR(8) NOT NULL, 
     result          DECIMAL(5,2),
-    access_token    VARCHAR(50),  /*COME BACK TO THIS LATER!*/
+    access_token    VARCHAR(50), /*COME BACK TO THIS LATER!*/
 
     CONSTRAINT PK_STUDENT PRIMARY KEY (a_id, student_id),
     CONSTRAINT FK1_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id),

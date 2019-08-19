@@ -26,7 +26,7 @@ INSERT INTO subject(code, i_id) VALUES("PHYS111", 3);
 INSERT INTO subject(code, i_id) VALUES("MEDI101", 2);
 
 
---Sessions:
+-- Sessions:
 INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
                      VALUES(true,"st111",DATE("2019-08-14"),"CSIT315",1);
 
@@ -54,13 +54,24 @@ INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_co
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 1);
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 2);
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 3);
-INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 4);
+INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 4);
 INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 5);
-INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 6);
-INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 7);
+
 
 INSERT INTO user_institution VALUES("ap088",1);
 INSERT INTO user_institution VALUES("ap088",2);
+
+
+
+-- Student:
+INSERT INTO student_subject VALUES("a",1);
+INSERT INTO student_subject VALUES("b",1);
+INSERT INTO student_subject VALUES("c",1);
+INSERT INTO student_subject VALUES("d",1);
+INSERT INTO student_subject VALUES("e",1);
+INSERT INTO student_subject VALUES("f",1);
+INSERT INTO student_subject VALUES("g",1);
+
 
 -- Assessments:
 INSERT INTO assessment(a_number, subject_session_id) VALUES(1,1);
@@ -101,6 +112,9 @@ VALUES(2,4,2,2,"Meeting Minutes");
 
 
 
+
+
+
 /* TO populate first page in app
  * tutor username, 
  * linked to subject (in session)  => subject => session
@@ -116,7 +130,7 @@ VALUES(2,4,2,2,"Meeting Minutes");
 SELECT staff.username, session.subject_code, uni.name 
 FROM (staff_allocation AS staff INNER JOIN subject_session AS session ON staff.subject_id = session.id)
                                 INNER JOIN institution AS uni ON session.i_id = uni.id
-WHERE staff.username = "ap088"
+WHERE staff.username = "st111"
 ORDER BY uni.name;
 
 
@@ -153,6 +167,9 @@ FROM (((staff_allocation AS staff INNER JOIN subject_session AS session ON staff
                                 INNER JOIN criteria_item as criteria ON criteria.a_id = ass.id
                                 
 WHERE staff.username = "ap088";
+
+
+
 
 
 
