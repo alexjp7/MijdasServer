@@ -1,5 +1,5 @@
 DROP TABLE  staff_allocation;
-DROP TABLE  criteria_items;
+DROP TABLE  criteria_item;
 DROP TABLE  student_results;
 DROP TABLE  student_subject;
 DROP TABLE  assessment;

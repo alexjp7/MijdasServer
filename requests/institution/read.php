@@ -46,10 +46,6 @@
         invalidRequest();
     }
 
-
-
-
-     
     function invalidRequest()
     {
         http_response_code(404);

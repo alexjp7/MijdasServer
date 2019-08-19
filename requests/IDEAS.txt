@@ -1,0 +1,30 @@
+IDEAS:
+
+The API will need more then just CRUD functionality for some data models
+    e.g. Requesting to populate the  Subjects taught by a tutor requires;
+         *  Subject AND Institution, while you can complete 2 queries and format that data into JSON, 
+            would it be easier on the client to only have to make 1 request?
+
+    Another example could be when a login request is made, it may not be suitable to read the entire user object in the database
+    to only require username and password validation.
+
+    Solution 1:
+    -----------
+    have all "read" requests route through <model>/read.php 
+        and have a set value to check what kind of request is being made 
+            
+            e.g. URL = user/read.php?login = true;
+                read.php
+                <? if(isset(login)
+                    run login.php
+                    else if(isset(profileView))
+                     run profileView.php
+
+    Solution 2:
+    ------------
+    Not use endpoints to route to other endpoints, but write seperate login.php, viewProfile.php,
+    and provide those to the client to use 
+        e.g.
+
+           URL = user/login.php        AND
+                 user/viewProfile.php 

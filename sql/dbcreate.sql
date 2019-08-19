@@ -83,7 +83,8 @@ CREATE TABLE assessment(
     subject_session_id  INT NOT NULL,
 
     CONSTRAINT PK_ASSESSMENT PRIMARY KEY (id),
-    CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_session_id) REFERENCES subject_session(id)
+    CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_session_id) REFERENCES subject_session(id),
+    CONSTRAINT UNIQUE(a_number, subject_session_id)
 );
 
 /****************************************************************************************
@@ -95,7 +96,7 @@ CREATE TABLE assessment(
 * Each criteria will redundantly store assessment ID, however reduces JOINs
 * cirteria_item.max_mark could be aggregated to provide assessment mark_out_of?
 *******************************************************************************************/
-CREATE TABLE criteria_items(
+CREATE TABLE criteria_item(
         a_id            INT NOT NULL,
         c_id            INT NOT NULL,
         element         INT NOT NULL,
