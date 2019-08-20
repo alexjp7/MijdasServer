@@ -1,0 +1,26 @@
+
+*  using FORCE INDEX reduces I/O.
+
+
+* FORCE INDEX (first enabled in version 4.0.9) is very similar to USE INDEX; the main difference between the two options is that FORCE INDEX demands that MySQL use the index (if possible) in lieu of a more expensive table scan, whereas USE INDEX still allows the optimizer to choose a table scan.
+
+* Thus, FORCE INDEX can take the MySQL Query Optimizer out of the equation b
+
+* Any query using FORCE INDEX properly will reduce I/O.
+
+
+In terms of "rules of engagements", FORCE INDEX should only be used when: 
+
+1) referring to covering indexes
+2) all columns in the index are small in size
+3) you effectively tweek the caching behavior of SELECT queries
+4) For adhoc queries, use SQL_NO_CACHE
+5) For frequently updated data, cache judiciously
+
+
+
+tldr
+----
+
+The Mysql query optimizer will apply an indexes to a table/query based on primary key.
+Using Force Index supersedes the query optimizer and mandates that column as the index

@@ -1,0 +1,116 @@
+insert into user (username, password, email, permission_type) values ('lsheircliffe0', 'YxtNT2bfnm', 'hdamsell0@example.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('mgettings1', 'kYGW6adYaa', 'gmccudden1@ucla.edu', 'coordinator');
+insert into user (username, password, email, permission_type) values ('sragless2', 'HSKJoHaH3', 'sdoman2@google.ru', 'coordinator');
+insert into user (username, password, email, permission_type) values ('hbarendtsen3', 'CNPKyO5', 'csante3@hexun.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('gcoultish4', 'sZInLM21C1sG', 'ctingley4@163.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('cdevas5', 'K5JtFM', 'mdreng5@privacy.gov.au', 'coordinator');
+insert into user (username, password, email, permission_type) values ('abolver6', 'EWDaBFc', 'cjahncke6@ed.gov', 'tutor');
+insert into user (username, password, email, permission_type) values ('dfrissell7', 'bsqfTou1A', 'pcunney7@surveymonkey.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('bdurrad8', 'rNzKIMxpxmcs', 'btippell8@google.de', 'coordinator');
+insert into user (username, password, email, permission_type) values ('mhebble9', 'kmbWonUIgz', 'bgerwood9@cdbaby.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('jleacha', 'QIAW3fBbiTAR', 'btollita@cbslocal.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('robinb', 'SqtFOPCP', 'bberthotb@bbb.org', 'coordinator');
+insert into user (username, password, email, permission_type) values ('sdugmorec', 'tnpH1Akt7Pu', 'kcarloc@psu.edu', 'tutor');
+insert into user (username, password, email, permission_type) values ('bclackersd', 'eHRp5C9P9c', 'twoolhamd@cdbaby.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('csymese', 'U0nFrsx', 'rhellicare@e-recht24.de', 'coordinator');
+insert into user (username, password, email, permission_type) values ('msmalesf', 'xm13OT', 'djosskowitzf@ameblo.jp', 'tutor');
+insert into user (username, password, email, permission_type) values ('ggourleyg', 'Dk3IYjQN2', 'tlaityg@dion.ne.jp', 'coordinator');
+insert into user (username, password, email, permission_type) values ('xtoffolonih', 'SAMQbg', 'bstrothersh@gravatar.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('cvakhrushevi', '8nNKXsR5hFo7', 'amaciejaki@theatlantic.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('odarwentj', 'HHcfrZ', 'cwybernj@storify.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('msweetmorek', 'qXblGM2', 'okestlek@sourceforge.net', 'coordinator');
+insert into user (username, password, email, permission_type) values ('tdicksonl', 'dbkAZHfWq', 'slanpherel@huffingtonpost.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('jmcneilleym', 'fdiobB5QbEys', 'rchillesm@amazon.co.uk', 'tutor');
+insert into user (username, password, email, permission_type) values ('hroselln', 'cTHTvelPVlf', 'hwoolhousen@economist.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('gfirpio', 'ZLqCE1', 'bsmailo@diigo.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('wbagnalp', 'nebrGBrg', 'jbrindedp@unicef.org', 'tutor');
+insert into user (username, password, email, permission_type) values ('cbauduccioq', 'VQdFotptMUNv', 'cstarrsq@rakuten.co.jp', 'coordinator');
+insert into user (username, password, email, permission_type) values ('dbaalhamr', 'K0Ib794', 'hhakingr@mapy.cz', 'tutor');
+insert into user (username, password, email, permission_type) values ('amcpaiks', 'siR9XV', 'dkerinss@naver.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('eoulett', 'qhFi8ajqiWo', 'gnehlsent@shop-pro.jp', 'tutor');
+insert into user (username, password, email, permission_type) values ('aprinu', 'cyvINbX', 'bashurstu@goo.gl', 'coordinator');
+insert into user (username, password, email, permission_type) values ('jduboisv', 'ngAVa2US', 'ksteffensv@google.it', 'coordinator');
+insert into user (username, password, email, permission_type) values ('egedlingw', 'R4e6eIVT2', 'sbranscombew@columbia.edu', 'coordinator');
+insert into user (username, password, email, permission_type) values ('jblarex', 'l8WJrfJ', 'mcozbyx@ed.gov', 'tutor');
+insert into user (username, password, email, permission_type) values ('ddovingtony', '2YCkCy', 'rdydey@pinterest.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('ebleymanz', 'akBcLiq3X', 'yramstedz@guardian.co.uk', 'tutor');
+insert into user (username, password, email, permission_type) values ('odeetlefs10', '8hc81ThG90j', 'cpregel10@go.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('cthyer11', 'f4lcZpK', 'jsuggey11@bbc.co.uk', 'coordinator');
+insert into user (username, password, email, permission_type) values ('iwragge12', 'zwjL6fltw', 'dvanshin12@uiuc.edu', 'tutor');
+insert into user (username, password, email, permission_type) values ('cbarukh13', 'YlJpIV', 'gkerfoot13@jugem.jp', 'tutor');
+insert into user (username, password, email, permission_type) values ('astangroom14', '7Fdud8BCa', 'cgaskins14@google.es', 'tutor');
+insert into user (username, password, email, permission_type) values ('pgorvette15', 'CBX5DcNDMulr', 'rfaichney15@oracle.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('naaronsohn16', 'QkWz9tfOqm', 'hmalt16@theatlantic.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('cjentges17', '0dG8kVsc8v', 'adowson17@hc360.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('anesterov18', 'KvQv0Mf', 'ipiddlesden18@hao123.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('hkeeley19', 'lPkLWG', 'xrees19@wikimedia.org', 'coordinator');
+insert into user (username, password, email, permission_type) values ('hfassbindler1a', 'jPk5RukUZ', 'vyetts1a@nih.gov', 'coordinator');
+insert into user (username, password, email, permission_type) values ('fberthelmot1b', 'Rko8Cu', 'mdyet1b@yolasite.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('ykruger1c', 'AjoeU2Eai', 'smckevitt1c@geocities.jp', 'tutor');
+insert into user (username, password, email, permission_type) values ('shiggoe1d', '2zvYbMIZH', 'adinnies1d@booking.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('bplunkett1e', 'E2epuM9qfk', 'bjephcott1e@aol.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('vgozzett1f', 'nZ8tpbsBN6zw', 'aplayden1f@baidu.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('jshorto1g', '9Ka87e8d', 'llamborn1g@wsj.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('jnial1h', 'GQcoGUxag5', 'dkarchewski1h@usgs.gov', 'coordinator');
+insert into user (username, password, email, permission_type) values ('wgrissett1i', 'iCmQZ5peJh', 'lisgate1i@newyorker.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('mhowkins1j', 'J4RwUFWSdu8', 'jthibodeaux1j@purevolume.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('jtraylen1k', 'eHxcfP0xq2J0', 'hrogier1k@blogspot.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('pchilley1l', '1SJrjCcE4', 'lrubinow1l@mac.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('ifenners1m', '6syVRR9xb6JN', 'ebullcock1m@sciencedirect.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('mcordes1n', '7NHqMgI', 'dbowie1n@artisteer.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('cmacrow1o', 'olSvw2e30T', 'mbromhead1o@blogs.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('dgristock1p', 'AGm0RQ3OMHi', 'herb1p@hao123.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('jerrol1q', 'xfNBi8', 'dinnwood1q@spotify.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('gtipling1r', 'puAg7dS', 'cramas1r@ted.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('trivett1s', 'P9aTPGXEOR1', 'bsayles1s@theglobeandmail.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('achurchard1t', 'kHAjTyOcw', 'tlemonnier1t@answers.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('ekenward1u', 'JIL3PO7Hn', 'sseniour1u@blogs.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('aillyes1v', 'oL8DzCyV3mT', 'rhay1v@scientificamerican.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('tlandy1w', 'vH373apR8G3', 'tmarritt1w@netlog.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('gdunlop1x', 'UV7Pduo', 'mbernet1x@nbcnews.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('wdaynter1y', 'Sp25e5jAd', 'jwards1y@ox.ac.uk', 'tutor');
+insert into user (username, password, email, permission_type) values ('spembery1z', 'BnW0ul4d', 'btinmouth1z@springer.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('abonham20', 'VF4tbyyZ', 'nwasielewicz20@washington.edu', 'coordinator');
+insert into user (username, password, email, permission_type) values ('smaw21', 'stihIf', 'cfinn21@yolasite.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('gczadla22', 'f6FKF4R4ru', 'laingel22@booking.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('clukash23', 'AnPBbbC0n', 'smunning23@mayoclinic.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('lolin24', 'DRwAqs8u7v', 'wlawlee24@discuz.net', 'coordinator');
+insert into user (username, password, email, permission_type) values ('gwanell25', 'sOMtgeg', 'pancketill25@yellowbook.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('palsobrook26', 'Q2MF6bsuEFjX', 'bsighart26@toplist.cz', 'tutor');
+insert into user (username, password, email, permission_type) values ('mghiraldi27', 'aIl2D8re8XZz', 'cnortheast27@geocities.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('tdene28', 'UWeKfqiGX7K', 'vireson28@ftc.gov', 'tutor');
+insert into user (username, password, email, permission_type) values ('tcockayne29', 'F09TOqQwXoGR', 'nfutty29@globo.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('atimblett2a', 'VeVe1loVqNm', 'dcarnegy2a@ning.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('hvanyukov2b', 'fgR4g0Jvt', 'bhall2b@com.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('stunny2c', 'f1YWXodNNk', 'emalpass2c@angelfire.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('dfolli2d', '3lIy0I', 'mbenneton2d@quantcast.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('lthomas2e', 'f7NWatY4', 'ccoleshill2e@mail.ru', 'tutor');
+insert into user (username, password, email, permission_type) values ('hgulvin2f', 'D2geKshx', 'hhallgate2f@java.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('ldayly2g', 'tzQ8WTQ', 'bshorrock2g@stanford.edu', 'coordinator');
+insert into user (username, password, email, permission_type) values ('jpotebury2h', '4IBZdv40zd', 'hdahmke2h@icq.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('cfiorentino2i', 'fRdkXszs', 'lweedall2i@jugem.jp', 'coordinator');
+insert into user (username, password, email, permission_type) values ('hcowoppe2j', 'qsGi72sqXn9', 'gbilton2j@meetup.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('nhuckle2k', 'zwAIK66z', 'msorby2k@hostgator.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('ffreen2l', '2lkNSRVjU', 'stitchmarsh2l@myspace.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('dkaret2m', 'ToUK9A', 'foilier2m@phoca.cz', 'coordinator');
+insert into user (username, password, email, permission_type) values ('rcritchlow2n', 'S3LL0oZE7', 'bbrabender2n@ifeng.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('twey2o', 'voWUtsjbRc', 'kjordon2o@yolasite.com', 'tutor');
+insert into user (username, password, email, permission_type) values ('jmcchesney2p', 'vEKOX8F', 'lhatherleigh2p@exblog.jp', 'tutor');
+insert into user (username, password, email, permission_type) values ('schecklin2q', 'hv849ICrx9qO', 'ashakelady2q@mac.com', 'coordinator');
+insert into user (username, password, email, permission_type) values ('louver2r', 'MXDP5M', 'ebenoi2r@opera.com', 'tutor');
+
+insert into institution (name, domain) values ('Osaka Institute of Technology', 'go.com');
+insert into institution (name, domain) values ('Northwestern University In Qatar', 'weibo.com');
+insert into institution (name, domain) values ('Vaasa University of Applied Sciences', 'auda.org.au');
+insert into institution (name, domain) values ('Nara University of Commerce', 'psu.edu');
+insert into institution (name, domain) values ('Clemson University', 'usda.gov');
+insert into institution (name, domain) values ('Western Baptist College', 'amazon.co.jp');
+
+
+
+
+
+
+
+
+
