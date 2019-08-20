@@ -2,7 +2,7 @@
     class User
     {
         //Database Credentials
-        private $TABLE_NAME = "user";
+        private $tableName = "user";
         private $connection;
         //Object Properties
         public $username;
@@ -17,7 +17,7 @@
         //SELECT * from database
         public function read()
         {
-            $query = "SELECT * FROM ".$this->TABLE_NAME;
+            $query = "SELECT * FROM ".$this->tableName;
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             
@@ -28,7 +28,7 @@
         public function readOne($id)
         {
           
-            $query = "SELECT * FROM ".$this->TABLE_NAME. " WHERE username = '{$id}'";
+            $query = "SELECT * FROM ".$this->tableName. " WHERE username = '{$id}'";
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             
@@ -37,10 +37,15 @@
         //INSERT to database
         public function create()    
         {
-            $query = "INSERT INTO ".$this->TABLE_NAME." VALUES ('{$this->username}','{$this->password}','{$this->email}','{$this->permissionType}')";
+            $query = "INSERT INTO ".$this->tableName." VALUES ('{$this->username}','{$this->password}','{$this->email}','{$this->permissionType}')";
             $stmt = $this->connection->prepare($query);
 
             return $stmt->execute();
+        }
+
+        public function login()
+        {
+            
         }
     }
 

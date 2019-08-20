@@ -2,7 +2,7 @@
     class Institution
     {
         private $connection;
-        private $table = "institution";
+        private $tableName = "institution";
 
         private $name;
         private $domain;
@@ -15,8 +15,8 @@
 
         public function readAllUserInstituions($username)
         {
-            $query =   "SELECT institution.name, institution.id FROM {$this->table}
-                        JOIN user_institution ON  {$this->table}.id = user_institution.institution_id
+            $query =   "SELECT institution.name, institution.id FROM {$this->tableName}
+                        JOIN user_institution ON  {$this->tableName}.id = user_institution.institution_id
                         WHERE username ='{$username}'";
 
             $stmt = $this->connection->prepare($query);
