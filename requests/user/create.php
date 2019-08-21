@@ -7,7 +7,6 @@
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST"); 
     include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."/config/database.php");
     include_once(DOCUMENT_ROOT."/models/user.php");
 
     $database = new Database();
@@ -28,19 +27,17 @@
     {
         if($user->create())
         {   //Request OK
-            http_response_code(201);
+            success();
             echo json_encode(array("message"=>"user creation succesful! "));
         }
         else
         {   //Service unailable
-            http_response_code(503);
-            echo json_encode(array("message"=>"account creation failed"));
+            serverError();
         }
     }
     else
     {
         //Bad Request
-        http_request_code(404);
-        echo json_encode(array("message"=>"account creation failed"));
+        badFormatRequest();
     }  
 ?>

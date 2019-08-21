@@ -15,7 +15,7 @@
         //Doesn't nest things properly
         public function readAllUserSubjects($username)
         {
-            $query = "SELECT staff.username, session.subject_code, uni.name
+            $query = "SELECT staff.username, session.id,session.subject_code, uni.name
                     FROM (staff_allocation AS staff 
                     INNER JOIN subject_session AS session ON staff.subject_id = session.id)
                     INNER JOIN institution AS uni ON session.i_id = uni.id
@@ -44,7 +44,7 @@
 
         public function readSubject($institution_id, $username)
         {
-            $query = "SELECT session.subject_code
+            $query = "SELECT session.id, session.subject_code
             FROM staff_allocation AS staff INNER JOIN subject_session AS session ON staff.subject_id = session.id  
             WHERE session.i_id = {$institution_id} AND staff.username = '{$username}'";
             $stmt = $this->connection->prepare($query);

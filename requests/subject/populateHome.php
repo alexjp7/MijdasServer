@@ -1,22 +1,17 @@
 <?php
-
-    header("Content-Type: application/json; charset=UTF-8");
-    header("Access-Control-Allow-Methods: GET"); 
-    include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."/config/database.php");
+    include_once("../../config/database.php");;
     include_once(DOCUMENT_ROOT."/models/subject.php");
+
+    $username = isset($data->username) 
+                ? $data->username
+                : badFormatRequest();
+    
 
     $database = new Database();
     $connection = $database->getConnection();
     $subject = new Subject($connection);
 
-
-    $stmt = isset($_GET["username"]) 
-    ? $subject->readInstitution(($_GET["username"]))
-    :badFormatRequest();
-
-    $username = ($_GET["username"]);
-    
+    $stmt = $subject->readInstitution($username);
     $num = $stmt->rowCount();
 
     if($num > 0)
@@ -39,7 +34,10 @@
                 while($row2  = $stmt2->fetch(PDO::FETCH_ASSOC))
                 {
                     extract($row2);
-                    $subj = array("subject_code"=>$subject_code);
+                    $subj = array(
+                        "subject_code"=>$subject_code,
+                         "id" =>$id
+                    );
                     //push each subject 
                     array_push($subjectArr, $subj);
                 }
@@ -53,5 +51,13 @@
         echo json_encode($record);
 
     }
+    else
+    {
+        notFound("subjects");
+    }
 
+    
+    
+
+    
 ?>

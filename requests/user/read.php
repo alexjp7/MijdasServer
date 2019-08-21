@@ -14,7 +14,7 @@
     //Check if username has been passed as paramter 
     $stmt = isset($_GET["id"])
     ? $user->readOne($_GET["id"])
-    : invalidRequest();
+    : badFormatRequest();
 
     $num = $stmt->rowCount();
 
@@ -36,21 +36,12 @@
             array_push($userArr["records"], $user);
         }
     
-        http_response_code(200);
-
+        success();
         echo json_encode($userArr);
     }
     else
     {
-        invalidRequest();
+        notFound();
     }
  
-
-
-    function invalidRequest()
-    {
-        http_response_code(404);
-        echo json_encode(array("message" => "No user found."));
-        die;
-    }
 ?>      

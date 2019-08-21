@@ -1,0 +1,43 @@
+<?php
+        function success()
+        {
+            http_response_code(200);
+        }
+    
+        function badFormatRequest()
+        {
+            http_response_code(400);
+            echo json_encode(array("message" => "Poorly formatted request"));
+            die;
+        }
+
+        function unauthorized ()
+        {
+            http_response_code(401);
+            echo json_encode(array("message" => "Client unauthorized."));
+            die;
+        }
+ 
+        function notFound($obj)
+        {
+            http_response_code(404);
+            echo json_encode(array("message" => "{$obj} not found!"));
+            die;
+        }
+    
+   
+        function invalidMethod()
+        {
+            http_response_code(405);
+            echo json_encode(array("message" => "Invalid Request made"));
+            die;
+        }
+
+        function serverError()
+        {
+            http_response_code(503);
+            echo json_encode(array("message" => "Server error, try again later!"));
+            die;
+        }
+    
+?>

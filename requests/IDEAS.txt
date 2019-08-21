@@ -28,3 +28,41 @@ The API will need more then just CRUD functionality for some data models
 
            URL = user/login.php        AND
                  user/viewProfile.php 
+
+
+
+
+
+
+
+
+// wanting to populate the home page
+- get  markit/api/subject ? username = asdjsakdjkasjdiauud0923wefofwep 
+- post
+
+
+
+
+
+ username = x, 
+
+
+html form =   -> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
