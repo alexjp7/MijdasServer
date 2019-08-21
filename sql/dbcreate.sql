@@ -80,6 +80,7 @@ CREATE TABLE subject_session(
 CREATE TABLE assessment(
     id                  INT NOT NULL AUTO_INCREMENT,
     a_number            INT NOT NULL,
+    name                VARCHAR(20) NOT NULL,
     subject_session_id  INT NOT NULL,
 
     CONSTRAINT PK_ASSESSMENT PRIMARY KEY (id),

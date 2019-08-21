@@ -74,13 +74,13 @@ INSERT INTO student_subject VALUES("g",1);
 
 
 -- Assessments:
-INSERT INTO assessment(a_number, subject_session_id) VALUES(1,1);
-INSERT INTO assessment(a_number, subject_session_id) VALUES(2,1);
-INSERT INTO assessment(a_number, subject_session_id) VALUES(3,1);
-INSERT INTO assessment(a_number, subject_session_id) VALUES(4,1);
-INSERT INTO assessment(a_number, subject_session_id) VALUES(1,2);
-INSERT INTO assessment(a_number, subject_session_id) VALUES(2,2);
-INSERT INTO assessment(a_number, subject_session_id) VALUES(3,2);
+INSERT INTO assessment(a_number, subject_session_id, name) VALUES(1,1,"Lab 1");
+INSERT INTO assessment(a_number, subject_session_id, name) VALUES(2,1,"Lab 2");
+INSERT INTO assessment(a_number, subject_session_id, name) VALUES(3,1,"Lab 3");
+INSERT INTO assessment(a_number, subject_session_id, name) VALUES(4,1,"Lab 4");
+INSERT INTO assessment(a_number, subject_session_id, name) VALUES(5,1,"Assignment  1");
+INSERT INTO assessment(a_number, subject_session_id, name) VALUES(6,1,"Assignment  2");
+
 
 
 -- Assesment Cirteria:
