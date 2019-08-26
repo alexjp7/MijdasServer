@@ -1,6 +1,6 @@
 <?php
     include_once("../../config/database.php");;
-    include_once(DOCUMENT_ROOT."/models/subject.php");
+    include_once("../../models/subject.php");
 
     $username = isset($data->username) 
                 ? $data->username

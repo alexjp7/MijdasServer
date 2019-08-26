@@ -16,11 +16,20 @@
 *****************************************************/
     switch($request)
     {
-        case "HOME_PAGE":  
-            include("populateHome.php");
+        case "POPULATE_SUBJECTS":  
+            include("populateSubjects.php"); //DONE!
             break;
-        case "MANAGE_SUBJECTS":
 
+        case "EDIT_SUBJECT":
+            include("editSubject.php");
+            break;
+  
+        case "DELETE_SUBJECT":
+            include("deleteSubject.php");
+            break;
+
+        case "CREATE_SUBJECT":
+            include("createSubject.php");
             break;
       
         default:

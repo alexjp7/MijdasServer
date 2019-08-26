@@ -1,8 +1,7 @@
 <?php
   
     include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."/config/database.php");
-    include_once(DOCUMENT_ROOT."/models/assessment.php");
+    include_once("../../models/assessment.php");
 
     $subject_id = isset($data->subject_id)
                     ? $data->subject_id

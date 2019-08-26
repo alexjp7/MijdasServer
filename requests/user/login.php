@@ -3,8 +3,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."/config/database.php");
-    include_once(DOCUMENT_ROOT."/models/user.php");
+    include_once("../../models/user.php");
 
     $database = new Database();
     $connection = $database->getConnection();
@@ -30,26 +29,26 @@
             if($username === $providedUsername && $password === $providedPassword)
             {
                 //Login Credentials Corrrect
-                http_response_code(201);
+                success();
                 echo json_encode(array("message:"=>"Login Succes!"));
             }
             else
             {   //Incorrect Login- user not found
-                http_response_code(404);
+                notFound("user");
                 echo json_encode(array("message:"=>"Incorrect Username or Password"));
             }
         }
         else
         {
             //Incorect Login - user not found
-            http_response_code(404);
+            notFound("user");
             echo json_encode(array("message:"=>"Incorrect Username or Password"));
         }
     }
     else 
     {
         //Bad Request 400
-        http_response_code(400);
+        badFormatRequest();
         echo json_encode(array("message:"=>"Please provide the appropriate fields"));
 
     }

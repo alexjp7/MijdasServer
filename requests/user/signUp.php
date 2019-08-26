@@ -7,7 +7,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST"); 
     include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."/models/user.php");
+    include_once("../../models/user.php");
 
     $database = new Database();
     $connection = $database->getConnection();
@@ -36,8 +36,7 @@
         }
     }
     else
-    {
-        //Bad Request
+    {   //Bad Request
         badFormatRequest();
     }  
 ?>

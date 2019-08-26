@@ -55,24 +55,35 @@
 BASE URL -
 * markit.mijdas.com/api/requests
 
-USER
-* POST /user/create.php
-* GET /user/read.php
-* PUT /user/update.php
-* DELETE /user/delete.php
+<h2>user</h2>
+* LOGIN
+* SIGN_UP
+* LOGOUT
+* VIEW_PROFILE
+* EDIT_PROFILE
+* RECOVER_PASSWORD
 
-INSTITUTION
-* POST /institution/create.php
-* GET /institution/read.php
-* PUT /institution/update.php
-* DELETE /institution/delete.php
+<h2>subject</h2>
+* POPULATE_SUBJECTS
+* EDIT_SUBJECT
+* DELETE_SUBJECT
+* VIEW_PROFILE
+* CREATE_SUBJECT
+
+<h2>assessment</h2>
+* VIEW_ASSESSMENT
+* CREATE_ASSESSMENT
+* EDIT_ASSESSMENT
+* DELETE_ASSESSMENT
 
 
-ASSESS,EMT
-* POST /assessment/create.php
-* GET /assessment/read.php
-* PUT /assessment/update.php
-* DELETE /assessment/delete.php
+<h2>criteria</h2>
+* VIEW_CRITERIA
+* CREATE_CRITERIA
+* EDIT_CRITERIA
+* DELETE_CRITERIA
+
+
 
 
 -------------------------------------------
@@ -91,9 +102,9 @@ ASSESS,EMT
 
 <h2>Tutor Functionalities</h2>
 
-* [ ] View Subject List
-* [ ] View Assessment List 
-* [ ] View Criteria List (within marking a student)
+* [X] View Subject List
+* [X] View Assessment List 
+* [X] View Criteria List (within marking a student)
 * [ ] Student List
 * [ ] Institution List (job board)
 

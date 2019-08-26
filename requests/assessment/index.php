@@ -16,12 +16,23 @@
 *****************************************************/
     switch($request)
     {
-        case "VIEW_ASSESSMENT":  
+        case "VIEW_ASSESSMENT":  //DONE!
             include("viewAssessment.php");
             break;
+
+        case "CREATE_ASSESSMENT":  
+            include("createAssessment.php");
+            break;
  
- 
-      
+        case "DELETE_ASSESSMENT":  
+            include("deleteAssessment.php");
+            break;
+        
+        case "EDIT_ASSESSMENT":  
+            include("editAssessment.php");
+            break;
+
+
         default:
             invalidMethod();
             break;

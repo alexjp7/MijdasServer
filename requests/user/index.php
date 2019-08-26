@@ -1,5 +1,5 @@
 <?php
-    header("Content-Type: application/json; charset=UTF-8");
+     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
@@ -16,16 +16,28 @@
 *****************************************************/
     switch($request)
     {
-        case "VIEW_CRITERIA":  //DONE!
-            include("viewCriteria.php");
+        case "LOGIN":  
+            include("login.php"); //DONE!
             break;
 
-        case "CREATE_CRITERIA":  
-            include("createCriteria.php");
+        case "SIGN_UP":  
+            include("signUp.php"); //DONE!
             break;
 
-        case "EDIT_CRITERIA":  
-            include("editCriteria.php");
+        case "LOGOUT":  
+            include("logout.php");
+            break;
+
+        case "VIEW_PROFILE":
+            include("viewProfile.php");
+            break;
+
+        case "EDIT_PROFILE":
+            include("editProfile.php");
+            break; 
+
+        case "RECOVER_PASSWORD":
+            include("recoverPassword.php");
             break;
 
         default:

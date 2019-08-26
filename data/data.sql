@@ -108,7 +108,6 @@ INSERT INTO user (username,password,email,permission_type )VALUES ("fwallett2o",
 INSERT INTO user (username,password,email,permission_type )VALUES ("mvandenvelden2p","UX4WQm6SoGJ", "ybrunone2p@a8.net","tutor");
 INSERT INTO user (username,password,email,permission_type )VALUES ("llloydwilliams2q","mnxXf6KhnVp9", "themerijk2q@xinhuanet.com","coordinator");
 INSERT INTO user (username,password,email,permission_type )VALUES ("apickford2r","NyzszDoI", "mgransden2r@examiner.com","tutor");
-INSERT INTO user (username,password,email,permission_type )VALUES ("","", "","");
 INSERT INTO subject VALUES ("CSCI670" , 8 );
 INSERT INTO subject VALUES ("MEDI555" , 2 );
 INSERT INTO subject VALUES ("MEDI224" , 3 );

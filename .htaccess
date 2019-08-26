@@ -1,0 +1,20 @@
+ReWriteEngine On
+
+# Ensure all directory URLs have a trailing slash.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\/$
+RewriteCond %{REQUEST_URI} !\/[^\/]*\.[^\/]+$
+RewriteRule .* http://%{HTTP_HOST}%{REQUEST_URI}/ [L,R=301]
+
+# Same for HTTPS:
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\/$
+RewriteCond %{REQUEST_URI} !\/[^\/]*\.[^\/]+$
+RewriteRule .* https://%{HTTP_HOST}%{REQUEST_URI}/ [L,R=301]
+
+
+#Rewrite request paths without intermediary paths
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d [OR]
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^(.*)$ /api/requests/$1 [L,QSA]

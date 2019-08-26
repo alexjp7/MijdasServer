@@ -7,7 +7,7 @@
         function badFormatRequest()
         {
             http_response_code(400);
-            echo json_encode(array("message" => "Poorly formatted request"));
+            echo json_encode(array("message" => "Poorly formatted request, refer to API documentation for more details"));
             die;
         }
 
@@ -29,7 +29,7 @@
         function invalidMethod()
         {
             http_response_code(405);
-            echo json_encode(array("message" => "Invalid Request made"));
+            echo json_encode(array("message" => "Invalid Request made. Please refer to API documentation for more details"));
             die;
         }
 
