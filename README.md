@@ -4,13 +4,9 @@
 
 
 * The source contained documents the PHP driven API for Mijdas's markit app. 
-* The purpose of this API is to provide a modular and reusable interface which can be utilised by;
-* Markit Mobile
-* Markit Web.
-
-* The markit API will feature a RESTful (Representative State Transfer) API model.
-
-* The main functionality of this API is to provide an interface to perform the following HTTP methods
+* The purpose of this API is to provide a modular and reusable interface which can be utilised by
+  * Markit Mobile,
+  * Markit Web.
 
 * The format of the output/response data will consistent with JSON conventions.
 
@@ -25,7 +21,7 @@
 
 <h4>├────── database.php *file used for connecting to the database./</h4>
 
-<h3>├─── models//</h3>
+<h3>├─── models/</h3>
 
 <h4>├────── user.php /</h4>
 <h4>├────── assessment.php </h4>
@@ -37,49 +33,33 @@
 
 <h4>├────── institution|| user || assessment || subject / </h4>
 
-<h5>├──────────── create.php</h5>
-
-<h5>├──────────── read.php </h5>
-
-<h5>├──────────── update.php </h5>
-
-<h5>├──────────── delete.php </h5>
-
 -------------------------------------------
 <h1>Valid Paths/METHODS</h1>
 
-BASE URL -
-* markit.mijdas.com/api/requests
-
-<h2>user</h2>
+BASE URL - markit.mijdas.com/api/requests
+1) <h2>user</h2>
 * LOGIN
 * SIGN_UP
 * LOGOUT
 * VIEW_PROFILE
 * EDIT_PROFILE
 * RECOVER_PASSWORD
-
-<h2>subject</h2>
+2)  <h2>subject</h2>
 * POPULATE_SUBJECTS
 * EDIT_SUBJECT
 * DELETE_SUBJECT
 * VIEW_PROFILE
 * CREATE_SUBJECT
-
-<h2>assessment</h2>
+3)  <h2>assessment</h2>
 * VIEW_ASSESSMENT
 * CREATE_ASSESSMENT
 * EDIT_ASSESSMENT
 * DELETE_ASSESSMENT
-
-
-<h2>criteria</h2>
+4)  <h2>criteria</h2>
 * VIEW_CRITERIA
 * CREATE_CRITERIA
 * EDIT_CRITERIA
 * DELETE_CRITERIA
-
-
 
 
 -------------------------------------------
