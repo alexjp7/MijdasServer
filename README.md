@@ -82,6 +82,7 @@ BASE URL - markit.mijdas.com/api/requests
 * [X] View Assessment List 
 * [X] View Criteria List (within marking a student)
 * [x] Student List
+* [ ] Update Student Marks
 * [ ] Institution List (job board)
 
 <h2>Co-ordinator Functionalities</h2>
