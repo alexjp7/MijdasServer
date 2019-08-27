@@ -32,6 +32,9 @@
             include("editAssessment.php");
             break;
 
+        case "POPULATE_STUDENTS":  
+            include("populateStudents.php");
+            break;
 
         default:
             invalidMethod();

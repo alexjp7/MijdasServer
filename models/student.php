@@ -10,10 +10,6 @@
             $this->connection = $connection;
         }
 
-
-        /**************************************
-         * Needs testing properly
-        ***************************************/
         public function addToSubject($studentList, $subjectId)
         {
             $this->connection->beginTransaction();
@@ -33,6 +29,15 @@
             //Succesful batch insert completed, new data is commited in database
             $this->connection->commit();
             return true;
+        }
+        
+        public function getByAssessment($a_id)
+        {
+            $query = "SELECT student_id, result FROM student_results WHERE a_id = {$a_id}";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            
+            return $stmt;
         }
 
     }
