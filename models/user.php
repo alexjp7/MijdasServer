@@ -42,11 +42,15 @@
 
             return $stmt->execute();
         }
-
+        /*******************************
+         * Probably needs to deal 
+          with session/user authentication
+        *****************************/
         public function login()
         {
             
         }
+
     }
 
 

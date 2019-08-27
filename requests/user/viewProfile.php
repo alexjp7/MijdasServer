@@ -8,13 +8,17 @@
 
     $database = new Database();
     $conn = $database->getConnection();
-
     $user = new User($conn);
 
-    //Check if username has been passed as paramter 
-    $stmt = isset($_GET["id"])
-    ? $user->readOne($_GET["id"])
+
+    $data = json_decode(file_get_contents("php://input"));
+
+    $username = isset($data->username)
+    ? $data->username
     : badFormatRequest();
+
+    //Check if username has been passed as paramter 
+    $stmt = $user->readOne($username);
 
     $num = $stmt->rowCount();
 

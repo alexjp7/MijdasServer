@@ -28,7 +28,7 @@
             include("logout.php");
             break;
 
-        case "VIEW_PROFILE":
+        case "VIEW_PROFILE": //DONE!
             include("viewProfile.php");
             break;
 
@@ -36,7 +36,7 @@
             include("editProfile.php");
             break; 
 
-        case "RECOVER_PASSWORD":
+        case "RECOVER_PASSWORD": // DISCUSS
             include("recoverPassword.php");
             break;
 

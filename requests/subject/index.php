@@ -1,5 +1,5 @@
 <?php
-     header("Content-Type: application/json; charset=UTF-8");
+    header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
@@ -31,7 +31,11 @@
         case "CREATE_SUBJECT":
             include("createSubject.php");
             break;
-      
+
+        case "ADD_STUDENTS":  
+            include("addStudentToSubject.php"); //DONE!
+            break;
+
         default:
             invalidMethod();
             break;

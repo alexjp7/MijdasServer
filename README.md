@@ -68,8 +68,8 @@ BASE URL - markit.mijdas.com/api/requests
 
 <h2>User Adminstration</h2>
 
-* [ ] Login validation 
-* [ ] Profile viewing
+* [x] Login validation 
+* [x] Profile viewing
 * [ ] Profile Editing
 * [ ] Change Password
 * [ ] Recover Password

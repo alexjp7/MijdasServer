@@ -39,5 +39,12 @@
             echo json_encode(array("message" => "Server error, try again later!"));
             die;
         }
+
+        function conflictFound()
+        {
+            http_response_code(409);
+            echo json_encode(array("message" => "Duplicated/Conflicting data found. Check for repeated execution of requests"));
+            die;
+        }
     
 ?>
