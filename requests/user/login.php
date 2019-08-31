@@ -35,21 +35,18 @@
             else
             {   //Incorrect Login- user not found
                 notFound("user");
-                echo json_encode(array("message:"=>"Incorrect Username or Password"));
             }
         }
         else
         {
             //Incorect Login - user not found
             notFound("user");
-            echo json_encode(array("message:"=>"Incorrect Username or Password"));
         }
     }
     else 
     {
         //Bad Request 400
-        badFormatRequest();
-        echo json_encode(array("message:"=>"Please provide the appropriate fields"));
+        badFormatRequest("username or password not set");
 
     }
      

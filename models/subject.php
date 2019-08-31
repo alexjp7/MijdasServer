@@ -15,7 +15,7 @@
         //Doesn't nest things properly
         public function readAllUserSubjects($username)
         {
-            $query = "SELECT staff.username, session.id,session.subject_code, uni.name
+            $query =" SELECT staff.username, session.id,session.subject_code, uni.name
                     FROM (staff_allocation AS staff 
                     INNER JOIN subject_session AS session ON staff.subject_id = session.id)
                     INNER JOIN institution AS uni ON session.i_id = uni.id

@@ -4,11 +4,11 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
+    const AVAILABLE_METHODS =  ["POPULATE_SUBJECTS", "EDIT_SUBJECT", "DELETE_SUBJECT","CREATE_SUBJECT", "ADD_STUDENTS" ];
     $data = json_decode(file_get_contents("php://input"));
-
     $request  = isset($data->request) 
                 ? $data->request
-                : badFormatRequest();
+                :badFormatRequest("No Data Posted");
 
 
 /***************************************************
@@ -37,7 +37,7 @@
             break;
 
         default:
-            invalidMethod();
+            invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
     }
 

@@ -37,6 +37,6 @@
     }
     else
     {   //Bad Request
-        badFormatRequest();
+        badFormatRequest("User data not formatted properly");
     }  
 ?>

@@ -4,11 +4,11 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
+    const AVAILABLE_METHODS =  ["LOGIN", "SIGN_UP", "LOGOUT","VIEW_PROFILE", "EDIT_PROFILE","RECOVER_PASSWORD" ];
     $data = json_decode(file_get_contents("php://input"));
-
     $request  = isset($data->request) 
                 ? $data->request
-                : badFormatRequest();
+                : badFormatRequest("No Data Posted");
 
 
 /***************************************************
@@ -41,7 +41,7 @@
             break;
 
         default:
-            invalidMethod();
+            invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
     }
 

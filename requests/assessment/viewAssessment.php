@@ -5,7 +5,7 @@
 
     $subject_id = isset($data->subject_id)
                     ? $data->subject_id
-                    : badFormatRequest(); 
+                    : badFormatRequest("VARIABLE: 'subject_id' not set"); 
 
     $database = new Database();
     $connection = $database->getConnection();

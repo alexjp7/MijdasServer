@@ -6,7 +6,7 @@
     $connection = $database->getConnection();
 
     $student = new Student($connection);
-    $a_id = isset($data->assessment_id) ? $data->assessment_id : badFormatRequest();
+    $a_id = isset($data->assessment_id) ? $data->assessment_id : badFormatRequest("VARIABLE: 'assessment_id' not set");
     
     $stmt = $student->getByAssessment($a_id);
     $num = $stmt->rowCount();

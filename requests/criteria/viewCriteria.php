@@ -8,7 +8,7 @@
 
     $assessment_id = isset($data->assessment_id)
                     ? $data->assessment_id
-                    : badFormatRequest();
+                    : badFormatRequest("VARIABLE: 'assessment_id' not set");
 
     $stmt = $criteria->getBySubject($assessment_id);
     $num = $stmt->rowCount();

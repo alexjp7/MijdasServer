@@ -64,14 +64,14 @@ INSERT INTO user_institution VALUES("ap088",2);
 
 
 -- Student:
-/*
-INSERT INTO student_subject VALUES("a",1);
-INSERT INTO student_subject VALUES("b",1);
-INSERT INTO student_subject VALUES("c",1);
-INSERT INTO student_subject VALUES("d",1);
-INSERT INTO student_subject VALUES("e",1);
-INSERT INTO student_subject VALUES("f",1);
-INSERT INTO student_subject VALUES("g",1);
+
+INSERT INTO student_subject VALUES("alice",1);
+INSERT INTO student_subject VALUES("bob",1);
+INSERT INTO student_subject VALUES("carol",1);
+INSERT INTO student_subject VALUES("dave",1);
+INSERT INTO student_subject VALUES("edward",1);
+INSERT INTO student_subject VALUES("freddrick",1);
+INSERT INTO student_subject VALUES("george",1);
 
 
 -- Assessments:
@@ -81,7 +81,7 @@ INSERT INTO assessment(a_number, subject_session_id, name) VALUES(3,1,"Lab 3");
 INSERT INTO assessment(a_number, subject_session_id, name) VALUES(4,1,"Lab 4");
 INSERT INTO assessment(a_number, subject_session_id, name) VALUES(5,1,"Assignment  1");
 INSERT INTO assessment(a_number, subject_session_id, name) VALUES(6,1,"Assignment  2");
-*/
+
 
 
 -- Assesment Cirteria:

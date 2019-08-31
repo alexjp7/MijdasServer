@@ -9,11 +9,11 @@
     //Validate correct data has been provided
     $studentList = isset($data->students)
                 ? $data->students
-                : badFormatRequest();
+                : badFormatRequest("VARIABLE: 'students' not set");
 
     $subjectId = isset($data->subject_id)
                 ? $data->subject_id
-                : badFormatRequest();
+                : badFormatRequest("VARIABLE: 'subject_id' not set");
 
     if($student->addToSubject($studentList, $subjectId))
     {
@@ -23,7 +23,7 @@
     else
     {
         //Student already exists as apart of the requested subject.
-        conflictFound();
+        conflictFound("student already is listed as apart of this subject");
     }
 
 ?>

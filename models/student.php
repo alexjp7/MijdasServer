@@ -3,7 +3,9 @@
     {
         private $connection;
 
-    
+        public $studentId;
+        public $result;
+        public $assessment;
 
         public function __construct($connection)
         {
@@ -38,6 +40,21 @@
             $stmt->execute();
             
             return $stmt;
+        }
+
+        public function submitMark()
+        {
+            $stmt = $this->connection->prepare("UPDATE student_results 
+                                                SET result = :result 
+                                                WHERE student_id = :s_id
+                                                AND a_id = :assessment");
+ 
+            $stmt->bindParam(':result', $this->result);
+            $stmt->bindValue(':s_id', $this->studentId, PDO::PARAM_STR);
+            $stmt->bindParam(':assessment', $this->assessment, PDO::PARAM_INT);
+            $stmt->execute();
+  
+            return $stmt->rowCount() === 1;
         }
 
     }

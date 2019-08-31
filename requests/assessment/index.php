@@ -4,12 +4,11 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
+    const AVAILABLE_METHODS =  ["VIEW_ASSESSMENT","CREATE_ASSESSMENT","DELETE_ASSESSMENT", "EDIT_ASSESSMENT","POPULATE_STUDENTS", "SUBMIT_MARK"];
     $data = json_decode(file_get_contents("php://input"));
-
     $request  = isset($data->request) 
                 ? $data->request
-                : badFormatRequest();
-
+                : badFormatRequest("No Data Posted");
 
 /***************************************************
  * Defines Accessible routes based on request value
@@ -36,8 +35,12 @@
             include("populateStudents.php");
             break;
 
+        case "SUBMIT_MARK":  
+            include("submitMark.php");
+            break;
+
         default:
-            invalidMethod();
+            invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
     }
 

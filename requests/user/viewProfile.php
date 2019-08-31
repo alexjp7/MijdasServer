@@ -15,7 +15,7 @@
 
     $username = isset($data->username)
     ? $data->username
-    : badFormatRequest();
+    : badFormatRequest("VARIABLE: 'username' not set");
 
     //Check if username has been passed as paramter 
     $stmt = $user->readOne($username);
@@ -45,7 +45,7 @@
     }
     else
     {
-        notFound();
+        notFound("user");
     }
  
 ?>      
