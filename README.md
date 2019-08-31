@@ -81,13 +81,15 @@ BASE URL - markit.mijdas.com/api/requests
 * [X] View Subject List
 * [X] View Assessment List 
 * [X] View Criteria List (within marking a student)
-* [ ] Student List
+* [x] Student List
+* [ ] Update Student Marks
 * [ ] Institution List (job board)
 
 <h2>Co-ordinator Functionalities</h2>
 
 * [ ] Subject Creation
 * [ ] Subject Editing
+* [X] Add Student to Subject
 * [ ] Subject Deleting
 * [ ] Subject Viewing
 * [ ] Active subject list(coordinator)
