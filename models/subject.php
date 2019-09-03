@@ -2,11 +2,14 @@
     class Subject
     {
         private $connection;
-        private $tableName = "subject";
-
+      
         public $code;
-        public $institutionName;
-
+        public $institution_id;
+        public $coordinator1;
+        public $coordinator2;
+        public $subject_id;
+        public $session_expiry;
+        
         public function __construct($connection)
         {
             $this->connection = $connection;
@@ -58,6 +61,31 @@
             return $stmt;
         }
 
+        public function create()
+        {
+            $query = "INSERT INTO SUBJECT(code, coordinator1, i_id)VALUES(:code, :coordinator1, :i_id)";
+            $stmt = $this->connection->prepare($query);
+            //Bind data to SQL variables
+            $stmt->bindValue(":code", $this->code, PDO::PARAM_STR);
+            $stmt->bindValue(":coordinator1", $this->coordinator1, PDO::PARAM_STR);
+            $stmt->bindParam(":i_id", $this->institution_id, PDO::PARAM_INT);
 
+            $this->connection->beginTransaction();
+            $isSuccessful = $stmt->execute();
+            $isSuccessful ? $this->connection->commit(): $this->connection->rollback();
+
+            return $isSuccessful;           
+        }
+
+        public function activateSubject()
+        {
+            $query = "INSERT INTO subject_session(subject_id, session_expiry, isActive) VALUES(:subject, DATE('{$this->session_expiry}'), :isActive)";
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindParam(":subject", $this->subject_id, PDO::PARAM_INT);
+            $stmt->bindValue(":isActive", true, PDO::PARAM_BOOL);
+
+           return $stmt->execute();
+
+        }   
     }
 ?>

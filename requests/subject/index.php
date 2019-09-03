@@ -34,12 +34,12 @@
             break;
         
         case "ADD_STUDENTS":  
-        include("addStudentToSubject.php"); //DONE!
+        include("addStudentToSubject.php");
             break;
 
         //Tutor Functions
-        case "POPULATE_SUBJECTS":  
-            include("populateSubjects.php"); //DONE!
+        case "POPULATE_SUBJECTS": 
+            include("populateSubjects.php"); 
             break;
 
         default:

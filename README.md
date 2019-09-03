@@ -90,14 +90,14 @@ BASE URL - markit.mijdas.com/api/requests
 
 <h3>Subject Use Cases </h3>
 
-* [ ] Subject Creation
+* [x] Subject Creation
 * [ ] Subject Editing
 * [ ] Subject Deleting
 * [ ] Add Coordiantor2
 
 <h3>Session Use Cases </h3>
 
-* [ ] Subject Activation (Within a session)
+* [x] Subject Activation (Within a session)
 * [ ] Active subject list
 * [ ] View Deactivated Subjects
 * [ ] Delete Deactivated Subjects
