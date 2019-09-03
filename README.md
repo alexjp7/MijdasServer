@@ -82,23 +82,47 @@ BASE URL - markit.mijdas.com/api/requests
 * [X] View Assessment List 
 * [X] View Criteria List (within marking a student)
 * [x] Student List
-* [ ] Update Student Marks
+* [x] Update Student Marks
 * [ ] Institution List (job board)
+
 
 <h2>Co-ordinator Functionalities</h2>
 
+<h3>Subject Use Cases </h3>
 * [ ] Subject Creation
 * [ ] Subject Editing
-* [X] Add Student to Subject
 * [ ] Subject Deleting
-* [ ] Subject Viewing
-* [ ] Active subject list(coordinator)
-* [ ] Deactivated Subjects
-* [ ] Linked tutors
-* [ ] Linked coordinators
-* [ ] Subject Tempalte
-* [ ] Assessment Tempalte
+* [ ] Add Coordiantor2
+
+<h3>Session Use Cases </h3>
+* [ ] Subject Activation (Within a session)
+* [ ] Active subject list
+* [ ] View Deactivated Subjects
+* [ ] Delete Deactivated Subjects
+* [ ] Renew Deactivated Subjects
+* [X] Add Student to Subject
+
+<h3>Assessment Use Cases </h3>
+* [ ] Assessment Creation
+* [ ] Assessment Editing
+* [ ] Assessment Deleting
+* [x] Enable Assessment 
+* [x] Disable Assessment
+* [ ] Import Assessment From Previos Semester
+
+<h3>Criteria Use Cases </h3>
+* [ ] Criteria Creation
+* [ ] Criteria Editing
+* [ ] Criteria Deleting
+
+<h3>Staff Management Use Cases </h3>
+* [ ] Add tutors
+* [ ] View tutors
+* [ ] Add coordinator
+* [ ] View coordinators
 * [ ] Job Advertisments (job-board)
+
+
 
 
 
