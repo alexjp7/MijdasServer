@@ -15,20 +15,20 @@
  * Defines Accessible routes based on request value
 *****************************************************/
     switch($request)
-    {
+    {   //All Users
         case "LOGIN":  
-            include("login.php"); //DONE!
+            include("login.php"); 
             break;
 
         case "SIGN_UP":  
-            include("signUp.php"); //DONE!
+            include("signUp.php"); 
             break;
 
         case "LOGOUT":  
             include("logout.php");
             break;
 
-        case "VIEW_PROFILE": //DONE!
+        case "VIEW_PROFILE": 
             include("viewProfile.php");
             break;
 
@@ -36,7 +36,7 @@
             include("editProfile.php");
             break; 
 
-        case "RECOVER_PASSWORD": // DISCUSS
+        case "RECOVER_PASSWORD": 
             include("recoverPassword.php");
             break;
 

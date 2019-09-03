@@ -13,38 +13,39 @@ INSERT INTO user VALUES("st111","1234","st111088@hotmail.com","coordinator");
 INSERT INTO user VALUES("hya555","1234","harry@gmail.com","tutor");
 INSERT INTO user VALUES("ddb556","1234","davidyenah@gmail.com","admin");
 INSERT INTO user VALUES("dha316","1234","dha132@hotmail.com","coordinator");
+INSERT INTO user VALUES("aa111","1234","aa111@hotmail.com","coordinator");
 
 
 
 
 -- Subjects:
-INSERT INTO subject(code, i_id) VALUES("CSIT315", 1);
-INSERT INTO subject(code, i_id) VALUES("CSIT316", 1);
-INSERT INTO subject(code, i_id) VALUES("CSIT321", 1);
-INSERT INTO subject(code, i_id) VALUES("CSIT121", 2);
-INSERT INTO subject(code, i_id) VALUES("PHYS111", 3);
-INSERT INTO subject(code, i_id) VALUES("MEDI101", 2);
+INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT315", 1,"st111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT219", 1,"st111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("CSCI203", 1,"dha316");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("MEDI995", 1,"dha316");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("LHA100", 1,"dha316");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("MATH221", 1,"aa111");
+
 
 
 -- Sessions:
-INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
-                     VALUES(true,"st111",DATE("2019-08-14"),"CSIT315",1);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 1);
 
-INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
-                      VALUES(true,"st111",DATE("2019-08-14"),"CSIT316",1);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 2);
 
-INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
-                      VALUES(true,"st111",DATE("2019-08-14"),"CSIT321",1);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 3);
 
-INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
-                      VALUES(true,"st111",DATE("2019-08-14"),"CSIT121",2);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 4);
 
-INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
-                      VALUES(true,"st111",DATE("2019-08-14"),"MEDI101",2);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 5);
 
-
-INSERT INTO subject_session(isActive, coordinator_id, session_expiry, subject_code, i_id)
-                      VALUES(true,"st111",DATE("2019-08-14"),"PHYS111",3);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 6);
 
 
 
@@ -56,6 +57,7 @@ INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 2);
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 3);
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 4);
 INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 5);
+INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 6);
 
 
 INSERT INTO user_institution VALUES("ap088",1);
@@ -75,12 +77,12 @@ INSERT INTO student_subject VALUES("george",1);
 
 
 -- Assessments:
-INSERT INTO assessment(a_number, subject_session_id, name) VALUES(1,1,"Lab 1");
-INSERT INTO assessment(a_number, subject_session_id, name) VALUES(2,1,"Lab 2");
-INSERT INTO assessment(a_number, subject_session_id, name) VALUES(3,1,"Lab 3");
-INSERT INTO assessment(a_number, subject_session_id, name) VALUES(4,1,"Lab 4");
-INSERT INTO assessment(a_number, subject_session_id, name) VALUES(5,1,"Assignment  1");
-INSERT INTO assessment(a_number, subject_session_id, name) VALUES(6,1,"Assignment  2");
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,1,"Lab 1", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,1,"Lab 2", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(5,1,"Assignment  1", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(6,1,"Assignment  2", false);
 
 
 
@@ -127,7 +129,7 @@ VALUES(2,4,2,2,"Meeting Minutes");
 
 
           
-/*Query for All subjects taught by a tutor, and what instituion they are taught in*/
+/*Query for All subjects taught by a tutor, and what instituion they are taught in
 SELECT staff.username, session.subject_code, uni.name 
 FROM (staff_allocation AS staff INNER JOIN subject_session AS session ON staff.subject_id = session.id)
                                 INNER JOIN institution AS uni ON session.i_id = uni.id
@@ -150,7 +152,7 @@ WHERE staff.username = "ap088";
 
 
 
-/*Query for all criteria for an assessment*/
+/*Query for all criteria for an assessment
 SELECT c_id, element, max_mark, display_text
 FROM criteria_item 
 WHERE a_id = 1;
@@ -177,14 +179,6 @@ WHERE staff.username = "ap088";
 
 
 
-
-
-
-
-
-
-
-/*
 what each tutor does  
 200 rows               8000                        1*20*4  64000                    
 (1 -> 2)            JOIN session(active subject) -> JOIN subject(cource code)   -> user_institution()
@@ -252,9 +246,6 @@ coordinator_id  = Steve
 session_expiry  same as above
 
  ^^ above 
-
-
-
 
 
 */

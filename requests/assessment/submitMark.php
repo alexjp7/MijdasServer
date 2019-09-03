@@ -13,7 +13,7 @@
     if($student->submitMark())
     {
         success();
-        echo json_encode(array("msg"=>"Student mark submitted succesfully"));
+        echo json_encode(array("MESSAGE"=>"Student mark submitted succesfully"));
     }
     else
     {

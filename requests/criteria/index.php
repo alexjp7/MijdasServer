@@ -16,18 +16,19 @@
 *****************************************************/
     switch($request)
     {
-        case "VIEW_CRITERIA":  //DONE!
+        //Coordinator Functions 
+        case "CREATE_CRITERIA":  
+        include("createCriteria.php");
+            break;
+            
+        case "EDIT_CRITERIA":  
+        include("editCriteria.php");
+            break;
+
+        //Tutor Functions 
+        case "VIEW_CRITERIA":  
             include("viewCriteria.php");
             break;
-
-        case "CREATE_CRITERIA":  
-            include("createCriteria.php");
-            break;
-
-        case "EDIT_CRITERIA":  
-            include("editCriteria.php");
-            break;
-
         default:
             invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;

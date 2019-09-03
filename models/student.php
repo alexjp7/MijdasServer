@@ -33,6 +33,7 @@
             return true;
         }
         
+        
         public function getByAssessment($a_id)
         {
             $query = "SELECT student_id, result FROM student_results WHERE a_id = {$a_id}";

@@ -20,16 +20,13 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
             extract($row);
-            
             $criteria = array(
                   "criteria" => $c_id,
                   "element" => $element,
                   "maxMark" => $max_mark,
                   "displayText" =>$display_text
             );
-
             array_push($records["records"],  $criteria);
-
         }
         success();
         echo json_encode(array($records));

@@ -4,7 +4,7 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
-    const AVAILABLE_METHODS =  ["VIEW_ASSESSMENT","CREATE_ASSESSMENT","DELETE_ASSESSMENT", "EDIT_ASSESSMENT","POPULATE_STUDENTS", "SUBMIT_MARK"];
+    const AVAILABLE_METHODS =  ["VIEW_ASSESSMENT","CREATE_ASSESSMENT","DELETE_ASSESSMENT", "EDIT_ASSESSMENT","POPULATE_STUDENTS", "SUBMIT_MARK", "TOGGLE_ACTIVATION"];
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
                 ? $data->request
@@ -15,27 +15,32 @@
 *****************************************************/
     switch($request)
     {
-        case "VIEW_ASSESSMENT":  //DONE!
-            include("viewAssessment.php");
-            break;
-
-        case "CREATE_ASSESSMENT":  
+        //Coordinator Functions 
+        case "CREATE_ASSESSMENT":
             include("createAssessment.php");
             break;
  
-        case "DELETE_ASSESSMENT":  
+        case "DELETE_ASSESSMENT":
             include("deleteAssessment.php");
             break;
         
-        case "EDIT_ASSESSMENT":  
+        case "EDIT_ASSESSMENT":
             include("editAssessment.php");
+            break;   
+        case "TOGGLE_ACTIVATION":
+            include("toggleActivation.php");
             break;
-
+       
+        //Tutor Functions 
+        case "VIEW_ASSESSMENT":
+            include("viewAssessment.php");
+            break;
+ 
         case "POPULATE_STUDENTS":  
             include("populateStudents.php");
             break;
 
-        case "SUBMIT_MARK":  
+        case "SUBMIT_MARK": 
             include("submitMark.php");
             break;
 

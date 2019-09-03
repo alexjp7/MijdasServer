@@ -14,7 +14,7 @@
     if($num > 0)
     {
         $records["records"] = array();
-
+        
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
             extract($row);
@@ -22,10 +22,8 @@
                 "student_id"=>$student_id,
                 "result" =>$result
             );
-
             array_push($records["records"],$student);
         }
-
         success();
         echo json_encode(array($records));
     }

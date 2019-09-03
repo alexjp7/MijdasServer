@@ -21,19 +21,17 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
             extract($row);
-
             $assessment = array(
                 "id"=>$id,
                 "a_number" => $a_number,
-                "name"=>$name
+                "name"=>$name,
+                "isActive"=>$isActive
             );    
-
             array_push($records["records"], $assessment);
 
         }
         success();
         echo json_encode($records);
-
     }
     else
     {

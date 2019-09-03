@@ -27,10 +27,9 @@
             extract($stmt->fetch(PDO::FETCH_ASSOC));
 
             if($username === $providedUsername && $password === $providedPassword)
-            {
-                //Login Credentials Corrrect
+            {   //Login Credentials Corrrect
                 success();
-                echo json_encode(array("message:"=>"Login Succes!"));
+                echo json_encode(array("MESSAGE:"=>"Login Succes!"));
             }
             else
             {   //Incorrect Login- user not found
@@ -38,18 +37,13 @@
             }
         }
         else
-        {
-            //Incorect Login - user not found
+        {   //Incorect Login - user not found
             notFound("user");
         }
     }
     else 
-    {
-        //Bad Request 400
+    {  //Bad Request 400
         badFormatRequest("username or password not set");
 
     }
-     
-
-
 ?>

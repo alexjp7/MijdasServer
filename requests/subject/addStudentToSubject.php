@@ -21,8 +21,7 @@
         echo json_encode(array("message"=>"students added successfully! "));
     }
     else
-    {
-        //Student already exists as apart of the requested subject.
+    { //Student already exists as apart of the requested subject.
         conflictFound("student already is listed as apart of this subject");
     }
 

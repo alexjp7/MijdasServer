@@ -20,10 +20,8 @@
         {
             //Extract uni ID
             extract($row);
-
             $institutions = array("institution" => $name);
             $subjectArr   = array();
-
             //Create query for each institution (in order to nest the data)
             $stmt2 = $subject->readSubject($id, $username);
             $num2 = $stmt2->rowCount();
@@ -33,15 +31,13 @@
                 while($row2  = $stmt2->fetch(PDO::FETCH_ASSOC))
                 {
                     extract($row2);
-                    $subj = array("subject_code"=>$subject_code, "id" =>$id);
+                    $subj = array("subject_code"=>$code, "id" =>$id);
                     //push each subject 
                     $subjectArr[] = $subj;
                 }
-            }
-            //push the list of subjects
+            }//push the list of subjects
             $record[] = array("institution" => $name, "subjects" =>$subjectArr);
         }
-
         success();
         echo json_encode($record);
     }
