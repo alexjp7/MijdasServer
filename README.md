@@ -89,12 +89,14 @@ BASE URL - markit.mijdas.com/api/requests
 <h2>Co-ordinator Functionalities</h2>
 
 <h3>Subject Use Cases </h3>
+
 * [ ] Subject Creation
 * [ ] Subject Editing
 * [ ] Subject Deleting
 * [ ] Add Coordiantor2
 
 <h3>Session Use Cases </h3>
+
 * [ ] Subject Activation (Within a session)
 * [ ] Active subject list
 * [ ] View Deactivated Subjects
@@ -103,6 +105,7 @@ BASE URL - markit.mijdas.com/api/requests
 * [X] Add Student to Subject
 
 <h3>Assessment Use Cases </h3>
+
 * [ ] Assessment Creation
 * [ ] Assessment Editing
 * [ ] Assessment Deleting
@@ -111,11 +114,13 @@ BASE URL - markit.mijdas.com/api/requests
 * [ ] Import Assessment From Previos Semester
 
 <h3>Criteria Use Cases </h3>
+
 * [ ] Criteria Creation
 * [ ] Criteria Editing
 * [ ] Criteria Deleting
 
 <h3>Staff Management Use Cases </h3>
+
 * [ ] Add tutors
 * [ ] View tutors
 * [ ] Add coordinator
