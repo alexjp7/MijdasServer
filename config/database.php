@@ -1,8 +1,6 @@
-
 <?php
     //local import for connection credentials
     include_once("connect.php");
-
     class Database
     {
         private $connnection;

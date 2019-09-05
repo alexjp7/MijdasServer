@@ -48,5 +48,4 @@
             invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
     }
-
 ?>

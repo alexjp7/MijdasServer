@@ -63,7 +63,7 @@
 
         public function create()
         {
-            $query = "INSERT INTO SUBJECT(code, coordinator1, i_id)VALUES(:code, :coordinator1, :i_id)";
+            $query = "INSERT INTO subject(code, coordinator1, i_id)VALUES(:code, :coordinator1, :i_id)";
             $stmt = $this->connection->prepare($query);
             //Bind data to SQL variables
             $stmt->bindValue(":code", $this->code, PDO::PARAM_STR);

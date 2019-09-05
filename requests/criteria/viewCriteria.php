@@ -35,13 +35,4 @@
     {
         notFound("criteria");
     }
-    
-
-
-
-
-    
-
-
-
 ?> 
