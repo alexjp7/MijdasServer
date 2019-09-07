@@ -21,10 +21,13 @@ INSERT INTO user VALUES("aa111","1234","aa111@hotmail.com","coordinator");
 -- Subjects:
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT315", 1,"st111");
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT219", 1,"st111");
-INSERT INTO subject(code, i_id, coordinator1) VALUES("CSCI203", 1,"dha316");
-INSERT INTO subject(code, i_id, coordinator1) VALUES("MEDI995", 1,"dha316");
-INSERT INTO subject(code, i_id, coordinator1) VALUES("LHA100", 1,"dha316");
-INSERT INTO subject(code, i_id, coordinator1) VALUES("MATH221", 1,"aa111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("COMM306", 1,"aa111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("CSCI203", 2,"dha316");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("LHA100", 2,"dha316");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("CSCI291", 2,"aa111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT115", 2,"aa111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("MATH221", 3,"aa111");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("MEDI995", 3,"dha316");
 
 
 
@@ -47,6 +50,14 @@ INSERT INTO subject_session(isActive,session_expiry, subject_id)
 INSERT INTO subject_session(isActive,session_expiry, subject_id)
                             VALUES(true, DATE("2019-08-14"), 6);
 
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 7);
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 8);
+
+INSERT INTO subject_session(isActive,session_expiry, subject_id)
+                            VALUES(true, DATE("2019-08-14"), 9);
+
 
 
 
@@ -58,6 +69,13 @@ INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 3);
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 4);
 INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 5);
 INSERT INTO staff_allocation (username, subject_id) VALUES("ap088", 6);
+
+INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 1);
+INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 2);
+INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 3);
+INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 4);
+INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 5);
+INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 9);
 
 
 INSERT INTO user_institution VALUES("ap088",1);
@@ -77,13 +95,31 @@ INSERT INTO student_subject VALUES("george",1);
 
 
 -- Assessments:
-INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,1,"Lab 1", false);
-INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,1,"Lab 2", false);
-INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", false);
-INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", false);
-INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(5,1,"Assignment  1", false);
-INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(6,1,"Assignment  2", false);
 
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,1,"Lab 1", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,1,"Lab 2", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(5,1,"Assignment  1", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(6,1,"Assignment  2", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,2,"Lab 1", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,2,"Lab 2", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,2,"Lab 3", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,2,"Lab 4", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(5,2,"Lab 5", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(6,2,"Lab 6", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(7,2,"Lab 7", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(8,2,"Lab 8", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(9,2,"Report Part A", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(10,2,"Report Part B", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,3,"Quiz 1", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,3,"Quiz 2", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,3,"Quiz 3", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,3,"Quiz 4", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,4,"Assignment 1", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,4,"Assignment 2", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,4,"Assignment 3", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,4,"Assignment 4", true);
 
 
 -- Assesment Cirteria:
@@ -100,18 +136,119 @@ INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
                       VALUES(1,4,2,15,"Efficency");
 
 
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(2,1,0,5,"Commenting");
+                      
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(2,2,1,10,"Output");
 
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
-VALUES(2,1,0,40,"UI");
+                      VALUES(2,3,0,2,"Style");
 
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
-VALUES(2,2,1,10,"Demonstration");
+                      VALUES(2,4,2,15,"Efficency");
+
 
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
-VALUES(2,3,0,45,"Report");
+                      VALUES(3,1,0,5,"Commenting");
+                      
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(3,2,1,10,"Output");
 
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
-VALUES(2,4,2,2,"Meeting Minutes");
+                      VALUES(3,3,0,2,"Style");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(3,4,2,15,"Efficency");
+
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(4,1,0,5,"Commenting");
+                      
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(4,2,1,10,"Output");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(4,3,0,2,"Style");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                      VALUES(4,4,2,15,"Efficency");
+
+                      
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(5,1,0,40,"UI");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(5,2,1,10,"Demonstration");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(5,3,0,45,"Report");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(5,4,2,2,"Meeting Minutes");
+
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(6,1,0,40,"UI");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(6,2,1,10,"Demonstration");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(6,3,0,45,"Report");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(6,4,2,2,"Meeting Minutes");
+
+
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(16,1,0,40,"Multiple Choice");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(16,2,1,10,"Short Answers");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(16,3,0,45,"Extended Response");
+
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(17,1,0,40,"Multiple Choice");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(17,2,1,10,"Short Answers");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(17,3,0,45,"Extended Response");
+
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(20,1,0,40,"Part 1");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(20,2,1,10,"Part 2");
+
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text)
+                          VALUES(20,3,0,45,"Part 3");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

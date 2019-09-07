@@ -2,6 +2,7 @@
     class Subject
     {
         private $connection;
+        private $errorMessage;
       
         public $code;
         public $institution_id;
@@ -13,6 +14,11 @@
         public function __construct($connection)
         {
             $this->connection = $connection;
+        }
+
+        public function getErrorMessage()
+        {
+            return $this->errorMessage;
         }
 
         //Doesn't nest things properly
@@ -86,6 +92,39 @@
 
            return $stmt->execute();
 
-        }   
+        }
+        
+        public function toggleTutor($tutors)
+        {
+            //Assume succesful transaction processing is completed,
+            //unless exception is  thrown
+            $isSuccessful = true;
+
+            foreach($tutor as &$tutor )
+            {
+                $query = "INSERT INTO staff_allocation(username, subject_id) VALUES(:tutor, :subject)";
+                $stmt = $this->connection->prepare($query);
+                $this->connection->beginTransaction();
+                $stmt->bindValue(":tutor",$tutor, PDO::PARAM_STR);
+                $stmt->bindParam(":subject", $this->subject_id, PDO::PARAM_INT);
+                
+                try
+                {
+                    if(!$stmt->execute())
+                    {
+                        $this->connection->rollback();
+                        $isSuccessful = false;
+                        break;
+                    }
+                }
+                catch(Exception $e)
+                {
+                    $this->errorMessage = "Linking of tutors failed";
+                }
+            } 
+            $this->connection->commit();
+
+            return $isSuccessful;
+        }
     }
 ?>

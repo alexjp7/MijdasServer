@@ -36,7 +36,10 @@
         case "ADD_STUDENTS":  
         include("addStudentToSubject.php");
             break;
-
+            
+        case "TOGGLE_TUTOR":
+            include("toggleTutor.php");
+            break;
         //Tutor Functions
         case "POPULATE_SUBJECTS": 
             include("populateSubjects.php"); 

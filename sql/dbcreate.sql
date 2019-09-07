@@ -52,7 +52,8 @@ CREATE TABLE subject(
     CONSTRAINT PK_SUBJECT PRIMARY KEY (id),
     CONSTRAINT FK2_INSTITUTION FOREIGN KEY (i_id) REFERENCES institution(id),
     CONSTRAINT FK2_USER FOREIGN KEY (coordinator1) REFERENCES user (username),
-    CONSTRAINT FK3_USER FOREIGN KEY (coordinator2) REFERENCES user (username)
+    CONSTRAINT FK3_USER FOREIGN KEY (coordinator2) REFERENCES user (username),
+    CONSTRAINT UNIQUE (code, i_id, coordinator1)
 );
 
 
