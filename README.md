@@ -121,7 +121,7 @@ BASE URL - markit.mijdas.com/api/requests
 
 <h3>Staff Management Use Cases </h3>
 
-* [ ] Add tutors
+* [x] Add tutors
 * [ ] View tutors
 * [ ] Add coordinator
 * [ ] View coordinators

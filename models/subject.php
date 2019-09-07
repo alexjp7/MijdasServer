@@ -94,37 +94,25 @@
 
         }
         
-        public function toggleTutor($tutors)
+        public function addTutor($tutors)
         {
-            //Assume succesful transaction processing is completed,
-            //unless exception is  thrown
-            $isSuccessful = true;
-
-            foreach($tutor as &$tutor )
+            $this->connection->beginTransaction();
+            foreach($tutors as $tutor )
             {
-                $query = "INSERT INTO staff_allocation(username, subject_id) VALUES(:tutor, :subject)";
+                $query = "INSERT INTO staff_allocation(username, subject_id) VALUES(:tutor, :subject)"; 
                 $stmt = $this->connection->prepare($query);
-                $this->connection->beginTransaction();
                 $stmt->bindValue(":tutor",$tutor, PDO::PARAM_STR);
                 $stmt->bindParam(":subject", $this->subject_id, PDO::PARAM_INT);
                 
-                try
-                {
-                    if(!$stmt->execute())
-                    {
-                        $this->connection->rollback();
-                        $isSuccessful = false;
-                        break;
-                    }
-                }
-                catch(Exception $e)
-                {
+                if(!$stmt->execute())
+                { 
                     $this->errorMessage = "Linking of tutors failed";
-                }
-            } 
+                    $this->connection->rollback();
+                    return false;
+                }       
+            } //Commit only succesful transactions
             $this->connection->commit();
-
-            return $isSuccessful;
+            return true;
         }
     }
 ?>

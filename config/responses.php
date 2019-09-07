@@ -40,7 +40,7 @@
         function conflictFound($optionalMsg ="")
         {
             http_response_code(409);
-            echo json_encode(array("MESSAGE" => "Duplicated/Conflicting data found: {$optionalMsg}.  Check for repeated execution of requests."));
+            echo json_encode(array("MESSAGE" => "Duplicated/Conflicting data found: {$optionalMsg}. Check for repeated execution of requests."));
             die;
         }
         
