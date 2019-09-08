@@ -21,14 +21,20 @@
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
             extract($row);
-            $assessment = array(
+            $stmt2 = $assessment->getMaxMark($id);
+            $row2 = $stmt2->rowCount();     
+            $maxMark = $row2 === 1 
+                        ? $maxMark = $stmt2->fetch()["max_mark"]
+                        : $maxMark = null;
+    
+            $assessmentTask = array(
                 "id"=>$id,
                 "a_number" => $a_number,
                 "name"=>$name,
-                "isActive"=>$isActive
-            );    
-            array_push($records["records"], $assessment);
-
+                "isActive"=>$isActive,
+                "max_mark"=> $maxMark
+            );
+            array_push($records["records"], $assessmentTask);  
         }
         success();
         echo json_encode($records);
@@ -37,6 +43,4 @@
     {
         notFound("assessment");
     }
-
-
 ?>

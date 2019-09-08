@@ -29,36 +29,58 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public function getMaxMark($assessment_id)
+        {
+            $query = "select sum(max_mark) as max_mark from criteria_item where a_id = {$assessment_id} group by (a_id)";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
     
         public function toggleActivation()
         {
-            $update = "UPDATE assessment 
-                       SET isActive = NOT isActive  
-                       WHERE id = {$this->assessment_id}";
-
-            $updateStmt = $this->connection->prepare($update);
-            $updateStmt->execute();
+            //Determine if assessment is valid via its criteria_item count.
+            $countQuery = "SELECT count_criteria({$this->assessment_id}) as count";
+            $countStmt = $this->connection->prepare($countQuery);
+            $countStmt->execute();
+            $hasCriteria = $countStmt->fetch()["count"];
+            
+            //Determine if an activation or deactivation is being requested
+            $isActiveSelect = "SELECT isActive, subject_id FROM assessment WHERE id = {$this->assessment_id}";
+            $isActiveStmt = $this->connection->prepare($isActiveSelect); 
+            $isActiveStmt->execute();
+            $result = $isActiveStmt->fetch();
+            //Assume succesful transaction unless flagged
+            //As unsuccesful by exception handlers.
             $isSuccesful = true;
 
-            if($updateStmt->rowCount() === 1)
+            if(isset($result) || $selectStmt->rowCount() !== 1)
             {
-                $select = "SELECT isActive, subject_id FROM assessment WHERE id = {$this->assessment_id}";
-                $selectStmt = $this->connection->prepare($select); 
-                $selectStmt->execute();
-                $result = $selectStmt->fetch();
-                
-                //If assessment is being enabled, add students,
-                //else assessment is being disabled so remove students
-                $this->subject_id = $result["subject_id"];
-                $result["isActive"] ? $this->addStudent($isSuccesful) : $this->removeStudent($isSuccesful);  
+                if($hasCriteria) 
+                {   //Assessment is being activated
+                    $this->subject_id = $result["subject_id"];
+                    $update = "UPDATE assessment  SET isActive = NOT isActive  WHERE id = {$this->assessment_id}";
+                    $updateStmt = $this->connection->prepare($update);
+                    $updateStmt->execute();
+                    !$result["isActive"] ? $this->addStudent($isSuccesful) : $this->removeStudent($isSuccesful);  
+                }
+                else
+                {   //Assessment is being de-activated
+                    $this->errorMessage = "Assessment requries criteria to be enabled!";
+                    $isSuccesful = false;
+                }
+            }
+            else
+            {
+                $this->errorMessage = "Assessment failed to be enabled/disabled";
+                $isSuccesful = false;
             }
             return $isSuccesful;
         }
 
-
         private function addStudent(&$isSuccesful)
-        {
-            //Grab all students enrolled in a subject
+        {   //Grab all students enrolled in a subject
             $studentQuery = "SELECT student_id 
                              FROM student_subject student 
                              INNER JOIN subject_session session 
@@ -67,7 +89,6 @@
 
             $stmt = $this->connection->prepare($studentQuery);
             $stmt->execute();
-            //Begin transaction...
             $this->connection->beginTransaction();
             try
             {   //Insert them into student results, default result as null.
