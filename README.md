@@ -106,7 +106,7 @@ BASE URL - markit.mijdas.com/api/requests
 
 <h3>Assessment Use Cases </h3>
 
-* [ ] Assessment Creation
+* [x] Assessment Creation
 * [ ] Assessment Editing
 * [ ] Assessment Deleting
 * [x] Enable Assessment 
@@ -115,7 +115,7 @@ BASE URL - markit.mijdas.com/api/requests
 
 <h3>Criteria Use Cases </h3>
 
-* [ ] Criteria Creation
+* [x] Criteria Creation
 * [ ] Criteria Editing
 * [ ] Criteria Deleting
 
