@@ -95,7 +95,8 @@ CREATE TABLE assessment(
 
     CONSTRAINT PK_ASSESSMENT PRIMARY KEY (id),
     CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_id) REFERENCES subject(id),
-    CONSTRAINT UNIQUE(a_number, subject_id)
+    CONSTRAINT UNIQUE(a_number, subject_id),
+    CONSTRAINT UNIQUE(subject_id, name)
 );
 
 /****************************************************************************************
@@ -111,7 +112,7 @@ CREATE TABLE criteria_item(
         a_id            INT NOT NULL,
         c_id            INT NOT NULL,
         element         INT NOT NULL,
-        max_mark        INT NOT NULL, 
+        max_mark        DECIMAL(5,2) NOT NULL, 
         display_text    VARCHAR(20) NOT NULL,
 
         CONSTRAINT PK_CRITERIA_ITEM PRIMARY KEY(a_id, c_id),  

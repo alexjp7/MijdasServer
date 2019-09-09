@@ -7,6 +7,7 @@
         public $a_number;
         public $subject_id;
         public $assessment_id;
+        public $task_name;
         
 
         public function __construct($connection)
@@ -23,11 +24,21 @@
         {   
             $query = "SELECT id, a_number, name, isActive 
                       FROM assessment 
-                      WHERE subject_id = {$subject_id} AND isActive = 1";
+                      WHERE subject_id = {$subject_id} AND isActive = 1 ORDER BY id ASC, a_number ASC";
 
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             return $stmt;
+        }
+
+        public function create()
+        {   //Makes use of stored procedure to validate data
+            $query = "call create_assessment(:subject_id,:name)";
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindParam(":subject_id",$this->subject_id, PDO::PARAM_INT);
+            $stmt->bindValue(":name",$this->task_name, PDO::PARAM_STR);
+
+            return $stmt->execute();
         }
 
         public function getMaxMark($assessment_id)
