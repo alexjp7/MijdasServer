@@ -1,7 +1,3 @@
-
-/****************************************************************************************
-
-*******************************************************************************************/
 CREATE TABLE institution(
     id      INT NOT NULL AUTO_INCREMENT,   
     name    VARCHAR(40) NOT NULL,
@@ -11,9 +7,6 @@ CREATE TABLE institution(
     CONSTRAINT PK_INSTITUTION PRIMARY KEY(id),
     CONSTRAINT UNIQUE (name, domain)
 );
-
-
-
 CREATE TABLE user( 
     username        VARCHAR(20)    NOT NULL,
     password        VARCHAR (50)   NOT NULL, 
@@ -22,7 +15,6 @@ CREATE TABLE user(
 
     CONSTRAINT PK_USER PRIMARY KEY (username)
 );
-
 /****************************************************************************************
 * Co-ordinators don't need a multivariate relationship with institution.
     -> however, tutors will need this in order to gain advertisments on the job board feature
@@ -36,7 +28,6 @@ CREATE TABLE user_institution(
     CONSTRAINT FK_USER FOREIGN KEY (username) REFERENCES user (username),
     CONSTRAINT FK_INSTITUTION FOREIGN KEY (i_id) REFERENCES institution(id)
 );
-
 /****************************************************************************************
 * Provides a table to allow for historical storage of subjects irrespective 
     if they are actively running
@@ -55,8 +46,6 @@ CREATE TABLE subject(
     CONSTRAINT FK3_USER FOREIGN KEY (coordinator2) REFERENCES user (username),
     CONSTRAINT UNIQUE (code, i_id, coordinator1)
 );
-
-
 /****************************************************************************************
 * Subject_session while 'highly redundant' does serve in filtering 
  out subjects that are not active in a session 
@@ -98,7 +87,6 @@ CREATE TABLE assessment(
     CONSTRAINT UNIQUE(a_number, subject_id),
     CONSTRAINT UNIQUE(subject_id, name)
 );
-
 /****************************************************************************************
 * Added FK to assessment, as a consequence of denormalising criteria/criteria_item
 * Removed criteria artificial identifier
@@ -112,14 +100,12 @@ CREATE TABLE criteria_item(
         a_id            INT NOT NULL,
         c_id            INT NOT NULL,
         element         INT NOT NULL,
-        max_mark        DECIMAL(5,2) NOT NULL, 
+        max_mark        DECIMAL(5,2), 
         display_text    VARCHAR(20) NOT NULL,
 
         CONSTRAINT PK_CRITERIA_ITEM PRIMARY KEY(a_id, c_id),  
         CONSTRAINT FK_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id)
 );
-
-
 /****************************************************************************************
 *Added student_subject to be the table which stores student ids upon initial import
 *******************************************************************************************/
@@ -130,25 +116,23 @@ CREATE TABLE student_subject(
     CONSTRAINT FK2_SUBJECT FOREIGN KEY (subject_session_id) REFERENCES subject_session(id)
 );
 
-
 /****************************************************************************************
-* Removed artificial primary ID
-    -> each result can be identified by student_id and assessment id(a_id)
+* student_results now store the collection of results per criteria.
+* the total mark of a students assessment attempt can be aggregated by result.
 *******************************************************************************************/
 CREATE TABLE student_results(
     a_id            INT NOT NULL,
+    c_id            INT NOT NULL,
     student_id      VARCHAR(20) NOT NULL, 
     result          DECIMAL(5,2),
-    access_token    VARCHAR(50), /*COME BACK TO THIS LATER!*/
+    comment         VARCHAR(100),
 
-    CONSTRAINT PK_STUDENT PRIMARY KEY (a_id, student_id),
-    CONSTRAINT FK1_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id),
+    CONSTRAINT PK_STUDENT PRIMARY KEY (a_id, c_id, student_id),
+    CONSTRAINT FK_CRITERIA FOREIGN KEY (a_id,c_id) REFERENCES criteria_item(a_id, c_id),
     CONSTRAINT FK_STUDENT_SUBJECT FOREIGN KEY (student_id) REFERENCES student_subject(student_id)
 );
 
-
-
-/****************************************************************************************
+/***************************************************************************************
 * Removed artificial primary ID
     -> each staff allocation  can be identified by username and subject
 * Remamed subject_session_id to subject_id.
@@ -163,7 +147,3 @@ CREATE TABLE staff_allocation(
     CONSTRAINT FK4_USER FOREIGN KEY (username) REFERENCES user(username),
     CONSTRAINT FK_SUBJECT_SESSION FOREIGN KEY (subject_id) REFERENCES subject_session(id)
 );
-
-
-
-

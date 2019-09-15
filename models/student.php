@@ -4,7 +4,7 @@
         private $connection;
 
         public $studentId;
-        public $result;
+        public $results;
         public $assessment;
 
         public function __construct($connection)
@@ -36,7 +36,7 @@
         
         public function getByAssessment($a_id)
         {
-            $query = "SELECT student_id, result FROM student_results WHERE a_id = {$a_id}";
+            $query = "SELECT student_id, SUM(result) AS result FROM student_results WHERE student_results.a_id = {$a_id}";
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             
@@ -45,17 +45,29 @@
 
         public function submitMark()
         {
-            $stmt = $this->connection->prepare("UPDATE student_results 
-                                                SET result = :result 
-                                                WHERE student_id = :s_id
-                                                AND a_id = :assessment");
- 
-            $stmt->bindParam(':result', $this->result);
-            $stmt->bindValue(':s_id', $this->studentId, PDO::PARAM_STR);
-            $stmt->bindParam(':assessment', $this->assessment, PDO::PARAM_INT);
-            $stmt->execute();
-  
-            return $stmt->rowCount() === 1;
+            
+            $this->connection->beginTransaction();
+            foreach($this->results as $result)
+            {
+               
+                $query = "UPDATE student_results set result =:mark, comment =:comment WHERE a_id =  :a_id AND c_id = :c_id AND student_id = :student";
+                $stmt = $this->connection->prepare($query);
+                $stmt->bindParam(":a_id", $this->assessment);
+                $stmt->bindParam(":c_id", $result->c_id);
+                $stmt->bindParam(":c_id", $result->c_id);
+                $stmt->bindParam(":mark", $result->result);
+                $stmt->bindValue(":student", $this->studentId,PDO::PARAM_STR);
+                $stmt->bindValue(":comment", $result->comment,PDO::PARAM_STR);
+        
+                if(!$stmt->execute())
+                {
+                    $this->connection->rollback();
+                    return false;
+                }
+            }
+
+            $this->connection->commit();
+            return true;
         }
 
     }

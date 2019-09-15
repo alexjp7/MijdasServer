@@ -8,11 +8,11 @@
 
     $assessment->subject_id = isset($data->subject_id)
             ? $data->subject_id
-            :isBadFormatRequest("VARIABLE 'subject_id' is not set");
+            :badFormatRequest("VARIABLE 'subject_id' is not set");
 
     $assessment->task_name = isset($data->task_name)
             ? $data->task_name
-            :isBadFormatRequest("VARIABLE 'dispaly_text' is not set");    
+            :badFormatRequest("VARIABLE 'dispaly_text' is not set");    
 
     if($assessment->create())
     {

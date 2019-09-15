@@ -9,7 +9,6 @@
         public $assessment_id;
         public $task_name;
         
-
         public function __construct($connection)
         {
             $this->connection = $connection;

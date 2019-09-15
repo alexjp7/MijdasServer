@@ -111,7 +111,6 @@ BASE URL - markit.mijdas.com/api/requests
 * [ ] Assessment Deleting
 * [x] Enable Assessment 
 * [x] Disable Assessment
-* [ ] Import Assessment From Previos Semester
 
 <h3>Criteria Use Cases </h3>
 

@@ -17,10 +17,16 @@ CREATE PROCEDURE create_assessment(IN subj_id INT, ass_name VARCHAR(20))
 BEGIN
 	DECLARE currentANumber INT;
 	DECLARE newANumber INT(11);
+	DECLARE aId INT(11);
     
     SELECT count(*) INTO currentANumber FROM assessment WHERE assessment.subject_id = subj_id;
     SET newANumber = currentANumber + 1;
 	INSERT INTO assessment(subject_id, a_number, name, isActive) VALUES(subj_id, newANumber, ass_name, false);
+
+	SELECT id INTO aId FROM assessment WHERE  subject_id = subj_id AND a_number = newANumber;
+	/*Createa a default criteria for comment box*/
+	INSERT INTO criteria_item(a_id, c_id, element, max_mark, display_text) VALUES(aId,1,4, NULL, "Comment");
+
 
 END//
 
@@ -36,4 +42,6 @@ BEGIN
 	INSERT INTO criteria_item(a_id, c_id, element, max_mark, display_text) VALUES(a_id, newCriteria, element, max_mark, display_text);
 
 END//
+
+
 DELIMITER ;
