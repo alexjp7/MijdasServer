@@ -25,4 +25,4 @@ CREATE INDEX student_results_assessment ON student_results (a_id);
 CREATE INDEX staff_allocation_pk ON staff_allocation (username, subject_id);
 CREATE INDEX staff_allocation_subject ON staff_allocation (subject_id);
 CREATE INDEX staff_allocation_usernamer ON staff_allocation (username);
-
+    

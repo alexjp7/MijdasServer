@@ -138,7 +138,44 @@ INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"alice"
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"alice",1);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"alice",13);
 
- insert into subject (code, i_id, coordinator1) VALUES("NEW111",1,"st111");
+
+
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"alice", null,"Good job overall, need to work on code stye, indentation consistency");
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"alice",5);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"alice",7);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"alice",1);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"alice",13);
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"bob", null,"Bad job overall, need to work on code stye, indentation consistency");
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"bob",2);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"bob",1);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"bob",0);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"bob",9)
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"carol", null,null);
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"carol",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"carol",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"carol",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"carol",null);
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"dave", null,null);
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"dave",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"dave",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"dave",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"dave",null);
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"edward", null,null);
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"edward",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"edward",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"edward",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"edward",null);
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"freddrick", null,null);
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"freddrick",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"freddrick",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"freddrick",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"freddrick",null);
+INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"george", null,null);
+INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"george",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"george",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"george",null);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"george",null);
+
 
 
 /*
