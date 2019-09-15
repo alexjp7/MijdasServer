@@ -23,10 +23,6 @@
             $stmt->execute();
             
             return $stmt;
-        }
-
-        
-
+        }    
     }
-
 ?>

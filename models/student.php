@@ -69,6 +69,5 @@
             $this->connection->commit();
             return true;
         }
-
     }
 ?>

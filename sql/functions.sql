@@ -44,4 +44,46 @@ BEGIN
 END//
 
 
+
+
+DROP PROCEDURE IF EXISTS add_students//
+CREATE PROCEDURE add_students(IN subject_id INT, assessment_id INT)
+BEGIN
+
+	DECLARE done TINYINT;
+	DECLARE countCriteria INT;
+	DECLARE currentStudent VARCHAR(20);
+	DECLARE currentCriteria INT;
+	/*Cursor for fetching all students in a subject*/
+	DECLARE studentCursor CURSOR FOR SELECT student_id FROM student_subject student  INNER JOIN subject_session session ON student.subject_session_id =  session.subject_id WHERE session.subject_id = subject_id;
+
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+
+	/*Determine how many criteria_items exists within the activated subject*/
+	SELECT COUNT(*) INTO countCriteria FROM criteria_item WHERE a_id = assessment_id;
+
+ 	OPEN studentCursor;
+		/*Loop over every student*/
+		getStudents: LOOP
+			SET currentCriteria = 1;
+			FETCH studentCursor INTO currentStudent;
+				IF done = 1 THEN
+					LEAVE getStudents;
+				END IF;
+			/*Insert a null result for each criteria item of the subject */
+			criteriaInsert: LOOP
+				IF currentCriteria = countCriteria + 1 THEN
+					leave criteriaInsert;
+				END IF;
+				/*Perform insert on  each student for each criteria */
+				INSERT INTO student_results (a_id, c_id, student_id, result, comment) 
+				VALUES(assessment_id,currentCriteria, currentStudent, NULL, NULL);
+				SET currentCriteria = currentCriteria + 1;
+
+			END LOOP;
+
+		END LOOP;	
+
+	CLOSE studentCursor;
+END //
 DELIMITER ;

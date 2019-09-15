@@ -10,8 +10,8 @@
                     ? $data->assessment_id
                     : badFormatRequest("VARIABLE: 'assessment_id' not set");
 
-    $criteria->element = isset($data->assessment_id)
-                    ? $data->assessment_id
+    $criteria->element = isset($data->element)
+                    ? $data->element
                     : badFormatRequest("VARIABLE: 'element' not set");
 
     $criteria->max_mark = isset($data->max_mark)

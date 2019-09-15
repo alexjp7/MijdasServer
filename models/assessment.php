@@ -91,36 +91,11 @@
 
         private function addStudent(&$isSuccesful)
         {   //Grab all students enrolled in a subject
-            $studentQuery = "SELECT student_id 
-                             FROM student_subject student 
-                             INNER JOIN subject_session session 
-                             ON student.subject_session_id =  session.subject_id  
-                             WHERE session.subject_id = {$this->subject_id}";
-
-            $stmt = $this->connection->prepare($studentQuery);
-            $stmt->execute();
-            $this->connection->beginTransaction();
-            try
-            {   //Insert them into student results, default result as null.
-                while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                {
-                    extract($row);
-                    $query = "INSERT INTO student_results (student_id, a_id, result) VALUES('{$student_id}', {$this->assessment_id}, null )";
-                    $stmt2 = $this->connection->prepare($query);
-                    
-                    if(!$stmt2->execute())
-                    {
-                        $isSuccesful = false;
-                        $this->connection->rollBack();
-                        break;
-                    }
-                }
-                $this->connection->commit();
-            }
-            catch(Exception $e)
-            {
-                $this->errorMessage = "Student already exists";
-            }
+            $query = "CALL add_students(:subject, :assessment)";
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindParam(":subject",$this->subject_id, PDO::PARAM_INT);
+            $stmt->bindParam(":assessment", $this->assessment_id, PDO::PARAM_INT);
+            $isSuccesful = $stmt->execute();    
         }
    
         private function removeStudent(&$isSuccesful)

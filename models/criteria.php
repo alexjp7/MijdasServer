@@ -1,5 +1,4 @@
 <?php
-
     class Criteria
     {
         private $connection;
@@ -40,6 +39,4 @@
         }
         
     }
-
-
 ?>
