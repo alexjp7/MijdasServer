@@ -20,6 +20,7 @@
         {
             return $this->errorMessage;
         }
+        
 
         //Doesn't nest things properly
         public function readAllUserSubjects($username)
@@ -52,6 +53,15 @@
             return $stmt;
         }
 
+        public function readCoordinatorInstitution($username)
+        {
+            $query = "SELECT DISTINCT uni.id, uni.name FROM subject JOIN institution as uni ON subject.i_id = uni.id WHERE subject.coordinator1 = '{$username}'";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+
+            return $stmt;
+        }
+
         public function readSubject($institution_id, $username)
         {
             $query = "SELECT session.id, subject.code
@@ -64,6 +74,14 @@
 
             $stmt->execute();     
             
+            return $stmt;
+        }
+
+        public function readCoordinatorSubject($institution_id, $username)
+        {
+            $query = "SELECT subject.id,subject.code FROM subject WHERE coordinator1='{$username}' AND  i_id ={$institution_id}";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();     
             return $stmt;
         }
 
