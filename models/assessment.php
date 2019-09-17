@@ -19,11 +19,13 @@
             return $this->errorMessage;
         }
 
-        public function getBySubject($subject_id)
+        public function getBySubject($subject_id, $is_coordinator)
         {   
             $query = "SELECT id, a_number, name, isActive 
                       FROM assessment 
-                      WHERE subject_id = {$subject_id} AND isActive = 1 ORDER BY id ASC, a_number ASC";
+                      WHERE subject_id = {$subject_id} ";
+            $query .=  $is_coordinator ? " " : "AND isActive = 1 ";
+            $query .= "ORDER BY id ASC, a_number ASC";
 
             $stmt = $this->connection->prepare($query);
             $stmt->execute();

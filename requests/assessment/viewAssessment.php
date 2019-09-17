@@ -6,11 +6,14 @@
     $subject_id = isset($data->subject_id)
                     ? $data->subject_id
                     : badFormatRequest("VARIABLE: 'subject_id' not set"); 
+    $is_coordinator = isset($data->is_coordinator)
+                    ? $data->is_coordinator
+                    : badFormatRequest("VARIABLE: 'is_coordinator not set");                   
 
     $database = new Database();
     $connection = $database->getConnection();
     $assessment = new Assessment($connection);
-    $stmt = $assessment->getBySubject($subject_id);
+    $stmt = $assessment->getBySubject($subject_id, $is_coordinator);
 
     $row = $stmt->rowCount();
 
