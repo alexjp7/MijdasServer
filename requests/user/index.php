@@ -4,7 +4,7 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
-    const AVAILABLE_METHODS =  ["LOGIN", "SIGN_UP", "LOGOUT","VIEW_PROFILE", "EDIT_PROFILE","RECOVER_PASSWORD" ];
+    const AVAILABLE_METHODS =  ["SEARCH_USER_PARTIAL","LOGIN", "SIGN_UP", "LOGOUT","VIEW_PROFILE", "EDIT_PROFILE","RECOVER_PASSWORD" ];
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
                 ? $data->request
@@ -39,7 +39,9 @@
         case "RECOVER_PASSWORD": 
             include("recoverPassword.php");
             break;
-
+        case "SEARCH_USER_PARTIAL":
+            include("searchUserPartial.php");
+            break;
         default:
             invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;

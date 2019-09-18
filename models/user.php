@@ -31,7 +31,6 @@
             $query = "SELECT * FROM ".$this->tableName. " WHERE username = '{$id}'";
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
-            
             return $stmt;
         }
         //INSERT to database
@@ -39,7 +38,6 @@
         {
             $query = "INSERT INTO ".$this->tableName." VALUES ('{$this->username}','{$this->password}','{$this->email}','{$this->permissionType}')";
             $stmt = $this->connection->prepare($query);
-
             return $stmt->execute();
         }
         /*******************************
@@ -49,6 +47,14 @@
         public function login()
         {
             
+        }
+
+        public function matchUser($queryString)
+        {
+            $query ="SELECT username FROM user WHERE username LIKE '{$queryString}%'";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
         }
 
     }
