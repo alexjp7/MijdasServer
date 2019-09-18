@@ -3,8 +3,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     
     include_once("../../config/database.php");
-    include_once(DOCUMENT_ROOT."/config/database.php");
-    include_once(DOCUMENT_ROOT."/models/user.php");
+    include_once("../../models/user.php");
 
     $database = new Database();
     $conn = $database->getConnection();
