@@ -4,7 +4,7 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
-    const AVAILABLE_METHODS =  ["VIEW_SUBJECTS","ADD_TUTOR","POPULATE_SUBJECTS", "EDIT_SUBJECT", "DELETE_SUBJECT","CREATE_SUBJECT", "ADD_STUDENTS" ];
+    const AVAILABLE_METHODS =  ["REMOVE_TUTOR", "VIEW_SUBJECTS","ADD_TUTOR","POPULATE_SUBJECTS", "EDIT_SUBJECT", "DELETE_SUBJECT","CREATE_SUBJECT", "ADD_STUDENTS" ];
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
                 ? $data->request
@@ -39,6 +39,10 @@
             
         case "ADD_TUTOR":
             include("addTutor.php");
+            break;
+
+        case "REMOVE_TUTOR":
+            include("removeTutor.php");
             break;
 
         case "VIEW_TUTORS":

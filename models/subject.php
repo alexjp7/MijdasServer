@@ -140,5 +140,12 @@
 
             return $stmt;
         }
+
+        public function removeTutorFromSubject($subject_id, $tutor_username)
+        {
+            $query = "DELETE FROM staff_allocation WHERE subject_id = {$subject_id} AND username = '$tutor_username'";
+            $stmt = $this->connection->prepare($query);
+            return $stmt->execute();
+        }
     }
 ?>
