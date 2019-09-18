@@ -40,6 +40,11 @@
         case "ADD_TUTOR":
             include("addTutor.php");
             break;
+
+        case "VIEW_TUTORS":
+            include("getTutors.php");
+            break;
+            
         case "VIEW_OWNED_SUBJECTS":
             include("viewSubjects.php");
             break;

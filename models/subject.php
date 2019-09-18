@@ -132,5 +132,13 @@
             $this->connection->commit();
             return true;
         }
+        public function getTutorsBySubject($subject_id)
+        {
+            $query = "SELECT username FROM staff_allocation WHERE subject_id = {$subject_id}";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+
+            return $stmt;
+        }
     }
 ?>
