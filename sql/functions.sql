@@ -4,10 +4,8 @@ DROP FUNCTION IF EXISTS count_criteria //
 CREATE FUNCTION count_criteria(assessment_id INT)
 RETURNS tinyint(1)
 BEGIN
-	DECLARE result tinyint(1);
-    
+	DECLARE result tinyint(1); 
     SELECT IF(count(*)>0,1,0) INTO result FROM criteria_item WHERE criteria_item.a_id = assessment_id;
-    
     return result;
 END;//
 
@@ -26,8 +24,6 @@ BEGIN
 	SELECT id INTO aId FROM assessment WHERE  subject_id = subj_id AND a_number = newANumber;
 	/*Createa a default criteria for comment box*/
 	INSERT INTO criteria_item(a_id, c_id, element, max_mark, display_text) VALUES(aId,1,4, NULL, "Comment");
-
-
 END//
 
 
@@ -42,8 +38,6 @@ BEGIN
 	INSERT INTO criteria_item(a_id, c_id, element, max_mark, display_text) VALUES(a_id, newCriteria, element, max_mark, display_text);
 
 END//
-
-
 
 
 DROP PROCEDURE IF EXISTS add_students//

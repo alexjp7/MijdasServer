@@ -5,6 +5,7 @@
     $username = isset($data->username) 
                 ? $data->username
                 : badFormatRequest("VARIABLE: 'username' not set");
+
     
     $database = new Database();
     $connection = $database->getConnection();

@@ -9,7 +9,6 @@
     $connection = $database->getConnection();
     $subject = new subject($connection);
 
-    $data = json_decode(file_get_contents("php://input"));
     $subject_id = isset($data->subject_id) ? $data->subject_id : badFormatRequest("VARIABLE 'subject_id' not set");
     $tutor_username = isset($data->tutor_username) ? $data->tutor_username : badFormatRequest("VARIABLE 'tutor_username' not set");
     

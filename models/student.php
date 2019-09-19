@@ -43,6 +43,15 @@
             return $stmt;
         }
 
+        public function getBySubject($subject_id)
+        {
+            $query = "SELECT student_id  FROM student_subject WHERE subject_session_id = {$subject_id}";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            
+            return $stmt;
+        }
+
         public function submitMark()
         {
             
