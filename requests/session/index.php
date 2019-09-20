@@ -31,7 +31,9 @@
         case "TOGGLE_ACTIVATION":
             include("toggleActivation.php");
             break;
-       
+        case "VIEW_STUDENTS_BY_SUBJECT":
+            include("viewStudents.php");
+            break;
         //Tutor Functions 
         case "VIEW_ASSESSMENT":
             include("viewAssessment.php");

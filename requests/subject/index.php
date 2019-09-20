@@ -53,9 +53,7 @@
             include("viewSubjects.php");
             break;
 
-        case "VIEW_STUDENTS_BY_SUBJECT":
-            include("viewStudents.php");
-            break;
+
         //Tutor Functions
         case "POPULATE_SUBJECTS": 
             include("populateSubjects.php"); 

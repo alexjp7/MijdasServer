@@ -43,9 +43,15 @@
             return $stmt;
         }
 
-        public function getBySubject($subject_id)
-        {
-            $query = "SELECT student_id  FROM student_subject WHERE subject_session_id = {$subject_id}";
+        public function getBySubject($subject_id, $hasAssessment)
+        {   //If a subject as assessments, query for results talble otherwise return students enrolled in subject.
+            $query = $hasAssessment ? "SELECT subject.student_id, assessment.name, results.a_id, sum(result) as result FROM (student_subject AS subject 
+                                            INNER JOIN student_results AS results ON subject.student_id = results.student_id)
+                                            INNER JOIN assessment ON results.a_id = assessment.id
+                                        WHERE subject.subject_session_id = 1
+                                        GROUP BY results.student_id, results.a_id ORDER BY subject.student_id, results.a_id ASC;"
+                                    : "SELECT student_id FROM student_subject WHERE subject_session_id = {$subject_id}";
+
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             

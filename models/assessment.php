@@ -19,6 +19,14 @@
             return $this->errorMessage;
         }
 
+        public function countActive($subject_id)
+        {
+            $query = "SELECT DISTINCT COUNT(a_number) as count from assessment where subject_id = {$subject_id} AND isActive = true GROUP BY (subject_id)";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
+
         public function getBySubject($subject_id, $is_coordinator)
         {   
             $query = "SELECT id, a_number, name, isActive 
@@ -44,7 +52,7 @@
 
         public function getMaxMark($assessment_id)
         {
-            $query = "select sum(max_mark) as max_mark from criteria_item where a_id = {$assessment_id} group by (a_id)";
+            $query = "SELECT sum(max_mark) as max_mark from criteria_item where a_id = {$assessment_id} group by (a_id)";
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             return $stmt;
