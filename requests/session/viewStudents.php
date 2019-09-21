@@ -83,7 +83,7 @@
             {
                 extract($row);
                 $records[] = [
-                   "student_id " => $student_id,
+                   "student_id" => $student_id,
                    "tasks" => null
                 ];
         
