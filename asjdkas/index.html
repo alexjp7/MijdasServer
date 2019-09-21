@@ -1,0 +1,19 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+<script>
+
+async function test ()
+{
+
+    let x =await axios.post("https:/markit.mijdas.com/api/subject/",{
+        "request":"POPULATE_SUBJECTS",
+        "username":"st111"});  
+    return x;
+}
+
+test().then(data =>{
+    console.log(data.data); 
+}).catch(error => console.log(error));
+
+
+</script>
+
