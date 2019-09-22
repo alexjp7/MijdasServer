@@ -7,10 +7,14 @@ CREATE TABLE institution(
     CONSTRAINT PK_INSTITUTION PRIMARY KEY(id),
     CONSTRAINT UNIQUE (name, domain)
 );
+
 CREATE TABLE user( 
-    username        VARCHAR(20)    NOT NULL,
-    password        VARCHAR (50)   NOT NULL, 
-    email           VARCHAR (30)   NOT NULL,
+    username       VARCHAR(20)   NOT NULL,
+    password       VARCHAR(50)   NOT NULL, 
+    first_name     VARCHAR(20)   NOT NULL, 
+    last_name      VARCHAR(20)   NOT NULL, 
+    about          VARCHAR(100), 
+    email          VARCHAR(30)   NOT NULL,
     permission_type ENUM ('coordinator','tutor','admin'),
 
     CONSTRAINT PK_USER PRIMARY KEY (username)
@@ -19,7 +23,6 @@ CREATE TABLE user(
 * Co-ordinators don't need a multivariate relationship with institution.
     -> however, tutors will need this in order to gain advertisments on the job board feature
 *******************************************************************************************/
-
 CREATE TABLE user_institution(
     username    VARCHAR(20) NOT NULL, 
     i_id        INT NOT NULL,

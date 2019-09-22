@@ -32,6 +32,9 @@
             $user=array(
                 "username" => $username,
                 "password" => $password,
+                "first_name"=>$first_name,
+                "last_name"=>$last_name,
+                "about"=>$about,
                 "email" => $email,
                 "permission_type" => $permission_type
             );
