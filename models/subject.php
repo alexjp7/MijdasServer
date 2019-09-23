@@ -77,6 +77,20 @@
             return $stmt;
         }
 
+        public function readID($code, $institution_id, $coordinator1)
+        {
+            $query = "SELECT subject.id
+                        FROM subject
+                        WHERE subject.code = {$code}
+                        AND subject.i_id = {$institution_id}
+                        AND subject.coordinator1 = '{$coordinator1}'";
+            
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+
+            return $stmt;
+        }
+
         public function readCoordinatorSubject($institution_id, $username)
         {
             $query = "SELECT subject.id,subject.code FROM subject WHERE coordinator1='{$username}' AND  i_id ={$institution_id}";
