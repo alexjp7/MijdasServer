@@ -81,7 +81,7 @@
         {
             $query = "SELECT subject.id
                         FROM subject
-                        WHERE subject.code = {$code}
+                        WHERE subject.code = '{$code}'
                         AND subject.i_id = {$institution_id}
                         AND subject.coordinator1 = '{$coordinator1}'";
             
