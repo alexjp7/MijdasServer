@@ -120,7 +120,7 @@
             $query = "INSERT INTO subject_session(subject_id, session_expiry, isActive) VALUES(:subject, DATE('{$this->session_expiry}'), :isActive)";
             $stmt = $this->connection->prepare($query);
             $stmt->bindParam(":subject", $this->subject_id, PDO::PARAM_INT);
-            $stmt->bindValue(":isActive", false, PDO::PARAM_BOOL);
+            $stmt->bindValue(":isActive", true, PDO::PARAM_BOOL);
 
            return $stmt->execute();
 
