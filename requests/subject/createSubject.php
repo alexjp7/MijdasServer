@@ -1,5 +1,5 @@
 <?php
-        include_once("../../config/database.php");;
+        include_once("../../config/database.php");
         include_once("../../models/subject.php");
 
 
@@ -26,15 +26,15 @@
             if($stmt->rowCount() > 0)
             {
                 $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                $i_id = $row[i_id];
+                $subject_id = $row['id'];
             } else
             {
-                $i_id = '';
+                $subject_id = '';
             }
             success();
             echo json_encode(array(
                 "MESSAGE" => "Subject Created Successfully!",
-                "i_id" => $i_id
+                "subject_id" => $subject_id
             ));
         }
         else
