@@ -7,14 +7,14 @@ INSERT INTO institution(tag, name, domain) VALUES("NWSBS", "North Western Suburb
 INSERT INTO institution(tag, name, domain) VALUES("STC", "Sydney Technology College", "southTech.edu.au");
 -- Users:
 INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("ap088","Alex","Perceval","1234","ap088@uowmail.edu.au","tutor");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("st111","Steve","Trooper","1234","st111088@hotmail.com","coordinator");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type, about) VALUES("st111","Steve","Trooper","1234","st111088@hotmail.com","coordinator","Head of Students/Coordinator for CSCI592/892");
 INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("hya555","Hannah","Yaragalo","1234","harry@gmail.com","tutor");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("ddb556","1234","David","Beeton","davidyenah@gmail.com","admin");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("dha316","1234","David","Harrington","dha132@hotmail.com","coordinator");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("ss116","1234","Sally","Sanders","sas@hotmail.com","tutor");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("Sammy62","1234","Samuel","Burton","sam@hotmail.com","tutor");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("Sanddos","1234","Sandy","Orella","Sandy@gmail.com","tutor");
-INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("aa111","1234","A-ron","Augestine","aa@gmail.com","coordinator");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("ddb556","Beeton","David","1234","davidyenah@gmail.com","admin");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("dha316","Harrington","David"," 1234","dha132@hotmail.com","coordinator");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("ss116","Sanders","Sally","1234","sas@hotmail.com","tutor");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("Sammy62","Burton","Samuel","1234","sam@hotmail.com","tutor");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("Sanddos","Orella","Sandy","1234","Sandy@gmail.com","tutor");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("aa111","Augestine","A-ron","1234","aa@gmail.com","coordinator");
 -- Subjects:
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT315", 1,"st111");
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT219", 1,"st111");
