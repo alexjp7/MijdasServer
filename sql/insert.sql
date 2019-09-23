@@ -14,6 +14,7 @@ INSERT INTO user (username, first_name, last_name, password, email, permission_t
 INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("ss116","1234","Sally","Sanders","sas@hotmail.com","tutor");
 INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("Sammy62","1234","Samuel","Burton","sam@hotmail.com","tutor");
 INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("Sanddos","1234","Sandy","Orella","Sandy@gmail.com","tutor");
+INSERT INTO user (username, first_name, last_name, password, email, permission_type) VALUES("aa111","1234","A-ron","Augestine","aa@gmail.com","coordinator");
 -- Subjects:
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT315", 1,"st111");
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT219", 1,"st111");
