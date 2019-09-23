@@ -20,10 +20,10 @@
         {
             //Extract uni ID
             extract($row);
-            $institutions = array("institution" => $name);
-            $subjectArr   = array();
+  
+            $subjectArr = array();
             //Create query for each institution (in order to nest the data)
-            $stmt2 = $subject->readCoordinatorSubject($id, $username);
+            $stmt2 = $subject->readCoordinatorSubject($i_id, $username);
             $num2 = $stmt2->rowCount();
 
             if($num2 > 0)
@@ -36,7 +36,7 @@
                     $subjectArr[] = $subj;
                 }
             }//push the list of subjects
-            $record[] = array("institution" => $name, "subjects" =>$subjectArr);
+            $record[] = array("institution" => $name, "i_id"=>$i_id, "subjects" =>$subjectArr);
         }
         success();
         echo json_encode($record);
