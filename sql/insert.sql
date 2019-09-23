@@ -58,7 +58,6 @@ INSERT INTO student_subject VALUES("dave",1);
 INSERT INTO student_subject VALUES("edward",1);
 INSERT INTO student_subject VALUES("freddrick",1);
 INSERT INTO student_subject VALUES("george",1);
-
 INSERT INTO student_subject VALUES("james",2);
 INSERT INTO student_subject VALUES("emily",2);
 INSERT INTO student_subject VALUES("billy",2);
@@ -66,6 +65,8 @@ INSERT INTO student_subject VALUES("billy",2);
 -- Assessments:
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,1,"Lab 1", true);
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,1,"Lab 2", true);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", false);
 /*
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", true);
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", true);
@@ -98,10 +99,10 @@ INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(1
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(1,5,2,15,"Efficency");
 
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,1,4,null,"Comment");
-INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,2,0,5,"Commenting");
-INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,3,1,10,"Output");
-INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,4,0,2,"Style");
-INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,5,2,15,"Efficency");
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,2,1,5,"Meeting Minutes");
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,3,1,5,"Stakeholder Analysis");
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,4,1,10,"Project Scope");
+INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(2,5,1,20,"Client Interaction");
 /*
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(3,1,4,null,"Comment");
 INSERT INTO criteria_item (a_id, c_id, element, max_mark, display_text) VALUES(3,2,0,5,"Commenting");                     
