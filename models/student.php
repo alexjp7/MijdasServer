@@ -11,35 +11,59 @@
         {
             $this->connection = $connection;
         }
-
+        //need to check coordinator view subjects
         public function addToSubject($studentList, $subjectId)
         {
+            /* First, add student to the subject table */
             $this->connection->beginTransaction();
             $stmt = $this->connection->prepare("INSERT INTO student_subject (student_id, subject_session_id) VALUES(:student, :subject)");
-    
             foreach($studentList as $student)
             {
                 $stmt->bindParam(":student", $student);
                 $stmt->bindParam(":subject", $subjectId);
 
                 if(!$stmt->execute())
-                {   //If an insertion does not execute correctly, rollnback transaction.    
+                {   //If an insertion does not execute correctly, rollback transaction.    
                     $this->connection->rollBack();
                     return  false;
                 }
             }   
             //Succesful batch insert completed, new data is commited in database
             $this->connection->commit();
+
+            // Determine if student is being added 'late' to a subject, via the count the active assessments
+            $assessmentCount = "SELECT count(*) as count    
+                                FROM assessment 
+                                INNER JOIN subject ON assessment.subject_id = subject.id 
+                                INNER JOIN subject_session AS session ON session.subject_id = subject.id
+                                WHERE session.id = {$subjectId} AND assessment.isActive = true";
+
+            $stmt = $this->connection->prepare($assessmentCount);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            //insert student into existing student_results table with a null result
+            if($row["count"] > 0)
+            {
+                $stmt = $this->connection->prepare("CALL add_late_student(:subject_id,:student_id)");
+                foreach($studentList as $student)
+                {
+                    $stmt->bindValue(":student_id",$student,PDO::PARAM_STR);
+                    $stmt->bindParam(":subject_id",$subjectId,PDO::PARAM_INT);
+
+                    if(!$stmt->execute())
+                        return false;
+                }
+            }
             return true;
         }
-        
+    
         
         public function getByAssessment($a_id)
         {
             $query = "SELECT student_id, SUM(result) AS result FROM student_results WHERE student_results.a_id = {$a_id} GROUP BY student_id";
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
-            
             return $stmt;
         }
 
@@ -54,13 +78,11 @@
 
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
-            
             return $stmt;
         }
 
         public function submitMark()
         {
-            
             $this->connection->beginTransaction();
             foreach($this->results as $result)
             {
@@ -80,7 +102,6 @@
                     return false;
                 }
             }
-
             $this->connection->commit();
             return true;
         }
