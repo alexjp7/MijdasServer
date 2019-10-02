@@ -110,7 +110,6 @@ BEGIN
 				END LOOP;
 		END LOOP;
 	close assessmentCursor;
-	COMMIT;
 END //
 
 DELIMITER ;

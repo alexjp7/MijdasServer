@@ -4,7 +4,7 @@
     //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
-    const AVAILABLE_METHODS =  ["ADD_ANNOUNCEMENT","COMFIRM_ANNOUNCEMENT","VIEW_ANNOUNCEMENT"];
+    const AVAILABLE_METHODS =  ["VIEW_STUDENT_MARKS","ADD_ANNOUNCEMENT","COMFIRM_ANNOUNCEMENT","VIEW_ANNOUNCEMENT"];
     $data = json_decode(file_get_contents("php://input"));
 
     $request  = isset($data->request) 
@@ -16,35 +16,9 @@
 *****************************************************/
     switch($request)
     {
-        //Coordinator Functions 
-        case "CREATE_ASSESSMENT":
-            include("createAssessment.php");
-            break;
- 
-        case "DELETE_ASSESSMENT":
-            include("deleteAssessment.php");
-            break;
-        
-        case "EDIT_ASSESSMENT":
-            include("editAssessment.php");
-            break;   
-        case "TOGGLE_ACTIVATION":
-            include("toggleActivation.php");
-            break;
-        case "VIEW_STUDENTS_BY_SUBJECT":
-            include("viewStudents.php");
-            break;
-        //Tutor Functions 
-        case "VIEW_ASSESSMENT":
-            include("viewAssessment.php");
-            break;
- 
-        case "POPULATE_STUDENTS":  
-            include("populateStudents.php");
-            break;
-
-        case "SUBMIT_MARK": 
-            include("submitMark.php");
+        // Student Functions
+        case "VIEW_STUDENT_MARKS":
+            include("viewStudentMarks.php");
             break;
 
         default:

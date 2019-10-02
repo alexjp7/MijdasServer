@@ -105,5 +105,23 @@
             $this->connection->commit();
             return true;
         }
+        
+        public function getSubjectsEnrolled()
+        {
+            $query = "SELECT subject.code, subject.id as subject_id
+                        FROM student_subject AS student 
+                        INNER JOIN subject_session AS session ON student.subject_session_id = session.id
+                        INNER JOIN subject ON session.subject_id = subject.id WHERE student.student_id = '{$this->studentId}'";
+            $stmt = $this->connection->prepare($query);
+            $stmt ->execute();
+            return $stmt;
+        }
+        public function getActiveTasks($assessment_id)
+        {
+            $query = "SELECT id as assessment_id, name FROM assessment WHERE subject_id = {$assessment_id} AND isActive = true";
+            $stmt = $this->connection->prepare($query);
+            $stmt ->execute();
+            return $stmt;
+        }
     }
 ?>
