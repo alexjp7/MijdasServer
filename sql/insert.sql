@@ -25,6 +25,7 @@ INSERT INTO subject(code, i_id, coordinator1) VALUES("CSCI291", 2,"aa111");
 INSERT INTO subject(code, i_id, coordinator1) VALUES("CSIT115", 2,"aa111");
 INSERT INTO subject(code, i_id, coordinator1) VALUES("MATH221", 3,"aa111");
 INSERT INTO subject(code, i_id, coordinator1) VALUES("MEDI995", 3,"dha316");
+INSERT INTO subject(code, i_id, coordinator1) VALUES("ISIT207", 1,"st111");
 -- Sessions:
 INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(true, DATE("2019-08-14"), 1);
 INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(true, DATE("2019-08-14"), 2);
@@ -35,6 +36,7 @@ INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(true, DA
 INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(true, DATE("2019-08-14"), 7);
 INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(true, DATE("2019-08-14"), 8);
 INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(true, DATE("2019-08-14"), 9);
+INSERT INTO subject_session(isActive,session_expiry, subject_id) VALUES(false, DATE("2019-08-14"), 10);
 -- Staff:
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 1);
 INSERT INTO staff_allocation (username, subject_id) VALUES("st111", 2);
@@ -51,6 +53,7 @@ INSERT INTO staff_allocation (username, subject_id) VALUES("aa111", 9);
 INSERT INTO user_institution VALUES("ap088",1);
 INSERT INTO user_institution VALUES("ap088",2);
 -- Student:
+
 INSERT INTO student_subject VALUES("alice",1);
 INSERT INTO student_subject VALUES("bob",1);
 INSERT INTO student_subject VALUES("carol",1);
@@ -58,15 +61,16 @@ INSERT INTO student_subject VALUES("dave",1);
 INSERT INTO student_subject VALUES("edward",1);
 INSERT INTO student_subject VALUES("freddrick",1);
 INSERT INTO student_subject VALUES("george",1);
-INSERT INTO student_subject VALUES("james",2);
-INSERT INTO student_subject VALUES("emily",2);
-INSERT INTO student_subject VALUES("billy",2);
+
 
 -- Assessments:
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,1,"Lab 1", true);
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(2,1,"Lab 2", true);
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", false);
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", false);
+
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,10,"Project Progress Review", false);
+INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(1,10,"Final Presentation", false);
 /*
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(3,1,"Lab 3", true);
 INSERT INTO assessment(a_number, subject_id, name, isActive) VALUES(4,1,"Lab 4", true);
