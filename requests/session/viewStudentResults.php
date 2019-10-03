@@ -25,7 +25,7 @@
 
     if($num > 0)
     {   
-        $results = array();
+        $results["student_results"] = array();
         /* Fetch individual students results for queried assessment */
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
@@ -35,16 +35,15 @@
                 "result" => $result,
                 "max_mark" => $max_mark
             ];
-
-            array_push($results,$studentResult);
+            array_push($results["student_results"],$studentResult);
         }
         /*Fetch aggreations of assessment results*/
         $stmt2 = $student->getAllResultsPerAssessment();
-        $cohort = array();      
+        $cohort["cohort_results"] = array();      
         while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC))
         {
             extract($row2);
-            array_push($cohort, $result);
+            array_push($cohort["cohort_results"], $result);
         } 
         $records = [$results,$cohort];
         success();
