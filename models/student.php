@@ -131,16 +131,30 @@
             return $stmt;
         }
 
-        public function getResults($student_id) 
+        public function getResultPerAssessment() 
         {
-     /*        "SELECT  criteria.display_text, student.result, criteria.max_mark FROM student_results student 
-             JOIN  criteria_item criteria ON student.c_id = criteria.c_id 
-             WHERE student.student_id = 'alice' AND  student.a_id = 1  "
+            $query = "SELECT DISTINCT criteria.display_text, student.result, criteria.max_mark
+                      FROM student_results student 
+                      INNER JOIN  criteria_item criteria ON student.c_id = criteria.c_id 
+                      WHERE student.student_id = :student AND  criteria.a_id = :assessment ";
 
-             "SELECT  * FROM student_results student 
-             JOIN  criteria_item criteria ON student.c_id = criteria.c_id 
-             WHERE student.student_id = 'alice' AND  student.a_id = 1 " */
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindValue(":student",$this->studentId, PDO::PARAM_STR);
+            $stmt->bindParam(":assessment",$this->assessment, PDO::PARAM_INT);
+            $stmt->execute();
 
+            return $stmt;
+        }
+
+        function getAllResultsPerAssessment()
+        {
+            $query = "SELECT SUM(result) as result FROM student_results WHERE a_id = :assessment GROUP BY (student_id)";
+            $stmt = $this->connection->prepare($query);
+            $stmt->bindParam(":assessment",$this->assessment, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt;
+            
         }
     }
 ?>

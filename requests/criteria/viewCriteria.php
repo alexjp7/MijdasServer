@@ -5,7 +5,7 @@
      Group:   Mijdas(kw01)
      Purpose: Provides the existing criteria to 
                 the client.
-    ************************************************/
+    ***********************************************
     include_once("../../config/database.php");
     include_once("../../models/criteria.php");
 

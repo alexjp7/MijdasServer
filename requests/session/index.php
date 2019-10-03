@@ -23,6 +23,10 @@
         case "VIEW_STUDENT_ENROLMENT":
             include("viewStudentEnrolment.php");
             break;
+
+        case "VIEW_RESULTS":
+            include("viewStudentResults.php");
+            break;
         default:
             invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
