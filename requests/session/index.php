@@ -24,6 +24,10 @@
             include("viewStudentEnrolment.php");
             break;
 
+        case "VIEW_STUDENTS_BY_SUBJECT":
+            include("viewStudents.php");
+            break;
+
         case "VIEW_RESULTS":
             include("viewStudentResults.php");
             break;
