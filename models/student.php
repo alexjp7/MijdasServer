@@ -135,7 +135,7 @@
         {
             $query = "SELECT DISTINCT criteria.display_text, student.result, criteria.max_mark
                       FROM student_results student 
-                      INNER JOIN  criteria_item criteria ON student.c_id = criteria.c_id 
+                      INNER JOIN  criteria_item criteria ON student.a_id = criteria.a_id AND student.c_id = criteria.c_id
                       WHERE student.student_id = :student AND  criteria.a_id = :assessment ";
 
             $stmt = $this->connection->prepare($query);
@@ -154,7 +154,6 @@
             $stmt->execute();
 
             return $stmt;
-            
         }
     }
 ?>
