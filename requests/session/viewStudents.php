@@ -1,7 +1,11 @@
 <?php
-    header("Access-Control-Allow-Methods: POST");
-    header("Content-Type: application/json; charset=UTF-8");
-
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Populates student table with results
+                per assessment if assessments exist
+    ************************************************/
     include_once("../../config/database.php");
     include_once("../../models/student.php");
     include_once("../../models/assessment.php");
@@ -64,9 +68,7 @@
             echo json_encode($records);
         }
         else
-        {
             notFound("students");
-        }
 
     }//If no ACTIVE assessments are available for the subject, just return list of students
     else
@@ -86,13 +88,10 @@
                    "student_id" => $student_id,
                    "tasks" => null
                 ];
-        
             }
             echo json_encode($records);
         }
         else
-        {
             notFound("students");
-        }
     }
 ?>

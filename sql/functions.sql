@@ -1,3 +1,10 @@
+/************************************************
+Author:  Alex Perceval 
+Date:    3/10/2018
+Group:   Mijdas(kw01)
+Purpose: provides common procedures and logic
+		 for database operations.
+************************************************/
 DELIMITER //
 DROP FUNCTION IF EXISTS count_criteria //
 /* Returns if an assessment has criteria */

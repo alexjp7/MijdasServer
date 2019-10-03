@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose:  To authenticate user credentials when
+                logging into a client side app.
+    ************************************************/
     header("Access-Control-Allow-Methods: POST");
     header("Content-Type: application/json; charset=UTF-8");
     

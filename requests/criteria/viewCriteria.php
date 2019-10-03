@@ -1,6 +1,13 @@
 <?php
-    include_once($_SERVER["DOCUMENT_ROOT"]."/api/config/database.php");
-    include_once($_SERVER["DOCUMENT_ROOT"]."/api/models/criteria.php");
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Provides the existing criteria to 
+                the client.
+    ************************************************/
+    include_once("../../api/config/database.php");
+    include_once("../../api/models/criteria.php");
 
     $database = new Database();
     $connection = $database->getConnection();
@@ -32,7 +39,5 @@
         echo json_encode(array($records));
     }
     else
-    {
         notFound("criteria");
-    }
 ?> 

@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Provides coordinator with list of tutors 
+                for a subject
+    ************************************************/
     header("Access-Control-Allow-Methods: POST");
     header("Content-Type: application/json; charset=UTF-8");
 

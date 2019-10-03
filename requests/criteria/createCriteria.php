@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Allows coordinators to create criteria
+                for their assessments
+    ************************************************/
     include_once("../../config/database.php");
     include_once("../../models/criteria.php");
 
@@ -28,8 +35,6 @@
         echo json_encode(array("MESSAGE"=>"criteria created succesfully!"));
     }
     else
-    {
         conflictFound("task_name is not unique within subject");
-    }
 
 ?>

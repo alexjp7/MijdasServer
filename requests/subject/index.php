@@ -1,19 +1,25 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Routing script for Subject requests
+    ************************************************/
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
-    //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
 
-    const AVAILABLE_METHODS =  ["VIEW_STUDENTS"."VIEW_OWNED_SUBJECTS","VIEW_TUTORS","REMOVE_TUTOR", "VIEW_SUBJECTS","ADD_TUTOR","POPULATE_SUBJECTS", "EDIT_SUBJECT", "DELETE_SUBJECT","CREATE_SUBJECT", "ADD_STUDENTS" ];
+    //Helper arguments to aid in client-side debugging
+    const AVAILABLE_METHODS =  ["VIEW_STUDENTS"."VIEW_OWNED_SUBJECTS","VIEW_TUTORS","REMOVE_TUTOR", 
+                                "VIEW_SUBJECTS","ADD_TUTOR","POPULATE_SUBJECTS", "EDIT_SUBJECT",
+                                "DELETE_SUBJECT","CREATE_SUBJECT", "ADD_STUDENTS" ];
+
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
                 ? $data->request
                 : badFormatRequest("No Data Posted");
 
-
-/***************************************************
- * Defines Accessible routes based on request value
-*****************************************************/
+    //Defines Accessible routes based on request value
     switch($request)
     {
         //Coordinator Functions
@@ -52,8 +58,6 @@
         case "VIEW_OWNED_SUBJECTS":
             include("viewSubjects.php");
             break;
-
-
         //Tutor Functions
         case "POPULATE_SUBJECTS": 
             include("populateSubjects.php"); 
@@ -63,5 +67,4 @@
             invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
     }
-
 ?>

@@ -1,9 +1,14 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Routing script for Criteria requests
+    ************************************************/
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
-    //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
-
+    //Helper arguments to aid in client-side debugging
     const AVAILABLE_METHODS =  ["VIEW_CRITERIA", "CREATE_CRITERIA","EDIT_CRITERIA"];
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
@@ -11,9 +16,7 @@
                 : badFormatRequest("No Data Posted");
 
 
-/***************************************************
- * Defines Accessible routes based on request value
-*****************************************************/
+    //Defines Accessible routes based on request value
     switch($request)
     {
         //Coordinator Functions 

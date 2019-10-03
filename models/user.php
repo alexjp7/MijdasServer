@@ -1,4 +1,10 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Student model and defined object logic
+    ************************************************/
     class User
     {
         //Database Credentials
@@ -14,7 +20,6 @@
         {
             $this->connection = $connection;
         }
-        //SELECT * from database
         public function read()
         {
             $query = "SELECT * FROM ".$this->tableName;
@@ -23,8 +28,6 @@
             
             return $stmt;
         }
-
-        //SELECT from database
         public function readOne($id)
         {
           
@@ -33,7 +36,6 @@
             $stmt->execute();
             return $stmt;
         }
-        //INSERT to database
         public function create()    
         {
             $query = "INSERT INTO ".$this->tableName." VALUES ('{$this->username}','{$this->password}','{$this->email}','{$this->permissionType}')";
@@ -48,7 +50,7 @@
         {
             
         }
-
+        /* Used in match partial request for staff look-up */
         public function matchUser($queryString)
         {
             $query ="SELECT username FROM user WHERE username LIKE '{$queryString}%'";

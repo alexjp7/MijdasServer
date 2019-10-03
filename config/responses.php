@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Provides  general purpose responses
+                    to HTTP requests
+    ************************************************/
         //200
         function success()
         {
@@ -52,8 +59,6 @@
             die;
         }
 
- 
-
         function arrayToString($arr)
         {
             $result="";
@@ -68,7 +73,6 @@
 
                 $result .= $arr[$i].", ";
             }
-
             return $result;
         } 
 ?>

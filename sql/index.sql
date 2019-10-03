@@ -1,7 +1,11 @@
-
-/******************************************************
-* Choose a FORCEd index based on item in where clause
-******************************************************/
+/************************************************
+Author:  Alex Perceval 
+Date:    3/10/2018
+Group:   Mijdas(kw01)
+Purpose: Provides index options for queries
+NOTE: An index is choosed based on WHERE 
+      clause of a statement
+************************************************/
  -- User:
 CREATE INDEX user_username ON user (username);
 -- Subject Session:

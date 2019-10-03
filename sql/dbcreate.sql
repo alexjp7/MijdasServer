@@ -1,3 +1,10 @@
+/************************************************
+Author:  Alex Perceval 
+Date:    3/10/2018
+Group:   Mijdas(kw01)
+Purpose: Intializes database tables and 
+         their memebrs 
+************************************************/
 CREATE TABLE institution(
     id      INT NOT NULL AUTO_INCREMENT,   
     name    VARCHAR(40) NOT NULL,

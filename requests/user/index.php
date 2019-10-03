@@ -1,19 +1,23 @@
 <?php
-     header("Content-Type: application/json; charset=UTF-8");
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Routing script for user requests
+    ************************************************/
+    header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
-    //PROVIDES HTTP RESPONSE BEHAVIOURS 
     include_once("../../config/responses.php"); 
+    //Helper arguments to aid in client-side debugging
+    const AVAILABLE_METHODS =  ["SEARCH_USER_PARTIAL","LOGIN", "SIGN_UP", 
+                                "LOGOUT","VIEW_PROFILE", "EDIT_PROFILE",
+                                "RECOVER_PASSWORD" ];
 
-    const AVAILABLE_METHODS =  ["SEARCH_USER_PARTIAL","LOGIN", "SIGN_UP", "LOGOUT","VIEW_PROFILE", "EDIT_PROFILE","RECOVER_PASSWORD" ];
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
                 ? $data->request
                 : badFormatRequest("No Data Posted");
-
-
-/***************************************************
- * Defines Accessible routes based on request value
-*****************************************************/
+    //Defines Accessible routes based on request value
     switch($request)
     {   //All Users
         case "LOGIN":  
@@ -46,5 +50,4 @@
             invalidMethod(arrayToString(AVAILABLE_METHODS));
             break;
     }
-
 ?>

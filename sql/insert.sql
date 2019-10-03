@@ -1,5 +1,9 @@
-
-/*TEST DATA*/
+/************************************************
+Author:  Alex Perceval 
+Date:    3/10/2018
+Group:   Mijdas(kw01)
+Purpose: provides the system with test data
+************************************************/
 -- Institutions:
 INSERT INTO institution(tag, name, domain) VALUES("UOW", "University Of Wollongong", "uow.edu.au");
 INSERT INTO institution(tag, name, domain) VALUES("UNWG", "University of North Wannoona", "unwg.learning.edu.au");

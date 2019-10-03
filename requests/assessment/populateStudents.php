@@ -1,13 +1,22 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose:  Provides a list of students that 
+                 are apart of an assessment
+    ************************************************/
     include_once("../../config/database.php");
     include_once("../../models/student.php");
 
     $database = new Database();
     $connection = $database->getConnection();
-
     $student = new Student($connection);
-    $a_id = isset($data->assessment_id) ? $data->assessment_id : badFormatRequest("VARIABLE: 'assessment_id' not set");
-    
+
+    $a_id = isset($data->assessment_id) 
+            ? $data->assessment_id 
+            : badFormatRequest("VARIABLE: 'assessment_id' not set");
+
     $stmt = $student->getByAssessment($a_id);
     $num = $stmt->rowCount();
 
@@ -28,8 +37,5 @@
         echo json_encode(array($records));
     }
     else
-    {
         notFound("Student List");
-    }
-  
 ?>

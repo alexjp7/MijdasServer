@@ -1,3 +1,9 @@
+/************************************************
+Author:  Alex Perceval 
+Date:    3/10/2018
+Group:   Mijdas(kw01)
+Purpose: removes all database tables 
+************************************************/
 DROP TABLE  staff_allocation;
 DROP TABLE  student_results;
 DROP TABLE  criteria_item;

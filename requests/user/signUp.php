@@ -1,9 +1,10 @@
 <?php
-/*******************************
- * 201 = OK
- * 503 = Internal Server Error
- * 404 = Bad Request Made
- ********************************/
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: To create user accounts
+    ************************************************/
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST"); 
     include_once("../../config/database.php");

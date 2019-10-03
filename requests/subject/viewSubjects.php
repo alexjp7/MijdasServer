@@ -1,4 +1,10 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Returns subjects of a coordinator
+    ************************************************/
     include_once("../../config/database.php");;
     include_once("../../models/subject.php");
 
@@ -20,7 +26,6 @@
         {
             //Extract uni ID
             extract($row);
-  
             $subjectArr = array();
             //Create query for each institution (in order to nest the data)
             $stmt2 = $subject->readCoordinatorSubject($i_id, $username);
@@ -42,7 +47,5 @@
         echo json_encode($record);
     }
     else
-    {
         notFound("subjects");
-    }
 ?>

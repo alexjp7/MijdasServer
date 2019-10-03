@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: To allow for user search on 
+                StaffLinker.vue (see Mijdas-wb src)
+    ************************************************/
     header("Access-Control-Allow-Methods: POST");
     header("Content-Type: application/json; charset=UTF-8");
 
@@ -25,7 +32,5 @@
         echo json_encode($records);
     }
     else
-    {
         notFound("users");
-    }
 ?>

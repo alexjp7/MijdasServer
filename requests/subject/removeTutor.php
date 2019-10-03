@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Removes an existing staff member 
+              from a subject
+    ************************************************/
     header("Access-Control-Allow-Methods: POST");
     header("Content-Type: application/json; charset=UTF-8");
 
@@ -11,15 +18,5 @@
 
     $subject_id = isset($data->subject_id) ? $data->subject_id : badFormatRequest("VARIABLE 'subject_id' not set");
     $tutor_username = isset($data->tutor_username) ? $data->tutor_username : badFormatRequest("VARIABLE 'tutor_username' not set");
-    
-
-    if($subject->removeTutorFromSubject($subject_id, $tutor_username))
-    {
-        success();
-    }
-    else
-    {
-        notFound("tutor");
-    }
-
+    $subject->removeTutorFromSubject($subject_id, $tutor_username) ? success(): notFound("tutor");
 ?>

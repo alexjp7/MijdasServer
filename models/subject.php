@@ -1,4 +1,10 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Subject model and defined object logic
+    ************************************************/
     class Subject
     {
         private $connection;
@@ -21,8 +27,6 @@
             return $this->errorMessage;
         }
         
-
-        //Doesn't nest things properly
         public function readAllUserSubjects($username)
         {
             $query =" SELECT staff.username, session.id,session.subject_code, uni.name
@@ -37,7 +41,6 @@
 
             return $stmt;
         }
-
         public function readInstitution($username)
         {
             $query = "SELECT distinct(uni.id), uni.name 
@@ -52,7 +55,6 @@
 
             return $stmt;
         }
-
         public function readCoordinatorInstitution($username)
         {
             $query = "SELECT DISTINCT uni.id as i_id, uni.name FROM subject JOIN institution as uni ON subject.i_id = uni.id WHERE subject.coordinator1 = '{$username}'";
@@ -61,7 +63,6 @@
 
             return $stmt;
         }
-
         public function readSubject($institution_id, $username)
         {
             $query = "SELECT session.id, subject.code
@@ -76,7 +77,6 @@
             
             return $stmt;
         }
-
         public function readID($code, $institution_id, $coordinator1)
         {
             $query = "SELECT subject.id
@@ -90,7 +90,6 @@
 
             return $stmt;
         }
-
         public function readCoordinatorSubject($institution_id, $username)
         {
             $query = "SELECT subject.id,subject.code FROM subject WHERE coordinator1='{$username}' AND  i_id ={$institution_id}";
@@ -98,12 +97,11 @@
             $stmt->execute();     
             return $stmt;
         }
-
         public function create()
         {
             $query = "INSERT INTO subject(code, coordinator1, i_id)VALUES(:code, :coordinator1, :i_id)";
             $stmt = $this->connection->prepare($query);
-            //Bind data to SQL variables
+   
             $stmt->bindValue(":code", $this->code, PDO::PARAM_STR);
             $stmt->bindValue(":coordinator1", $this->coordinator1, PDO::PARAM_STR);
             $stmt->bindParam(":i_id", $this->institution_id, PDO::PARAM_INT);
@@ -123,7 +121,6 @@
             $stmt->bindValue(":isActive", true, PDO::PARAM_BOOL);
 
            return $stmt->execute();
-
         }
         
         public function addTutor($tutors)

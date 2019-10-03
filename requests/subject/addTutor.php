@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Allows coordinators to link 
+               tutors to their subjects
+    ************************************************/
     include_once("../../config/database.php");;
     include_once("../../models/subject.php");
 
@@ -20,7 +27,5 @@
         echo json_encode(array("MESSAGE"=>"Tutors added succesfully!"));
     }
     else
-    {
         conflictFound($subject->getErrorMessage());
-    }
 ?>

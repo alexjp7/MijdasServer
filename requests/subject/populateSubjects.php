@@ -1,12 +1,15 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Provides subjects taught by a tutor
+    ************************************************/
     include_once("../../config/database.php");;
     include_once("../../models/subject.php");
 
-    $username = isset($data->username) 
-                ? $data->username
-                : badFormatRequest("VARIABLE: 'username' not set");
+    $username = isset($data->username) ? $data->username : badFormatRequest("VARIABLE: 'username' not set");
 
-    
     $database = new Database();
     $connection = $database->getConnection();
     $subject = new Subject($connection);
@@ -43,7 +46,5 @@
         echo json_encode($record);
     }
     else
-    {
         notFound("subjects");
-    }
 ?>

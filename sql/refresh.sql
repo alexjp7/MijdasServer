@@ -1,3 +1,9 @@
+/************************************************
+Author:  Alex Perceval 
+Date:    3/10/2018
+Group:   Mijdas(kw01)
+Purpose: resets database and populates test data
+************************************************/
 source dbdrop.sql;
 source dbcreate.sql
 source index.sql

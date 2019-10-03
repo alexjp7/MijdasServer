@@ -1,5 +1,13 @@
 <?php
-  
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Provides list of active assessments to 
+                the client.
+     NOTE: If client is flagged as coordinator, 
+        a list of ALL assessments is returned
+    ************************************************/
     include_once("../../config/database.php");
     include_once("../../models/assessment.php");
 
@@ -21,7 +29,6 @@
     if($row > 0 )
     {   
         $records["records"] = array();
-
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
             extract($row);
@@ -44,7 +51,5 @@
         echo json_encode($records);
     }
     else
-    {
         notFound("assessment");
-    }
 ?>
