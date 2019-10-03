@@ -1,7 +1,7 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2018
+     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose: Routing script for Sesssion requests
     ************************************************/
@@ -20,8 +20,8 @@
     switch($request)
     {
         // Student Functions
-        case "VIEW_STUDENT_MARKS":
-            include("viewStudentMarks.php");
+        case "VIEW_STUDENT_ENROLMENT":
+            include("viewStudentEnrolment.php");
             break;
         default:
             invalidMethod(arrayToString(AVAILABLE_METHODS));

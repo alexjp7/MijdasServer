@@ -1,13 +1,13 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2018
+     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose: Provides the existing criteria to 
                 the client.
     ************************************************/
-    include_once("../../api/config/database.php");
-    include_once("../../api/models/criteria.php");
+    include_once("../../config/database.php");
+    include_once("../../models/criteria.php");
 
     $database = new Database();
     $connection = $database->getConnection();

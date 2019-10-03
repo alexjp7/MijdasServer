@@ -1,10 +1,9 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2018
+     Date:    3/10/2019
      Group:   Mijdas(kw01)
-     Purpose: Provides a student with their results
-                per subject, per assessment
+     Purpose: Provides a student with their enrolments
     ************************************************/
     include_once("../../config/database.php");;
     include_once("../../models/student.php");

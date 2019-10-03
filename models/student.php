@@ -1,7 +1,7 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2018
+     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose: Student model, and to provide an interface 
                 for database transactions
@@ -129,6 +129,18 @@
             $stmt = $this->connection->prepare($query);
             $stmt ->execute();
             return $stmt;
+        }
+
+        public function getResults($student_id) 
+        {
+     /*        "SELECT  criteria.display_text, student.result, criteria.max_mark FROM student_results student 
+             JOIN  criteria_item criteria ON student.c_id = criteria.c_id 
+             WHERE student.student_id = 'alice' AND  student.a_id = 1  "
+
+             "SELECT  * FROM student_results student 
+             JOIN  criteria_item criteria ON student.c_id = criteria.c_id 
+             WHERE student.student_id = 'alice' AND  student.a_id = 1 " */
+
         }
     }
 ?>

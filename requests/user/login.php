@@ -1,7 +1,7 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2018
+     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose:  To authenticate user credentials when
                 logging into a client side app.
@@ -26,7 +26,6 @@
     //Validate Login Credentials
     if(!empty($providedUsername)  && !empty($providedPassword))
     {
-        
         $stmt = $user->readOne($providedUsername);
         $num = $stmt->rowCount();
         if($num === 1)
