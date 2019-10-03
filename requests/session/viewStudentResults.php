@@ -46,9 +46,9 @@
             extract($row2);
             array_push($cohort, $result);
         } 
-
+        $records = [$results,$cohort];
         success();
-        echo json_encode(array($results,$cohort));
+        echo json_encode($records);
     }
     else
         notFound("results");
