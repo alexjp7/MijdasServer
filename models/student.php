@@ -1,4 +1,11 @@
 <?php
+    /************************************************
+     Author:  Alex Perceval 
+     Date:    3/10/2018
+     Group:   Mijdas(kw01)
+     Purpose: Student model, and to provide an interface 
+                for database transactions
+    ************************************************/
     class Student
     {
         private $connection;

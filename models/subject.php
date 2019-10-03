@@ -3,7 +3,8 @@
      Author:  Alex Perceval 
      Date:    3/10/2018
      Group:   Mijdas(kw01)
-     Purpose: Subject model and defined object logic
+     Purpose: Subject model, and to provide an interface 
+                for database transactions
     ************************************************/
     class Subject
     {

@@ -1,5 +1,11 @@
 <?php
-    //local import for connection credentials
+  /************************************************
+   Author:  Alex Perceval 
+   Date:    3/10/2018
+   Group:   Mijdas(kw01)
+   Purpose: initiates and maintains a connection 
+             between PHP script  and MySql database
+  ************************************************/
     include_once("connect.php");
     class Database
     {

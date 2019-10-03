@@ -3,7 +3,8 @@
      Author:  Alex Perceval 
      Date:    3/10/2018
      Group:   Mijdas(kw01)
-     Purpose: Student model and defined object logic
+     Purpose: General user model, and to provide an interface 
+                for database transactions
     ************************************************/
     class User
     {
@@ -58,6 +59,5 @@
             $stmt->execute();
             return $stmt;
         }
-
     }
 ?>
