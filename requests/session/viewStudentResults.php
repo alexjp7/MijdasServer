@@ -9,9 +9,11 @@
     *********************************************************/
     include_once("../../config/database.php");;
     include_once("../../models/student.php");
+    include_once("../../models/assessment.php");
     $database = new Database();
     $connection = $database->getConnection();
     $student = new Student($connection);
+    $assessment = new Assessment($connection);
     
     $student->studentId = isset($data->student_id) 
                             ? $data->student_id
@@ -38,7 +40,7 @@
             ];
             array_push($results["student_results"],$studentResult);
         }
-        /*Fetch aggreations of assessment results*/
+        /*Fetch cohort  assessment results*/
         $stmt2 = $student->getAllResultsPerAssessment();
         $cohort["cohort_results"] = array();      
         while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC))
@@ -46,7 +48,25 @@
             extract($row2);
             array_push($cohort["cohort_results"], $result);
         } 
-        $records = [$results,$cohort];
+        /*Fetch assessment aggregations */
+        $stmt3 = $assessment->getAverage($data->assessment_id);
+        $stmt4 = $assessment->getPerformanceBreakdown($data->assessment_id);
+        
+        $average = $stmt3->fetch();
+        $criteria = array();
+        while($row3 = $stmt4->fetch(PDO::FETCH_ASSOC))
+        {
+            extract($row3);
+            $criterion = [ 
+                "c_id"=>$c_id,
+                "average"=>$average,
+                "display_text"=>$display_text,
+                "max_mark" => $max_mark
+            ];
+            array_push($criteria, $criterion);
+        }
+        $aggregates["aggregates"] = ["assessment_average"=>$average, "criteria_performance"=>$criteria];
+        $records = [$results,$cohort,$aggregates];
         success();
         echo json_encode($records);
     }

@@ -134,5 +134,25 @@
                 $this->errorMessage = "Student couldn't be removed from assessment";
             }
         }
+        /* Assessment data aggregations */
+        public function getAverage($assessment_id)
+        {        
+            $query = "SELECT SUM(result)/count(DISTINCT student_id) as average FROM student_results WHERE a_id = {$assessment_id} GROUP BY (a_id);";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
+        public function getPerformanceBreakdown($assessment_id)
+        {
+        $query = "SELECT results.c_id, AVG(result) AS average, criteria_item.display_text, criteria_item.max_mark
+                    FROM student_results AS results
+                    INNER JOIN criteria_item ON results.a_id = criteria_item.a_id AND results.c_id = criteria_item.c_id
+                    WHERE results.a_id  = {$assessment_id} AND results.c_id != 1 GROUP BY (c_id) 
+                    ORDER BY results.c_id;";
+
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
     }
 ?>
