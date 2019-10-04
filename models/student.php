@@ -76,11 +76,10 @@
 
         public function getBySubject($subject_id, $hasAssessment)
         {   //If a subject as assessments, query for results talble otherwise return students enrolled in subject.
-            $query = $hasAssessment ? "SELECT subject.student_id, assessment.name, results.a_id, sum(result) as result FROM (student_subject AS subject 
-                                            INNER JOIN student_results AS results ON subject.student_id = results.student_id)
-                                            INNER JOIN assessment ON results.a_id = assessment.id
-                                        WHERE subject.subject_session_id = {$subject_id}
-                                        GROUP BY results.student_id, results.a_id ORDER BY subject.student_id, results.a_id ASC;"
+            $query = $hasAssessment ? "SELECT results.student_id, assessment.name, results.a_id, sum(result) as result FROM student_results as results
+                                        INNER JOIN assessment ON results.a_id = assessment.id
+                                        WHERE assessment.subject_id = {$subject_id}
+                                        GROUP BY results.student_id, results.a_id ORDER BY results.student_id, results.a_id ASC"
                                     : "SELECT student_id FROM student_subject WHERE subject_session_id = {$subject_id}";
 
             $stmt = $this->connection->prepare($query);
@@ -133,7 +132,7 @@
 
         public function getResultPerAssessment() 
         {
-            $query = "SELECT DISTINCT criteria.display_text, student.result, criteria.max_mark
+            $query = "SELECT DISTINCT criteria.display_text, student.result, criteria.max_mark,student.comment
                       FROM student_results student 
                       INNER JOIN  criteria_item criteria ON student.a_id = criteria.a_id AND student.c_id = criteria.c_id
                       WHERE student.student_id = :student AND  criteria.a_id = :assessment ";
@@ -154,6 +153,7 @@
             $stmt->execute();
 
             return $stmt;
+
         }
     }
 ?>

@@ -33,7 +33,8 @@
             $studentResult = [
                 "display_text" => $display_text,
                 "result" => $result,
-                "max_mark" => $max_mark
+                "max_mark" => $max_mark,
+                "comment"=>$comment
             ];
             array_push($results["student_results"],$studentResult);
         }
