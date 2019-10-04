@@ -27,7 +27,7 @@
 
     if($num > 0)
     {   
-        $results["student_results"] = array();
+        $results = array();
         /* Fetch individual students results for queried assessment */
         while($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
@@ -38,16 +38,18 @@
                 "max_mark" => $max_mark,
                 "comment"=>$comment
             ];
-            array_push($results["student_results"],$studentResult);
+            array_push($results,$studentResult);
         }
         /*Fetch cohort  assessment results*/
-        $stmt2 = $student->getAllResultsPerAssessment();
+
+        /* could be useful for graphs etc.
+         $stmt2 = $student->getAllResultsPerAssessment();
         $cohort["cohort_results"] = array();      
         while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC))
         {
             extract($row2);
             array_push($cohort["cohort_results"], $result);
-        } 
+        }  */
         /*Fetch assessment aggregations */
         $stmt3 = $assessment->getAverage($data->assessment_id);
         $stmt4 = $assessment->getPerformanceBreakdown($data->assessment_id);
@@ -65,8 +67,8 @@
             ];
             array_push($criteria, $criterion);
         }
-        $aggregates["aggregates"] = ["assessment_average"=>$average, "criteria_performance"=>$criteria];
-        $records = [$results,$cohort,$aggregates];
+        $aggregates = array("assessment_average"=>$average, "criteria_performance"=>$criteria);
+        $records = ["student_results"=>$results, "aggregates" => $aggregates];
         success();
         echo json_encode($records);
     }
