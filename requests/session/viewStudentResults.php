@@ -41,15 +41,13 @@
             array_push($results,$studentResult);
         }
         /*Fetch cohort  assessment results*/
-
-        /* could be useful for graphs etc.
-         $stmt2 = $student->getAllResultsPerAssessment();
-        $cohort["cohort_results"] = array();      
+        $stmt2 = $student->getAllResultsPerAssessment();
+        $cohort = array();      
         while($row2 = $stmt2->fetch(PDO::FETCH_ASSOC))
         {
             extract($row2);
-            array_push($cohort["cohort_results"], $result);
-        }  */
+            array_push($cohort, $result);
+        } 
         /*Fetch assessment aggregations */
         $stmt3 = $assessment->getAverage($data->assessment_id);
         $stmt4 = $assessment->getPerformanceBreakdown($data->assessment_id);
@@ -68,7 +66,7 @@
             array_push($criteria, $criterion);
         }
         $aggregates = array("assessment_average"=>$average, "criteria_performance"=>$criteria);
-        $records = ["student_results"=>$results, "aggregates" => $aggregates];
+        $records = ["student_results"=>$results, "aggregates" => $aggregates, "cohort"=>$cohort];
         success();
         echo json_encode($records);
     }
