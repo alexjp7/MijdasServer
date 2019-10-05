@@ -76,11 +76,11 @@
         for ($i = 0; $i < $qSize; $i++) 
         {   
             $qIndex = $i + 1;
-            $formatedQuartiles[] = ["q{$qIndex}" => $quartiles["@q{$qIndex}"]];
+            $formatedQuartiles[] =  $quartiles["@q{$qIndex}"];
         }         
         $records = ["student_results"=>$results, "cohort_average" => $average, "quartiles"=> $formatedQuartiles,"criteria_performance"=>$criteria];
         success();
-        echo json_encode($records);
+        echo json_encode($records,JSON_NUMERIC_CHECK);
     }
     else
         notFound("results");
