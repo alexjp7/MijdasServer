@@ -49,12 +49,28 @@
             array_push($cohort, $result);
         } 
         /*Fetch assessment aggregations */
-        $stmt3 = $assessment->getAverage($data->assessment_id);
-        $stmt4 = $assessment->getInterQuartileDistribution($data->assessment_id);
-        
-        $average = $stmt3->fetch()["average"];
+        $cohortAverage = $assessment->getAverage($data->assessment_id);
+        $iQDistribution = $assessment->getInterQuartileDistribution($data->assessment_id);
+        $performanceBreakdown = $assessment->getPerformanceBreakdown($data->assessment_id);
 
-        $quartiles = $stmt4->fetch(PDO::FETCH_ASSOC);
+        // Get cohort average mark 
+        $average = $cohortAverage->fetch()["average"];
+        // Fetch cohorts average performance per criteria
+        $criteria = array();
+        while($row3 = $performanceBreakdown->fetch(PDO::FETCH_ASSOC))
+        {
+            extract($row3);
+            $criterion = [ 
+                "c_id"=>$c_id,
+                "average"=>$average,
+                "display_text"=>$display_text,
+                "max_mark" => $max_mark
+            ];
+            array_push($criteria, $criterion);
+        }
+
+        //get quartile distribution 
+        $quartiles = $iQDistribution->fetch(PDO::FETCH_ASSOC);
         $formatedQuartiles = array();
         $qSize = sizeof($quartiles);
         for ($i = 0; $i < $qSize; $i++) 
@@ -62,8 +78,7 @@
             $qIndex = $i + 1;
             $formatedQuartiles[] = ["q{$qIndex}" => $quartiles["@q{$qIndex}"]];
         }         
-       
-        $records = ["student_results"=>$results, "cohort_average" => $average, "quartiles"=> $formatedQuartiles];
+        $records = ["student_results"=>$results, "cohort_average" => $average, "quartiles"=> $formatedQuartiles,"criteria_performance"=>$criteria];
         success();
         echo json_encode($records);
     }

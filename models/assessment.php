@@ -153,5 +153,17 @@
             $stmt2->execute();
             return $stmt2;
         }
+
+        public function getPerformanceBreakdown($assessment_id)
+        {
+            $query = "SELECT results.c_id, AVG(result) AS average, criteria_item.display_text, criteria_item.max_mark
+                        FROM student_results AS results
+                        INNER JOIN criteria_item ON results.a_id = criteria_item.a_id AND results.c_id = criteria_item.c_id
+                        WHERE results.a_id  = {$assessment_id} AND results.c_id != 1 GROUP BY (c_id) 
+                        ORDER BY results.c_id;";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
     }
 ?>
