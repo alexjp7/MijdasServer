@@ -152,8 +152,8 @@
             $stmt->bindParam(":assessment",$this->assessment, PDO::PARAM_INT);
             $stmt->execute();
 
-            return $stmt;
-
+            return $stmt;          
+               
         }
 
     }

@@ -119,4 +119,59 @@ BEGIN
 	close assessmentCursor;
 END //
 
+
+/* Returns the spread of data in their respective quartiles */
+DROP PROCEDURE  IF EXISTS get_result_quartiles//
+CREATE PROCEDURE  get_result_quartiles(
+	IN assessment_id INT,
+	OUT q1 FLOAT,
+	OUT q2 FLOAT, 
+	OUT q3 FLOAT, 
+	OUT q4 FLOAT)
+BEGIN
+	DECLARE maxMark DECIMAL(5,2);
+	SELECT SUM(max_mark) INTO maxMark FROM criteria_item WHERE a_id = assessment_id GROUP BY a_id;
+    
+    /*select results that are in each quartile*/
+    /*Q1*/
+	SELECT COUNT(*) FROM 
+    (
+		SELECT SUM(result) AS quartile1 
+		FROM student_results 
+		WHERE a_id = assessment_id 
+		GROUP BY (student_id) HAVING quartile1 < maxMark/4
+	) AS q1Query INTO q1 ;
+
+    /*Q2*/
+	SELECT COUNT(*) FROM 
+    (
+		SELECT SUM(result) AS quartile2 
+		FROM student_results 
+		WHERE a_id = assessment_id 
+		GROUP BY (student_id) 
+		HAVING quartile2 > maxMark/4 AND quartile2 < maxMark/2
+	) AS q2Query INTO q2;
+    
+    /*Q3*/
+	SELECT COUNT(*) FROM 
+	(
+		SELECT SUM(result) AS quartile3 
+		FROM student_results 
+		WHERE a_id = assessment_id 
+		GROUP BY (student_id) 
+		HAVING quartile3 > maxMark/2 AND quartile3 < (maxMark/4)*3
+    )AS q3Query INTO q3;
+    
+    /*Q4*/
+    SELECT COUNT(*) FROM 
+    (
+		SELECT SUM(result) AS quartile4 
+		FROM student_results 
+		WHERE a_id = assessment_id 
+		GROUP BY (student_id) 
+		HAVING quartile4 > (maxMark/4)*3 AND quartile4 < maxMark
+    )AS q4Query  INTO q4;
+
+END//
+
 DELIMITER ;
