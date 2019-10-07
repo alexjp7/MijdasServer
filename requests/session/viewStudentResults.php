@@ -80,7 +80,7 @@
         }         
         $records = ["student_results"=>$results, "cohort_average" => $average, "quartiles"=> $formatedQuartiles,"criteria_performance"=>$criteria];
         success();
-        echo json_encode($records,JSON_NUMERIC_CHECK);
+        echo json_encode($records, JSON_NUMERIC_CHECK);
     }
     else
         notFound("results");

@@ -139,7 +139,7 @@ BEGIN
 		SELECT SUM(result) AS quartile1 
 		FROM student_results 
 		WHERE a_id = assessment_id 
-		GROUP BY (student_id) HAVING quartile1 < maxMark/4
+		GROUP BY (student_id) HAVING quartile1 <= maxMark/4
 	) AS q1Query INTO q1 ;
 
     /*Q2*/
@@ -149,7 +149,7 @@ BEGIN
 		FROM student_results 
 		WHERE a_id = assessment_id 
 		GROUP BY (student_id) 
-		HAVING quartile2 > maxMark/4 AND quartile2 < maxMark/2
+		HAVING quartile2 > maxMark/4 AND quartile2 <= maxMark/2
 	) AS q2Query INTO q2;
     
     /*Q3*/
@@ -159,7 +159,7 @@ BEGIN
 		FROM student_results 
 		WHERE a_id = assessment_id 
 		GROUP BY (student_id) 
-		HAVING quartile3 > maxMark/2 AND quartile3 < (maxMark/4)*3
+		HAVING quartile3 > maxMark/2 AND quartile3 <= (maxMark/4)*3
     )AS q3Query INTO q3;
     
     /*Q4*/
@@ -169,7 +169,7 @@ BEGIN
 		FROM student_results 
 		WHERE a_id = assessment_id 
 		GROUP BY (student_id) 
-		HAVING quartile4 > (maxMark/4)*3 AND quartile4 < maxMark
+		HAVING quartile4 > (maxMark/4)*3 AND quartile4 <= maxMark
     )AS q4Query  INTO q4;
 
 END//

@@ -171,16 +171,16 @@ INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(2,
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(2,2,"bob",2);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,3,"bob",1);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,4,"bob",0);
-INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,5,"bob",9)
-INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"carol", null,"Revise Lecture content");
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,5,"bob",9);
+INSERT INTO student_results (a_id, c_id, student_id, result, comment) VALUES(1,1,"carol",null,"Revise Lecture content");
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"carol",1);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"carol",2);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"carol",0);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"carol",9);
-INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(2,1,"carol", null,"Good Attempt");
+INSERT INTO student_results (a_id, c_id, student_id, result, comment) VALUES(2,1,"carol", null,"Good Attempt");
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(2,2,"carol",1);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,3,"carol",5);
-INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"carol",2);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,4,"carol",2);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,5,"carol",2);
 INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"dave", null,"Try harder next time");
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"dave",3);
