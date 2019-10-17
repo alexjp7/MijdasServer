@@ -1,6 +1,5 @@
 /************************************************
 Author:  Alex Perceval 
-Date:    3/10/2019
 Group:   Mijdas(kw01)
 Purpose: Intializes database tables and 
          their memebrs 

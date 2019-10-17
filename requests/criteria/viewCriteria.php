@@ -1,7 +1,6 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose: Provides the existing criteria to 
                 the client.

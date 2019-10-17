@@ -1,7 +1,6 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose: Provides coordinator with list of tutors 
                 for a subject

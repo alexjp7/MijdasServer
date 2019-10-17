@@ -1,6 +1,5 @@
 /************************************************
 Author:  Alex Perceval 
-Date:    3/10/2019
 Group:   Mijdas(kw01)
 Purpose: provides the system with test data
 ************************************************/

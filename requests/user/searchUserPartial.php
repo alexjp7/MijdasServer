@@ -1,7 +1,6 @@
 <?php
     /************************************************
      Author:  Alex Perceval 
-     Date:    3/10/2019
      Group:   Mijdas(kw01)
      Purpose: To allow for user search on 
                 StaffLinker.vue (see Mijdas-wb src)

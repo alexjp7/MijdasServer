@@ -1,6 +1,5 @@
 /************************************************
 Author:  Alex Perceval 
-Date:    3/10/2019
 Group:   Mijdas(kw01)
 Purpose: Provides index options for queries
 NOTE: An index is choosed based on WHERE 
