@@ -19,8 +19,8 @@
         $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
         
         $subject = "New Assessment Marked!";
-        $message = "<p>Greetings</p>,<p> One of your assessments has just been marked,<br></p>";
-        $message .= "Click <a href='{$userLink}'> here </a> to view your results!";
+        $message = "<p>Greetings,</p><p> One of your assessments has just been marked,</p>";
+        $message .= "<p>Click <a href='{$userLink}'> here </a> to view your results!</p>";
 
         mail("alnerdo@hotmail.com",$subject, $message, $headers);
     }
