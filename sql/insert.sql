@@ -158,7 +158,7 @@ INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"alice"
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"alice",13);
 INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(2,1,"alice", null,"Good job overall, need to work on code stye, indentation consistency");
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(2,2,"alice",5);
-INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,3,"alice",7);
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,3,"alice",5);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,4,"alice",2);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,5,"alice",13);
 INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,1,"bob", null,"Bad job overall, need to work on code stye, indentation consistency");
