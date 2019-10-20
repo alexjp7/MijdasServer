@@ -9,10 +9,20 @@
      as to provide  modularity for  the email/reciept
      system to aid in the evovlability of this feature.
     ************************************************/
-    function emailStudentReciept($recipientAddress)
+    function emailStudentReciept($user, $domain)
     {
-        echo $recipientAddress;
-        mail("alnerdo@hotmail.com","New Assessment Has Been Marked!","test");
+        $userLink = "https://mijdas.markit.com?id={$user}";
+        $email = $user."@".$domain;
+        $headers = "From: MarkIT >\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "X-Priority: 1\r\n"; 
+        $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
+        
+        $subject = "New Assessment Marked!";
+        $message = "<p>Greetings,<br> One of your assessments has just been marked,<br></p>";
+        $message .= "Click <a href='{$userLink}'> here </a> to view your results!";
+
+        mail("alnerdo@hotmail.com",$subject, $message, $headers);
     }
 
 

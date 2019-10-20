@@ -24,8 +24,7 @@
     {   
         //Send email to the student who's mark was just submitted
         $domain = $institution->getDomainByAssessment($student->assessment);
-        $studentEmail = $student->studentId. "@". $domain;
-        emailStudentReciept($studentEmail);
+        emailStudentReciept($student->studentId, $domain);
 
         success();
         echo json_encode(array("MESSAGE"=>"Student mark submitted succesfully"));
