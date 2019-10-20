@@ -60,7 +60,7 @@
             $records[] = $students;
         }
         success();
-        echo json_encode($records);
+        echo json_encode(array("records"=>$records));
     }
     else
         notFound("Student List");
