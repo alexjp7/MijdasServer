@@ -11,7 +11,7 @@
     ************************************************/
     function emailStudentReciept($user, $domain)
     {
-        $userLink = "https://mijdas.markit.com?id={$user}";
+        $userLink = "https://mijdas.markit.com/results?id={$user}";
         $email = $user."@".$domain;
         $headers = "From: MarkIT >\n";
         $headers .= "MIME-Version: 1.0\r\n";
@@ -19,7 +19,7 @@
         $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
         
         $subject = "New Assessment Marked!";
-        $message = "<p>Greetings,<br> One of your assessments has just been marked,<br></p>";
+        $message = "<p>Greetings</p>,<p> One of your assessments has just been marked,<br></p>";
         $message .= "Click <a href='{$userLink}'> here </a> to view your results!";
 
         mail("alnerdo@hotmail.com",$subject, $message, $headers);
