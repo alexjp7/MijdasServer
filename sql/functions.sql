@@ -10,8 +10,8 @@ DROP FUNCTION IF EXISTS count_criteria //
 CREATE FUNCTION count_criteria(assessment_id INT)
 RETURNS tinyint(1)
 BEGIN
-	DECLARE result tinyint(1); 
-    SELECT IF(count(*)>0,1,0) INTO result FROM criteria_item WHERE criteria_item.a_id = assessment_id;
+	DECLARE result INT(1); 
+    SELECT COUNT(*) INTO result FROM criteria_item WHERE criteria_item.a_id = assessment_id;
     return result;
 END;//
 

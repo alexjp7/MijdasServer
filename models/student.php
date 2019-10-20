@@ -67,7 +67,11 @@
         
         public function getByAssessment($a_id)
         {
-            $query = "SELECT student_id, SUM(result) AS result FROM student_results WHERE student_results.a_id = {$a_id} GROUP BY student_id";
+            $query = "SELECT student_id, result, c_id, comment
+                        FROM student_results 
+                        WHERE a_id = {$a_id}
+                        ORDER BY student_id,c_id";
+
             $stmt = $this->connection->prepare($query);
             $stmt->execute();
             return $stmt;

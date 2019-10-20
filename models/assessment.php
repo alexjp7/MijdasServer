@@ -63,15 +63,17 @@
             $stmt->execute();
             return $stmt;
         }
+        
+        public function countCriteria($assessment_id) 
+        {
+            $countQuery = "SELECT count_criteria({$assessment_id}) as count";
+            $countStmt = $this->connection->prepare($countQuery);
+            $countStmt->execute();
+            return $countStmt->fetch()["count"];
+        }
     
         public function toggleActivation()
         {
-            //Determine if assessment is valid via its criteria_item count.
-            $countQuery = "SELECT count_criteria({$this->assessment_id}) as count";
-            $countStmt = $this->connection->prepare($countQuery);
-            $countStmt->execute();
-            $hasCriteria = $countStmt->fetch()["count"];
-            
             //Determine if an activation or deactivation is being requested
             $isActiveSelect = "SELECT isActive, subject_id FROM assessment WHERE id = {$this->assessment_id}";
             $isActiveStmt = $this->connection->prepare($isActiveSelect); 
@@ -80,6 +82,7 @@
             //Assume succesful transaction unless flagged
             //As unsuccesful by exception handlers.
             $isSuccesful = true;
+            $hasCriteria = $this->countCriteria($this->assessment_id) > 0 ?  true : false;
 
             if(isset($result) || $selectStmt->rowCount() !== 1)
             {

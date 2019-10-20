@@ -165,7 +165,7 @@ INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(1,
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(1,2,"bob",2);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,3,"bob",1);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,4,"bob",0);
-INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"bob",9)
+INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(1,5,"bob",9);
 INSERT INTO student_results (a_id, c_id, student_id, result, comment)  VALUES(2,1,"bob", null,"Bad job overall, need to work on code stye, indentation consistency");
 INSERT INTO student_results (a_id, c_id, student_id, result) VALUES(2,2,"bob",2);
 INSERT INTO student_results (a_id, c_id, student_id, result)  VALUES(2,3,"bob",1);
