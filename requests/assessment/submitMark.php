@@ -27,10 +27,9 @@
         //Send email to the student who's mark was just submitted
         $domain = $institution->getDomainByAssessment($student->assessment);
         $stmt = $assessment->getTaskNameAndSubject($student->assessment);
-        $subjectName = $stmt->fetch()["name"];
-        $assessmentName = $stmt->fetch()["assessment"];
+        extract($stmt->fetch(PDO::FETCH_ASSOC));
 
-        emailStudentReciept($student->studentId, $domain, $subjectName, $assessmentName);
+        emailStudentReciept($student->studentId, $domain,$name, $code);
 
         success();
         echo json_encode(array("MESSAGE"=>"Student mark submitted succesfully"));
