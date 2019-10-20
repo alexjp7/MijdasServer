@@ -11,7 +11,8 @@
     ************************************************/
     function emailStudentReciept($user, $domain, $assessment, $subjectName)
     {
-        $userLink = "https://mijdas.markit.com/results?id={$user}";
+        $userLink = "https://markit.mijdas.com/results?id={$user}";
+                   
         $email = $user."@".$domain;
         $headers = "From: MarkIT >\n";
         $headers .= "MIME-Version: 1.0\r\n";
