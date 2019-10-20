@@ -36,7 +36,7 @@
             //Populate the first criteria of a students results for an assessment
             $students = [
                 "student_id"=>$student_id,
-                "result"=>0,
+                "result"=>0.0,
                 "criteria"=> [ 
                     [
                         "id"=>$c_id,
@@ -56,11 +56,11 @@
                 $criteraiCursor++;
             }
             $criteraiCursor = 0;
-            $students["result"] = $studentTotal;
+            $students["result"] = (string)(number_format($studentTotal,2));
             $records[] = $students;
         }
         success();
-        echo json_encode(array("records"=>$records));
+        echo json_encode(array(array("records"=>$records)));
     }
     else
         notFound("Student List");
