@@ -167,5 +167,16 @@
             $stmt->execute();
             return $stmt;
         }
+
+        public function getTaskNameAndSubject($assessment_id)
+        {
+            $query = "SELECT assessment.name, subject.code
+                      FROM assessment INNER JOIN subject ON assessment.subject_id = subject.id 
+                      WHERE assessment.id={$assessment_id}";
+
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;                      
+        }
     }
 ?>

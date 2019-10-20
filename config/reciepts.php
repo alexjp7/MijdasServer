@@ -9,7 +9,7 @@
      as to provide  modularity for  the email/reciept
      system to aid in the evovlability of this feature.
     ************************************************/
-    function emailStudentReciept($user, $domain)
+    function emailStudentReciept($user, $domain, $assessment, $subject)
     {
         $userLink = "https://mijdas.markit.com/results?id={$user}";
         $email = $user."@".$domain;
@@ -19,8 +19,10 @@
         $headers .= "Content-Type: text/html; charset=iso-8859-1\n";
         
         $subject = "New Assessment Marked!";
-        $message = "<p>Greetings,</p><p> One of your assessments has just been marked,</p>";
+        $message = "<p>Greetings,</p><p> {$assessment} for {$subject}  has been marked,</p>";
         $message .= "<p>Click <a href='{$userLink}'> here </a> to view your results!</p>";
+
+        echo $message;
 
         mail("alnerdo@hotmail.com",$subject, $message, $headers);
     }
