@@ -20,8 +20,8 @@
                 : badFormatRequest("No Data Posted");
     
     if(isset($data->token)) {
-        $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
-        badFormatRequest($auth);
+        // $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
+        // badFormatRequest($auth);
         // $auth = new HttpRequest();
         // $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
         // $auth->setMethod(HTTP_METH_POST);
@@ -32,6 +32,7 @@
         // } catch(HttpException $ex) {
 
         // }
+        $guzzle = new GuzzleHttp\Client;
     }
 
     //Defines Accessible routes based on request value
