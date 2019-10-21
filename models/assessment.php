@@ -119,22 +119,11 @@
    
         private function removeStudent(&$isSuccesful)
         {
-            $this->connection->beginTransaction();
-            try
-            {  //Delete Students from results table .
-                $query = "DELETE FROM student_results WHERE a_id ={$this->assessment_id}";
-                $stmt = $this->connection->prepare($query);
-                if(!$stmt->execute())
-                {
-                    $isSuccesful = false;
-                    $this->connection->rollBack();
-                }
-                $this->connection->commit();
-            }
-            catch(Exception $e)
-            {
-                $this->errorMessage = "Student couldn't be removed from assessment";
-            }
+            //Delete Students from results table .
+            $query = "DELETE FROM student_results WHERE a_id ={$this->assessment_id}";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+    
         }
         /* Assessment data aggregations */
         public function getAverage($assessment_id)
