@@ -20,7 +20,8 @@
                 : badFormatRequest("No Data Posted");
     
     if(isset($data->token)) {
-        include_once("../../config/requests.php");
+        // include_once("../../config/requests.php");
+        require "../../vendor/autoload.php";
         // $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
         // badFormatRequest($auth);
         // $auth = new HttpRequest();
