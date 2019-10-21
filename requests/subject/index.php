@@ -20,7 +20,7 @@
                 : badFormatRequest("No Data Posted");
     
     if(isset($data->token)) {
-        $auth = post("https://accounts.mijdas.com/api/check_token/", [""], $data->token);
+        $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
         badFormatRequest($auth);
         // $auth = new HttpRequest();
         // $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
