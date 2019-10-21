@@ -43,6 +43,27 @@
 
             return $stmt->execute();
         }
+
+        public function delete($a_id, $c_id) 
+        {
+            $isValidDelete = true;
+            $query = "SELECT isActive FROM assessment WHERE id = {$a_id}";
+            $isActiveSmt = $this->connection->prepare($query);
+            $isActiveSmt->execute();
+            $isActive = $isActiveSmt->fetch()["isActive"];
+            
+            // If assessment is active, deleting a criteria is not possible
+            if(!$isActive)
+            {
+                $query = "DELETE FROM criteria_item WHERE a_id = :a_id AND c_id = :c_id";
+                $stmt = $this->connection->prepare($query);
+                $stmt->bindParam(":a_id", $a_id, PDO::PARAM_INT);
+                $stmt->bindParam(":c_id", $c_id, PDO::PARAM_INT);
+                $isValidDelete = $stmt->execute();
+            }
+
+            return $isValidDelete;
+        }   
         
     }
 ?>

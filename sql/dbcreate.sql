@@ -92,7 +92,7 @@ CREATE TABLE assessment(
     isActive            BOOLEAN     NOT NULL,
 
     CONSTRAINT PK_ASSESSMENT PRIMARY KEY (id),
-    CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_id) REFERENCES subject(id),
+    CONSTRAINT FK_SUBJECT FOREIGN KEY (subject_id) REFERENCES subject(id)  ON DELETE CASCADE,
     CONSTRAINT UNIQUE(a_number, subject_id),
     CONSTRAINT UNIQUE(subject_id, name)
 );
@@ -111,9 +111,8 @@ CREATE TABLE criteria_item(
         element         INT NOT NULL,
         max_mark        DECIMAL(5,2), 
         display_text    VARCHAR(20) NOT NULL,
-
         CONSTRAINT PK_CRITERIA_ITEM PRIMARY KEY(a_id, c_id),  
-        CONSTRAINT FK_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id)
+        CONSTRAINT FK_ASSESSMENT FOREIGN KEY (a_id) REFERENCES assessment(id)  ON DELETE CASCADE
 );
 /****************************************************************************************
 *Added student_subject to be the table which stores student ids upon initial import
@@ -122,7 +121,7 @@ CREATE TABLE student_subject(
     student_id             VARCHAR(20), 
     subject_session_id     INT NOT NULL,
     CONSTRAINT PK_STUTDENT_SUBJECT PRIMARY KEY(student_id, subject_session_id),
-    CONSTRAINT FK2_SUBJECT FOREIGN KEY (subject_session_id) REFERENCES subject_session(id)
+    CONSTRAINT FK2_SUBJECT FOREIGN KEY (subject_session_id) REFERENCES subject_session(id)  ON DELETE CASCADE
 );
 
 /****************************************************************************************
@@ -137,7 +136,7 @@ CREATE TABLE student_results(
     comment         VARCHAR(100),
 
     CONSTRAINT PK_STUDENT PRIMARY KEY (a_id, c_id, student_id),
-    CONSTRAINT FK_CRITERIA FOREIGN KEY (a_id,c_id) REFERENCES criteria_item(a_id, c_id),
+    CONSTRAINT FK_CRITERIA FOREIGN KEY (a_id,c_id) REFERENCES criteria_item(a_id, c_id) ON DELETE CASCADE,
     CONSTRAINT FK_STUDENT_SUBJECT FOREIGN KEY (student_id) REFERENCES student_subject(student_id)
 );
 
@@ -154,5 +153,5 @@ CREATE TABLE staff_allocation(
 
     CONSTRAINT PK_STAFF_ALLOCATION PRIMARY KEY (username, subject_id),
     CONSTRAINT FK4_USER FOREIGN KEY (username) REFERENCES user(username),
-    CONSTRAINT FK_SUBJECT_SESSION FOREIGN KEY (subject_id) REFERENCES subject_session(id)
+    CONSTRAINT FK_SUBJECT_SESSION FOREIGN KEY (subject_id) REFERENCES subject_session(id)  ON DELETE CASCADE
 );

@@ -8,7 +8,7 @@
     header("Access-Control-Allow-Methods: POST");
     include_once("../../config/responses.php"); 
     //Helper arguments to aid in client-side debugging
-    const AVAILABLE_METHODS =  ["VIEW_CRITERIA", "CREATE_CRITERIA","EDIT_CRITERIA"];
+    const AVAILABLE_METHODS =  ["VIEW_CRITERIA", "CREATE_CRITERIA","EDIT_CRITERIA","DELETE_CRITERIA"];
     $data = json_decode(file_get_contents("php://input"));
     $request  = isset($data->request) 
                 ? $data->request
@@ -25,6 +25,10 @@
             
         case "EDIT_CRITERIA":  
         include("editCriteria.php");
+            break;
+
+        case "DELETE_CRITERIA":  
+        include("deleteCriteria.php");
             break;
 
         //Tutor Functions 
