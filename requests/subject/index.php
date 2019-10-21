@@ -34,7 +34,9 @@
         // } catch(HttpException $ex) {
 
         // }
-        $guzzle = new GuzzleHttp\Client;
+        $guzzle = new GuzzleHttp\Client(['headers' => ['Authorization' => 'Bearer ' . $data->token]]);
+        $response = $guzzle->request('POST', 'https"//accounts.mijdas.com/api/check_token/', []);
+        badFormatRequest($response->getBody());
     }
 
     //Defines Accessible routes based on request value
