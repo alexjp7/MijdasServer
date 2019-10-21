@@ -20,18 +20,18 @@
                 : badFormatRequest("No Data Posted");
     
     if(isset($data->token)) {
-        // $auth = post("https://accounts.mijdas.com/api/check_token/", [""], $data->token);
-        // badFormatRequest($auth);
-        $auth = new HttpRequest();
-        $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
-        $auth->setMethod(HTTP_METH_POST);
-        $auth->setHeaders(["Authorization" => "Bearer " . $data->token]);
-        try {
-            $response = $auth->send();
-            badFormatRequest($response->getBody());
-        } catch(HttpException $ex) {
-            
-        }
+        $auth = post("https://accounts.mijdas.com/api/check_token/", [""], $data->token);
+        badFormatRequest($auth);
+        // $auth = new HttpRequest();
+        // $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
+        // $auth->setMethod(HTTP_METH_POST);
+        // $auth->setHeaders(["Authorization" => "Bearer " . $data->token]);
+        // try {
+        //     $response = $auth->send();
+        //     badFormatRequest($response->getBody());
+        // } catch(HttpException $ex) {
+
+        // }
     }
 
     //Defines Accessible routes based on request value
