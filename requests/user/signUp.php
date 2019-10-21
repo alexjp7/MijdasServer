@@ -25,7 +25,7 @@
     $user->firstName = $data->firstName;
     $user->lastName = $data->lastName;
  
-    if(!empty($user->username) && !empty($user->password) && !empty($user->email) && !empty($user->permissionType))
+    if(!empty($user->username) && !empty($user->password) && !empty($user->email) && !empty($user->permissionType) && !empty($user->firstName) && !empty($user->lastName))
     {
         if($user->create())
         {   //Request OK
