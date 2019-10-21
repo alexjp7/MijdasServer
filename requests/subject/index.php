@@ -19,25 +19,12 @@
                 ? $data->request
                 : badFormatRequest("No Data Posted");
     
-    if(isset($data->token)) {
-        // include_once("../../config/requests.php");
-        require "../../vendor/autoload.php";
-        // $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
-        // badFormatRequest($auth);
-        // $auth = new HttpRequest();
-        // $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
-        // $auth->setMethod(HTTP_METH_POST);
-        // $auth->setHeaders(["Authorization" => "Bearer " . $data->token]);
-        // try {
-        //     $response = $auth->send();
-        //     badFormatRequest($response->getBody());
-        // } catch(HttpException $ex) {
-
-        // }
-        $guzzle = new GuzzleHttp\Client(['headers' => ['Authorization' => 'Bearer ' . $data->token]]);
-        $response = $guzzle->request('POST', 'https://accounts.mijdas.com/api/check_token/', []);
-        badFormatRequest($response->getBody());
-    }
+    // if(isset($data->token)) {
+    //     require "../../vendor/autoload.php";
+    //     $guzzle = new GuzzleHttp\Client(['headers' => ['Authorization' => 'Bearer ' . $data->token]]);
+    //     $response = $guzzle->request('POST', 'https://accounts.mijdas.com/api/check_token/', []);
+    //     badFormatRequest($response->getBody());
+    // }
 
     //Defines Accessible routes based on request value
     switch($request)
