@@ -8,8 +8,12 @@ function post($url, $postVars = array(), $token){
         'http' =>
             array(
                 'method'  => 'POST', //We are using the POST HTTP method.
-				'header'  => 'Content-Type: application/x-www-form-urlencoded\r\n'
-					. 'Authorization: Bearer ' . $token . '\r\n',
+				// 'header'  => 'Content-Type: application/x-www-form-urlencoded\r\n'
+				// 	. 'Authorization: Bearer ' . $token . '\r\n',
+				'header' => array(
+					'Content-Type' => 'application/x-www-form-urlencoded',
+					'Authorization' => 'Bearer ' . $token
+				),
                 'content' => $postStr //Our URL-encoded query string.
             )
     );
