@@ -22,6 +22,8 @@
     $user->password = $data->password;
     $user->email = $data->email;
     $user->permissionType = $data->permissionType;
+    $user->firstName = $data->firstName;
+    $user->lastName = $data->lastName;
  
     if(!empty($user->username) && !empty($user->password) && !empty($user->email) && !empty($user->permissionType))
     {
