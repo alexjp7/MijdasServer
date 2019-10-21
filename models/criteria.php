@@ -55,7 +55,7 @@
             // If assessment is active, deleting a criteria is not possible
             if(!$isActive)
             {
-                $query = "DELETE FROM criteria_item WHERE a_id = :a_id AND c_id = :c_id";
+                $query = "CALL delete_criteria(:a_id,:c_id)";
                 $stmt = $this->connection->prepare($query);
                 $stmt->bindParam(":a_id", $a_id, PDO::PARAM_INT);
                 $stmt->bindParam(":c_id", $c_id, PDO::PARAM_INT);

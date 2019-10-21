@@ -173,4 +173,51 @@ BEGIN
 
 END//
 
+
+DROP PROCEDURE  IF EXISTS delete_criteria //
+CREATE PROCEDURE delete_criteria(IN assignment_id INT,criteria_id INT)
+BEGIN
+
+	DECLARE done TINYINT(1);
+	DECLARE currentCriteria INT;
+	DECLARE countAllCriteria INT;
+	DECLARE countUnorderedCriteria INT;
+    DECLARE aId INT;
+    DECLARE elem INT;
+    DECLARE maxMark DECIMAL(5,2);
+    DECLARE displayText VARCHAR(20);
+
+	DECLARE criteriaCursor CURSOR FOR SELECT a_id, element, max_mark, display_text 
+								FROM criteria_item 
+								WHERE a_id = assignment_id AND c_id > criteria_id;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;				
+             -- 1 2  4 
+             
+             -- 3 remaining critiera
+             -- 1 2 3(4)
+             
+    DELETE FROM criteria_item WHERE a_id = assignment_id AND c_id = criteria_id;    
+
+    SELECT COUNT(*) INTO countUnorderedCriteria FROM criteria_item WHERE a_id = assignment_id AND c_id > criteria_id;
+	SELECT COUNT(*) INTO countAllCriteria FROM criteria_item WHERE a_id = assignment_id;
+
+    IF countAllCriteria > 1 THEN
+    
+		OPEN criteriaCursor;
+			SET currentCriteria = criteria_id + 1;
+			criteriaLoop: LOOP
+					FETCH criteriaCursor INTO aId, elem, maxMark, displayText;
+					IF done THEN
+						leave criteriaLoop;
+					END IF;
+					INSERT INTO criteria_item VALUES(aId,currentCriteria-1,elem,maxMark,displayText);
+                    DELETE FROM criteria_item WHERE a_id = assignment_id AND c_id = currentCriteria;
+					SET currentCriteria = currentCriteria + 1;
+					
+			  END LOOP;  
+              
+		CLOSE criteriaCursor;	
+	END IF;
+END //
+
 DELIMITER ;
