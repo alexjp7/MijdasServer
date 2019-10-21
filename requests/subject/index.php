@@ -7,6 +7,7 @@
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
     include_once("../../config/responses.php"); 
+    include_once("../../config/requests.php");
 
     //Helper arguments to aid in client-side debugging
     const AVAILABLE_METHODS =  ["VIEW_STUDENTS"."VIEW_OWNED_SUBJECTS","VIEW_TUTORS","REMOVE_TUTOR", 
@@ -17,6 +18,21 @@
     $request  = isset($data->request) 
                 ? $data->request
                 : badFormatRequest("No Data Posted");
+    
+    if(isset($data->token)) {
+        $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
+        badFormatRequest($auth);
+        // $auth = new HttpRequest();
+        // $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
+        // $auth->setMethod(HTTP_METH_POST);
+        // $auth->setHeaders(["Authorization" => "Bearer " . $data->token]);
+        // try {
+        //     $response = $auth->send();
+        //     badFormatRequest($response->getBody());
+        // } catch(HttpException $ex) {
+
+        // }
+    }
 
     //Defines Accessible routes based on request value
     switch($request)

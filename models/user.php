@@ -13,6 +13,8 @@
         //Object Properties
         public $username;
         public $password;
+        public $firstName;
+        public $lastName;
         public $email;
         public $permissionType;
 
@@ -38,7 +40,7 @@
         }
         public function create()    
         {
-            $query = "INSERT INTO ".$this->tableName." VALUES ('{$this->username}','{$this->password}','{$this->email}','{$this->permissionType}')";
+            $query = "INSERT INTO ".$this->tableName." VALUES ('{$this->username}','{$this->password}','{$this->firstName}','{$this->lastName}',NULL,'{$this->email}','{$this->permissionType}')";
             $stmt = $this->connection->prepare($query);
             return $stmt->execute();
         }
