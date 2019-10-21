@@ -20,8 +20,7 @@
                 : badFormatRequest("No Data Posted");
     
     if(isset($data->token)) {
-        // $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
-        $auth = post("https://webhook.site/5eb123f6-ff07-4dd1-b218-577fa133aef8", ["scopes" => "tutor"], $data->token);
+        $auth = post("https://accounts.mijdas.com/api/check_token/", ["scopes" => "tutor"], $data->token);
         badFormatRequest($auth);
         // $auth = new HttpRequest();
         // $auth->setUrl("https://accounts.mijdas.com/api/check_token/");
