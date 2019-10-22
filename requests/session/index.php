@@ -27,8 +27,12 @@
             include("viewStudents.php");
             break;
 
-        case "VIEW_RESULTS":
+        case "VIEW_STUDENT_RESULTS":
             include("viewStudentResults.php");
+            break;
+
+        case "VIEW_COHORT_RESULTS":
+            include("viewCohortResults.php");
             break;
         default:
             invalidMethod(arrayToString(AVAILABLE_METHODS));
