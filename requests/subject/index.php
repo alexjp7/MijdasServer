@@ -45,7 +45,7 @@
 
         $scope_valid = false;
         for($i = 0; $i < count($scopes); $i++) {
-            if(in_array($request, $scope_methods[$scopes[$i]])) {
+            if(array_key_exists($scopes[$i], $scope_methods) && in_array($request, $scope_methods[$scopes[$i]])) {
                 $scope_valid = true;
                 break;
             }
