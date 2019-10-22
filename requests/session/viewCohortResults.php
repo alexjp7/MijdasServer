@@ -16,7 +16,9 @@
                             ? $data->assessment_id
                             : badFormatRequest("VARIABLE: 'assessment_id' not set");
     
-                            
+
+
+        
     /*Fetch cohort  assessment results*/
     $stmt = $student->getAllResultsPerAssessment();
     $cohort = array();      
@@ -45,7 +47,7 @@
         ];
         array_push($criteria, $criterion);
     }
-
+    
     //get quartile distribution 
     $quartiles = $iQDistribution->fetch(PDO::FETCH_ASSOC);
     $formatedQuartiles = array();
@@ -54,12 +56,26 @@
     {   
         $qIndex = $i + 1;
         $formatedQuartiles[] =  $quartiles["@q{$qIndex}"];
-    }         
-    $records = ["cohort_average" => $average, "quartiles"=> $formatedQuartiles,"criteria_performance"=>$criteria];
+    }   
+    
+    //fetch the count of marked students
+    $totalStudents = $assessment->getStudentCount($data->assessment_id);
+    $markedStudents = $assessment->getMarkedStudents($data->assessment_id);
+
+
+    $records = [
+            "cohort_average" => $average, 
+            "quartiles"=> $formatedQuartiles,
+            "criteria_performance"=>$criteria,
+            "total_students"=>$totalStudents,
+            "markedStudents"=>$markedStudents
+    ];
     success();
     echo json_encode($records, JSON_NUMERIC_CHECK);
 
 
+      
 
+  
 
 ?>

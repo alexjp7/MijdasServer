@@ -158,5 +158,13 @@
             $stmt = $this->connection->prepare($query);
             return $stmt->execute();
         }
+
+        public function getAllAssessments($s_id)
+        {
+            $query = "SELECT id, name FROM assessment WHERE  subject_id = {$s_id}";
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt;
+        }
     }
 ?>

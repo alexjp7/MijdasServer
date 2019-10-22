@@ -167,5 +167,32 @@
             $stmt->execute();
             return $stmt;                      
         }
+        
+        public function getMarkedStudents($assessment_id)
+        {
+            $query = "SELECT COUNT(*) AS countMarked FROM(
+                                SELECT student_id, sum(result) AS totalMark
+                                FROM student_results 
+                                WHERE a_id = {$assessment_id} AND c_id <> 1  
+                                GROUP BY (student_id)
+                                HAVING(totalMark >= 0)) AS students";
+
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt->fetch()["countMarked"];  
+            
+        }
+
+        public function getStudentCount($assessment_id) 
+        {
+            $query = "SELECT COUNT(*) AS countTotal FROM (
+                        SELECT DISTINCT student_id 
+                        FROM student_results 
+                        WHERE a_id = {$assessment_id}) AS totalStudents";
+                        
+            $stmt = $this->connection->prepare($query);
+            $stmt->execute();
+            return $stmt->fetch()["countTotal"];  
+        }
     }
 ?>
