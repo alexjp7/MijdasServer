@@ -39,6 +39,7 @@
                 'VIEW_OWNED_SUBJECTS'
             ],
             'tutor' => [
+                'VIEW_OWNED_SUBJECTS',
                 'POPULATE_SUBJECTS'
             ],
         ];
