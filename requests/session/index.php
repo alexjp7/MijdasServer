@@ -15,6 +15,48 @@
                 ? $data->request
                 : badFormatRequest("VARIABLE 'request' not set");
 
+    if(isset($data->token)) {
+        require "../../vendor/autoload.php";
+        $guzzle = new GuzzleHttp\Client(['headers' => ['Authorization' => 'Bearer ' . $data->token]]);
+        $response = $guzzle->request('POST', 'https://accounts.mijdas.com/api/check_token/', []);
+        // badFormatRequest($response->getBody());
+        $scopes = json_decode($response->getBody())->scopes;
+        // badFormatRequest($scopes);
+
+        $scope_methods = [
+            'coordinator' => [
+                'VIEW_STUDENT_ENROLMENT',
+                'VIEW_STUDENTS_BY_SUBJECT',
+                'VIEW_STUDENT_RESULTS',
+                'VIEW_COHORT_RESULTS'
+            ],
+            'tutor' => [
+                'VIEW_STUDENT_ENROLMENT',
+                'VIEW_STUDENTS_BY_SUBJECT',
+                'VIEW_STUDENT_RESULTS',
+                'VIEW_COHORT_RESULTS'
+            ],
+            'student' => [
+                'VIEW_STUDENT_ENROLMENT',
+                'VIEW_STUDENTS_BY_SUBJECT',
+                'VIEW_STUDENT_RESULTS',
+                'VIEW_COHORT_RESULTS'
+            ]
+        ];
+
+        $scope_valid = false;
+        for($i = 0; $i < count($scopes); $i++) {
+            if(array_key_exists($scopes[$i], $scope_methods) && in_array($request, $scope_methods[$scopes[$i]])) {
+                $scope_valid = true;
+                break;
+            }
+        }
+
+        if(!$scope_valid) {
+            badFormatRequest("Invalid token scope");
+        }
+    }
+                
     //Defines Accessible routes based on request value
     switch($request)
     {

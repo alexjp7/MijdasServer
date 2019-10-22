@@ -17,6 +17,41 @@
                 ? $data->request
                 : badFormatRequest("No Data Posted");
 
+    if(isset($data->token)) {
+        require "../../vendor/autoload.php";
+        $guzzle = new GuzzleHttp\Client(['headers' => ['Authorization' => 'Bearer ' . $data->token]]);
+        $response = $guzzle->request('POST', 'https://accounts.mijdas.com/api/check_token/', []);
+        // badFormatRequest($response->getBody());
+        $scopes = json_decode($response->getBody())->scopes;
+        // badFormatRequest($scopes);
+
+        $scope_methods = [
+            'coordinator' => [
+                'CREATE_ASSESSMENT',
+                'DELETE_ASSESSMENT',
+                'EDIT_ASSESSMENT',
+                'TOGGLE_ACTIVATION'
+            ],
+            'tutor' => [
+                'VIEW_ASSESSMENT',
+                'POPULATE_STUDENTS',
+                'SUBMIT_MARK'
+            ],
+        ];
+
+        $scope_valid = false;
+        for($i = 0; $i < count($scopes); $i++) {
+            if(array_key_exists($scopes[$i], $scope_methods) && in_array($request, $scope_methods[$scopes[$i]])) {
+                $scope_valid = true;
+                break;
+            }
+        }
+
+        if(!$scope_valid) {
+            badFormatRequest("Invalid token scope");
+        }
+    }
+
     //Defines Accessible routes based on request value
     switch($request)
     {

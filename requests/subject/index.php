@@ -25,6 +25,7 @@
         $response = $guzzle->request('POST', 'https://accounts.mijdas.com/api/check_token/', []);
         // badFormatRequest($response->getBody());
         $scopes = json_decode($response->getBody())->scopes;
+        // badFormatRequest($scopes);
 
         $scope_methods = [
             'coordinator' => [
