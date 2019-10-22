@@ -30,7 +30,10 @@
                 'CREATE_ASSESSMENT',
                 'DELETE_ASSESSMENT',
                 'EDIT_ASSESSMENT',
-                'TOGGLE_ACTIVATION'
+                'TOGGLE_ACTIVATION',
+                'VIEW_ASSESSMENT',
+                'POPULATE_STUDENTS',
+                'SUBMIT_MARK'
             ],
             'tutor' => [
                 'VIEW_ASSESSMENT',

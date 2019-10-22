@@ -26,10 +26,11 @@
             'coordinator' => [
                 'CREATE_CRITERIA',
                 'EDIT_CRITERIA',
-                'DELETE_CRITERIA'
+                'DELETE_CRITERIA',
+                'VIEW_CRITERIA'
             ],
             'tutor' => [
-                'VIEW_CRITERIA',
+                'VIEW_CRITERIA'
             ],
         ];
 

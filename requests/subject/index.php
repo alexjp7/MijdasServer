@@ -37,10 +37,10 @@
                 'ADD_TUTOR',
                 'REMOVE_TUTOR',
                 'VIEW_TUTORS',
-                'VIEW_OWNED_SUBJECTS'
+                'VIEW_OWNED_SUBJECTS',
+                'POPULATE_SUBJECTS'
             ],
             'tutor' => [
-                'VIEW_OWNED_SUBJECTS',
                 'POPULATE_SUBJECTS'
             ],
         ];
@@ -56,8 +56,8 @@
         if(!$scope_valid) {
             badFormatRequest("Invalid token scope");
         }
-    // } else {
     }
+        // } else {
         //Defines Accessible routes based on request value
         switch($request)
         {
