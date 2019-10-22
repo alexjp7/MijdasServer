@@ -53,6 +53,8 @@
         if(!$scope_valid) {
             badFormatRequest("Invalid token scope");
         }
+    } else {
+        badFormatRequest("Missing token");
     }
 
     //Defines Accessible routes based on request value
