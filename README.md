@@ -13,7 +13,7 @@
 * [User Manual](https://docs.google.com/document/d/1u3mMrD9jspegA7CbiDzYNqmAJoSQUHNqry6Ky13ZLVE/edit?usp=sharing)
 -------------------------------------------
 
-#Mijdas' MarkIt Server
+# Mijdas' MarkIt Server
 <h1>FOLDER STRUCTURE </h1>
 
 <h2>├─ api/</h2>
@@ -39,7 +39,7 @@
 -------------------------------------------
 <h1>Valid Paths/METHODS</h1>
 
-BASE URL - markit.mijdas.com/api/requests
+BASE URL - markit.mijdas.com/api/
 1) <h2>user</h2>
 * LOGIN
 * SIGN_UP
