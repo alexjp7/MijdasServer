@@ -3,12 +3,16 @@
 <h1>MIJDAS REST API README</h1>
 
 
-* The source contained documents the PHP driven API for Mijdas's markit app. 
+* The source contained documents the PHP driven API for Mijdas's markit app as developed during final year development project. 
 * The purpose of this API is to provide a modular and reusable interface which can be utilised by
   * Markit Mobile,
   * Markit Web.
 
 * The format of the output/response data will consistent with JSON conventions.
+
+* Links to MarkIt's Documentation:
+    * [Technical Documentation](https://docs.google.com/document/d/1Z2MqpAQx7kH8sAXyBceEtuVXf-e3QI7tjFyjzcmygUM/edit?usp=sharing )
+    * [User Manual](https://docs.google.com/document/d/1u3mMrD9jspegA7CbiDzYNqmAJoSQUHNqry6Ky13ZLVE/edit?usp=sharing)
 
 -------------------------------------------
 <h1>FOLDER STRUCTURE (placeholder)</h1>
