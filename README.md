@@ -1,21 +1,20 @@
-
--------------------------------------------
-<h1>Welcome To Mijdas' MarkIt Server</h1>
-
+# The MarkIt Project
 
 * The source contained documents the PHP driven API for Mijdas's MarkIt app as developed during final year development project. 
-* The purpose of this API is to provide a modular and reusable interface which can be utilised by
-  * Markit Mobile,
-  * Markit Web.
-
+* The purpose of this API is to provide a modular and reusable interface which can be utilised by our mobile and web applications
 * The format of the output/response data will consistent with JSON conventions.
 
-* Links to MarkIt's Documentation:
-    * [Technical Documentation](https://docs.google.com/document/d/1Z2MqpAQx7kH8sAXyBceEtuVXf-e3QI7tjFyjzcmygUM/edit?usp=sharing )
-    * [User Manual](https://docs.google.com/document/d/1u3mMrD9jspegA7CbiDzYNqmAJoSQUHNqry6Ky13ZLVE/edit?usp=sharing)
+# Other MarkIt repos:
+* [Markit Mobile](https://github.com/alexjp7/MijdasMobile).
+* [Markit Web](https://github.com/alexjp7/MijdasWeb).
 
+# Links to MarkIt's Documentation:
+* [Technical Documentation](https://docs.google.com/document/d/1Z2MqpAQx7kH8sAXyBceEtuVXf-e3QI7tjFyjzcmygUM/edit?usp=sharing )
+* [User Manual](https://docs.google.com/document/d/1u3mMrD9jspegA7CbiDzYNqmAJoSQUHNqry6Ky13ZLVE/edit?usp=sharing)
 -------------------------------------------
-<h1>FOLDER STRUCTURE (placeholder)</h1>
+
+#Mijdas' MarkIt Server
+<h1>FOLDER STRUCTURE </h1>
 
 <h2>├─ api/</h2>
 
@@ -95,14 +94,14 @@ BASE URL - markit.mijdas.com/api/requests
 <h3>Subject Use Cases </h3>
 
 * [x] Subject Creation
-* [ ] Subject Editing
-* [ ] Subject Deleting
+* [x] Subject Editing
+* [x] Subject Deleting
 * [ ] Add Coordiantor2
 
 <h3>Session Use Cases </h3>
 
 * [x] Subject Activation (Within a session)
-* [ ] Active subject list
+* [x] Active subject list
 * [ ] View Deactivated Subjects
 * [ ] Delete Deactivated Subjects
 * [ ] Renew Deactivated Subjects
@@ -111,22 +110,22 @@ BASE URL - markit.mijdas.com/api/requests
 <h3>Assessment Use Cases </h3>
 
 * [x] Assessment Creation
-* [ ] Assessment Editing
-* [ ] Assessment Deleting
+* [x] Assessment Editing
+* [x] Assessment Deleting
 * [x] Enable Assessment 
 * [x] Disable Assessment
 
 <h3>Criteria Use Cases </h3>
 
 * [x] Criteria Creation
-* [ ] Criteria Editing
-* [ ] Criteria Deleting
+* [x] Criteria Editing
+* [x] Criteria Deleting
 
 <h3>Staff Management Use Cases </h3>
 
 * [x] Add tutors
-* [ ] View tutors
-* [ ] Add coordinator
+* [x] View tutors
+* [x] Add coordinator
 * [ ] View coordinators
 * [ ] Job Advertisments (job-board)
 
