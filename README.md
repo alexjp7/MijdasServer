@@ -1,9 +1,9 @@
 
 -------------------------------------------
-<h1>MIJDAS REST API README</h1>
+<h1>Welcome To Mijdas' MarkIt Server</h1>
 
 
-* The source contained documents the PHP driven API for Mijdas's markit app as developed during final year development project. 
+* The source contained documents the PHP driven API for Mijdas's MarkIt app as developed during final year development project. 
 * The purpose of this API is to provide a modular and reusable interface which can be utilised by
   * Markit Mobile,
   * Markit Web.
